@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:BaseContentPage
+    x:Class="XamarinAzureChallenge.Pages.ResultPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
+    xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
+    x:DataType="viewModels:ResultViewModel"
+    x:TypeArguments="viewModels:ResultViewModel"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Image
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                Source="Bg.png" />
+
+            <Image
+                AbsoluteLayout.LayoutBounds="0.5, 0.37"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Source="{Binding ImageResult}" />
+
+            <StackLayout
+                Padding="18,0,18,0"
+                AbsoluteLayout.LayoutBounds="0, 0.75,1,0.4"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    Margin="0,30,0,10"
+                    FontSize="26"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding TextResult}"
+                    TextColor="White" />
+
+                <Label
+                    Margin="5,0,5,60"
+                    FontSize="16"
+                    HorizontalTextAlignment="Center"
+                    LineHeight="1.5"
+                    Text="{Binding TextDetailResult}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="BackButton"
+                    Command="{Binding EditYourSubmissionCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    Image="back_arrow"
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Edit your submission" />
+            </StackLayout>
+        </AbsoluteLayout>
+
+    </ContentPage.Content>
+</pages:BaseContentPage>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinAzureChallenge.App">
+    <Application.Resources>
+        <OnPlatform x:Key="MyRadiusButton"
+                    x:TypeArguments="x:Int32"
+                    iOS="14"
+                    Android="4" />
+        <OnPlatform x:Key="MyBorderWidthButton"
+                    x:TypeArguments="x:Double"
+                    iOS="1"
+                    Android="2" />
+
+        <Style x:Key="ButtonStyle"
+               TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="HeightRequest"
+                    Value="56" />
+            <Setter Property="BorderColor"
+                    Value="White" />
+            <Setter Property="BorderWidth"
+                    Value="{StaticResource MyBorderWidthButton}" />
+            <Setter Property="CornerRadius"
+                    Value="{StaticResource MyRadiusButton}" />
+            <Setter Property="FontSize"
+                    Value="18" />
+        </Style>
+       
+
+
+    </Application.Resources>
+</Application>

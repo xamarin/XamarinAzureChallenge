@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:BaseContentPage
+    x:Class="XamarinAzureChallenge.Pages.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
+    xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
+    x:DataType="viewModels:HomeViewModel"
+    x:TypeArguments="viewModels:HomeViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HyperLinkStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="18" />
+
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextDecorations" Value="Underline" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                Source="Bg.png" />
+            
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0.5, 0.4"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Orientation="Vertical"
+                Spacing="20">
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Image Source="xamIcon" />
+                    <Label
+                        FontSize="31"
+                        Text="+"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                    <Image Source="azureIcon" />
+                </StackLayout>
+                <Image
+                    HorizontalOptions="Center"
+                    Source="xamarinazure"
+                    VerticalOptions="Center" />
+                <Label
+                    FontSize="19"
+                    HorizontalTextAlignment="Center"
+                    Text="Challenge"
+                    TextColor="White" />
+            </StackLayout>
+
+            <StackLayout
+                Padding="18,0,18,0"
+                AbsoluteLayout.LayoutBounds="0.5, 1,1,.3"
+                AbsoluteLayout.LayoutFlags="All">
+                <Button
+                    Margin="0,0,0,30"
+                    Command="{Binding StartChallengeCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Start challenge" />
+                <Label
+                    Margin="0,0,0,10"
+                    Style="{StaticResource HyperLinkStyle}"
+                    Text="Terms and Conditions">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Margin="18,0,18,30"
+                    Style="{StaticResource HyperLinkStyle}"
+                    Text="GitHub">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</pages:BaseContentPage>
