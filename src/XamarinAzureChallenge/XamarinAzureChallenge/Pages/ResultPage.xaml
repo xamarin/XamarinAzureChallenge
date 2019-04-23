@@ -16,7 +16,7 @@
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 AbsoluteLayout.LayoutFlags="All"
                 Aspect="AspectFill"
-                Source="Bg.png" />
+                Source="backgroundImage.png" />
 
             <Image
                 AbsoluteLayout.LayoutBounds="0.5, 0.37"

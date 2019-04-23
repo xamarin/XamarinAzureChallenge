@@ -32,6 +32,8 @@ namespace XamarinAzureChallenge.ViewModels
         public UserDataViewModel()
         {
             this.User = new User();
+            this.SubmitCommand = new Command(async () => await SubmitCommmandExecute());
+            this.PrivacyStatementCommand = new Command(PrivacyStatementCommandExecute);
         }
 
         private User user;
@@ -44,7 +46,7 @@ namespace XamarinAzureChallenge.ViewModels
             }
         }
 
-        public ICommand SubmitCommand => new Command(async () => await SubmitCommmandExecute());
+        public ICommand SubmitCommand { get; }
 
         private async Task SubmitCommmandExecute()
         {
@@ -68,28 +70,41 @@ namespace XamarinAzureChallenge.ViewModels
 
         private async Task<bool> ValidateFields()
         {
-            if (string.IsNullOrWhiteSpace(User.Email) || string.IsNullOrWhiteSpace(User.Name) || string.IsNullOrWhiteSpace(User.Phone))
+            var result = false;
+
+            if (string.IsNullOrWhiteSpace(User.Name))
             {
-                await Application.Current.MainPage.DisplayAlert(
-                    "INVALID FIELDS",
-                    "",
-                    "Ok");
-                return false;
+                await DisplayAlert("Name cannot be blank");
+            }
+            else if (string.IsNullOrWhiteSpace(User.Email))
+            {
+                await DisplayAlert("Email cannot be blank");
+            }            
+            else if (string.IsNullOrWhiteSpace(User.Phone))
+            {
+                await DisplayAlert("Phone cannot be blank");
+            }
+            else if (!User.AcceptTermsOfService)
+            {
+                await DisplayAlert("Terms of Service Not Accepted");
+            }
+            else
+            {
+                result = true;
             }
 
-            if (!User.AcceptTermsOfService)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "INVALID FIELDS",
-                    "You must accepts the term os service",
-                    "Ok");
-                return false;
-            }
-
-            return true;
+            return result;
         }
 
-        public ICommand PrivacyStatementCommand => new Command(PrivacyStatementCommandExecute);
+        private Task DisplayAlert(string message)
+        {
+            return Application.Current.MainPage.DisplayAlert(
+                    "INVALID FIELDS",
+                    message,
+                    "Ok");
+        }
+
+        public ICommand PrivacyStatementCommand { get; }
 
         private void PrivacyStatementCommandExecute()
         {

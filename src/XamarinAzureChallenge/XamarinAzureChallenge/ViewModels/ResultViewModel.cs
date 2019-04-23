@@ -13,6 +13,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         public ResultViewModel(HttpStatusCode statusCode)
         {
+            EditYourSubmissionCommand = new Command(async () => await EditYourSubmissionCommandExecute());
             this.statusCode = statusCode;
 
             if (this.statusCode == HttpStatusCode.OK)
@@ -66,13 +67,13 @@ namespace XamarinAzureChallenge.ViewModels
             }
         }
 
-        public ICommand EditYourSubmissionCommand => new Command(async () => await EditYourSubmissionCommandExecute());
+        public ICommand EditYourSubmissionCommand { get; }
 
         private async Task EditYourSubmissionCommandExecute()
         {
             await NavigateBackAsync();
         }
 
-      
+
     }
 }

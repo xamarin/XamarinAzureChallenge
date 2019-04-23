@@ -213,7 +213,7 @@
     <BundleResource Include="Resources\back_arrow%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Bg.png" />
+    <BundleResource Include="Resources\backgroundImage.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Hexagon.png" />

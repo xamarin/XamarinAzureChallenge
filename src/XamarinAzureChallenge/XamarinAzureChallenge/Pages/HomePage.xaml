@@ -26,13 +26,9 @@
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 AbsoluteLayout.LayoutFlags="All"
                 Aspect="AspectFill"
-                Source="Bg.png" />
-            
-            <StackLayout
-                AbsoluteLayout.LayoutBounds="0.5, 0.4"
-                AbsoluteLayout.LayoutFlags="PositionProportional"
-                Orientation="Vertical"
-                Spacing="20">
+                Source="backgroundImage.png" />
+
+            <Grid AbsoluteLayout.LayoutBounds="0.5, 0.4" AbsoluteLayout.LayoutFlags="PositionProportional">
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                     <Image Source="xamIcon" />
                     <Label
@@ -43,15 +39,17 @@
                     <Image Source="azureIcon" />
                 </StackLayout>
                 <Image
+                    Grid.Row="1"
                     HorizontalOptions="Center"
                     Source="xamarinazure"
                     VerticalOptions="Center" />
                 <Label
+                    Grid.Row="2"
                     FontSize="19"
                     HorizontalTextAlignment="Center"
                     Text="Challenge"
                     TextColor="White" />
-            </StackLayout>
+            </Grid>
 
             <StackLayout
                 Padding="18,0,18,0"
@@ -62,7 +60,7 @@
                     Command="{Binding StartChallengeCommand}"
                     HorizontalOptions="FillAndExpand"
                     Style="{StaticResource ButtonStyle}"
-                    Text="Start challenge" />
+                    Text="Start" />
                 <Label
                     Margin="0,0,0,10"
                     Style="{StaticResource HyperLinkStyle}"
@@ -75,7 +73,7 @@
                 <Label
                     Margin="18,0,18,30"
                     Style="{StaticResource HyperLinkStyle}"
-                    Text="GitHub">
+                    Text="Source Code">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
                     </Label.GestureRecognizers>
