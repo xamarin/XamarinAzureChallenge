@@ -181,7 +181,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\back_arrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\Bg.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\backgroundImage.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\Hexagon.png" />

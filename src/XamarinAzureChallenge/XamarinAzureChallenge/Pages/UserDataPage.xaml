@@ -28,7 +28,7 @@
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="TextColor" Value="Gray" />
             </Style>
-            <Style x:Key="ToogleTitleStyle" TargetType="Label">
+            <Style x:Key="ToggleTitleStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
@@ -56,23 +56,37 @@
     <ContentPage.Content>
 
         <ScrollView Margin="10,10,10,0">
-            <StackLayout Orientation="Vertical" Spacing="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
                 <Label Style="{StaticResource TitlePageStyle}" Text="Challenge Form" />
                 <Label
+                    Grid.Row="1"
                     Margin="0,0,0,8"
                     Style="{StaticResource SubTitlePageStyle}"
                     Text="Please submit your information" />
 
-                <StackLayout Orientation="Vertical">
-                    <Label Style="{StaticResource TitleEntryStyle}" Text="Name (*)" />
+                <StackLayout Grid.Row="2" Orientation="Vertical">
+                    <Label Style="{StaticResource TitleEntryStyle}" Text="Name*" />
                     <Entry
                         Placeholder="Enter your name"
                         Style="{StaticResource EntryStyle}"
                         Text="{Binding User.Name}" />
                 </StackLayout>
 
-                <StackLayout Orientation="Vertical">
-                    <Label Style="{StaticResource TitleEntryStyle}" Text="Email (*)" />
+                <StackLayout Grid.Row="3" Orientation="Vertical">
+                    <Label Style="{StaticResource TitleEntryStyle}" Text="Email*" />
                     <Entry
                         Keyboard="Email"
                         Placeholder="Enter your email"
@@ -80,8 +94,8 @@
                         Text="{Binding User.Email}" />
                 </StackLayout>
 
-                <StackLayout Orientation="Vertical">
-                    <Label Style="{StaticResource TitleEntryStyle}" Text="Phone (*)" />
+                <StackLayout Grid.Row="4" Orientation="Vertical">
+                    <Label Style="{StaticResource TitleEntryStyle}" Text="Phone*" />
                     <Entry
                         Keyboard="Numeric"
                         Placeholder="00 000 000 000"
@@ -89,36 +103,49 @@
                         Text="{Binding User.Phone}" />
                 </StackLayout>
 
-                <Label Style="{StaticResource TitleEntryStyle}" Text="*Required" />
+                <Label
+                    Grid.Row="5"
+                    Style="{StaticResource TitleEntryStyle}"
+                    Text="*Required" />
 
-                <StackLayout Margin="0,8,0,0" Orientation="Horizontal">
-                    <Label Style="{StaticResource ToogleTitleStyle}" Text="I accept the terms of service" />
+                <StackLayout
+                    Grid.Row="6"
+                    Margin="0,8,0,0"
+                    Orientation="Horizontal">
+                    <Label Style="{StaticResource ToggleTitleStyle}" Text="I accept the terms of service*" />
                     <Switch IsToggled="{Binding User.AcceptTermsOfService}" VerticalOptions="Center" />
                 </StackLayout>
 
-                <StackLayout Margin="0,8,0,0" Orientation="Horizontal">
-                    <Label Style="{StaticResource ToogleTitleStyle}" Text="I give my consent that Microsoft may send me personalised commercial comumunications." />
+                <StackLayout
+                    Grid.Row="7"
+                    Margin="0,8,0,0"
+                    Orientation="Horizontal">
+                    <Label Style="{StaticResource ToggleTitleStyle}" Text="I give consent for Microsoft to send me personalised commercial communications" />
                     <Switch IsToggled="{Binding User.AllowsComercialUse}" VerticalOptions="Center" />
                 </StackLayout>
 
                 <BoxView
+                    Grid.Row="8"
                     BackgroundColor="#CFCFCF"
                     HeightRequest="1"
                     HorizontalOptions="FillAndExpand" />
 
-                <Label Style="{StaticResource HyperLinkStyle}" Text="Microsoft Privacy Statement">
+                <Label
+                    Grid.Row="9"
+                    Style="{StaticResource HyperLinkStyle}"
+                    Text="Microsoft Privacy Statement">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding PrivacyStatementCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Grid Padding="10">
-                    <Button
-                        Command="{Binding SubmitCommand}"
-                        Style="{StaticResource ButtonFormStyle}"
-                        Text="Submit" />
-                </Grid>
-            </StackLayout>
+                <Button
+                    Grid.Row="10"
+                    Padding="10"
+                    Command="{Binding SubmitCommand}"
+                    Style="{StaticResource ButtonFormStyle}"
+                    Text="Submit" />
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </pages:BaseContentPage>
