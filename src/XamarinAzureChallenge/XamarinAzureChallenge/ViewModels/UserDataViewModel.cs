@@ -97,6 +97,6 @@ namespace XamarinAzureChallenge.ViewModels
         }
 
         private Task PrivacyStatementCommandExecute() =>
-            RunOnUIThread(() => Device.OpenUri(new Uri("https://privacy.microsoft.com/privacystatement")));
+            RunOnUIThread(async () => await Xamarin.Essentials.Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
     }
 }

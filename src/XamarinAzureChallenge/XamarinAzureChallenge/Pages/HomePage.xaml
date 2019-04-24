@@ -97,7 +97,7 @@
                     Style="{StaticResource HyperLinkStyle}"
                     Text="Terms and Conditions">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
+                        <TapGestureRecognizer Command="{Binding TermsAndConditionsLabelTappedCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -108,7 +108,7 @@
                     Style="{StaticResource HyperLinkStyle}"
                     Text="Source Code">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
+                        <TapGestureRecognizer Command="{Binding SourceCodeLabelTappedCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
