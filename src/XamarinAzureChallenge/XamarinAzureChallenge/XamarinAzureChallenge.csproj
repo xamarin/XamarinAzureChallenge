@@ -1,22 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>pdbonly</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-  <Import Project="..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems')" />
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Pages\" />
+        <Folder Include="ViewModels\" />
+    </ItemGroup>
+    <Import Project="..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems')" />
 </Project>

@@ -8,6 +8,7 @@
     x:DataType="viewModels:HomeViewModel"
     x:TypeArguments="viewModels:HomeViewModel"
     NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HyperLinkStyle" TargetType="Label">

@@ -13,7 +13,12 @@ namespace XamarinAzureChallenge.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand FeatureNotAvailableCommand { get; } = new Command(async () => await ShowFeatureNotAvailableAsync());
+        protected BaseViewModel()
+        {
+            FeatureNotAvailableCommand = new Command(async () => await ShowFeatureNotAvailableAsync());
+        }
+
+        public ICommand FeatureNotAvailableCommand { get; }
 
         public bool IsBusy
         {
@@ -45,13 +50,9 @@ namespace XamarinAzureChallenge.ViewModels
             Device.BeginInvokeOnMainThread(async () =>
             {
                 if (clearStack)
-                {
                     Application.Current.MainPage = new NavigationPage(page);
-                }
                 else
-                {
                     await Application.Current.MainPage.Navigation.PushAsync(page);
-                }
 
                 tcs.SetResult(null);
             });
@@ -72,12 +73,7 @@ namespace XamarinAzureChallenge.ViewModels
             return tcs.Task;
         }
 
-        protected static async Task ShowFeatureNotAvailableAsync()
-        {
-            await Application.Current.MainPage.DisplayAlert(
-                "Feature not available",
-                "",
-                "Ok");
-        }
+        protected static Task ShowFeatureNotAvailableAsync() =>
+            Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok");
     }
 }

@@ -14,9 +14,12 @@ namespace Microsoft.XamarinAzureChallenge.AZF
 {
     public static class SubmitChallengeFunction
     {
-        private static readonly string _apiHost = Environment.GetEnvironmentVariable("API_HOST");
-        private static readonly string _endPoint = Environment.GetEnvironmentVariable("END_POINT");
-        private static readonly string _uri = _apiHost + _endPoint;
+        private static Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
+        private static readonly string apiHost = Environment.GetEnvironmentVariable("API_HOST");
+        private static readonly string endPoint = Environment.GetEnvironmentVariable("END_POINT");
+        private static readonly string uri = apiHost + endPoint;
+
+        private static HttpClient Client => clientHolder.Value;
 
         [FunctionName(nameof(SubmitChallengeFunction))]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user)
@@ -31,7 +34,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             HttpResponseMessage result;
             try
             {
-                result = await SendToApi(user);
+                result = await SendToApi(user).ConfigureAwait(false);
             }
             catch
             {
@@ -54,9 +57,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         private static (bool isDataValid, string errorMessage) IsDataValid(User user)
         {
             if (user is null)
-            {
                 return (false, "User Object Null");
-            }
 
             var stringBuilder = new StringBuilder();
 
@@ -73,16 +74,13 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             return (true, "");
         }
 
-        private async static Task<HttpResponseMessage> SendToApi(User user)
+        private static Task<HttpResponseMessage> SendToApi(User user)
         {
             var serializedUser = JsonConvert.SerializeObject(user);
 
             var httpContent = new StringContent(serializedUser, Encoding.UTF8, "application/json");
 
-            using (var client = new HttpClient())
-            {
-                return await client.PostAsync(_uri, httpContent);
-            }
+            return Client.PostAsync(uri, httpContent);
         }
     }
 }

@@ -12,22 +12,11 @@ namespace XamarinAzureChallenge.ViewModels
 {
     public class UserDataViewModel : BaseViewModel
     {
-        private const string Endpoint = "https://xamarinazfunction-dev.azurewebsites.net/api/MicrosoftXamarinChallengeAZF?code=DnbhWVUs5pM52HS886iw2m0RwPCUGwBBCpf8yHJWFgrpVhMchgO0/Q==";
+#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
+        private const string Endpoint = "Enter Your Function API Url Here";
+        private readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
 
-        private HttpClient client;
-
-        private HttpClient Client
-        {
-            get
-            {
-                if (client == null)
-                {
-                    client = new HttpClient();
-                }
-
-                return client;
-            }
-        }
+        private User user;
 
         public UserDataViewModel()
         {
@@ -36,36 +25,45 @@ namespace XamarinAzureChallenge.ViewModels
             PrivacyStatementCommand = new Command(PrivacyStatementCommandExecute);
         }
 
-        private User user;
+        public ICommand SubmitCommand { get; }
+        public ICommand PrivacyStatementCommand { get; }
+
         public User User
         {
             get => user;
-            set
-            {
-                SetAndRaisePropertyChanged(ref user, value);
-            }
+            set => SetAndRaisePropertyChanged(ref user, value);
         }
 
-        public ICommand SubmitCommand { get; }
+        private HttpClient Client => clientHolder.Value;
 
         private async Task SubmitCommmandExecute()
         {
-            if (IsBusy) return;
+            if (IsBusy)
+                return;
+
             IsBusy = true;
 
-
-            if (await ValidateFields())
+            try
             {
-                var serializedUser = JsonConvert.SerializeObject(User);
+                if (await ValidateFields())
+                {
+                    var serializedUser = JsonConvert.SerializeObject(User);
 
-                var content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
+                    var content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
 
-                var result = await Client.PostAsync(Endpoint, content);
+                    var result = await Client.PostAsync(Endpoint, content);
 
-                await NavigateToAsync(new ResultPage(result.StatusCode));
+                    await NavigateToAsync(new ResultPage(result.StatusCode));
+                }
             }
-
-            IsBusy = false;
+            catch
+            {
+                await NavigateToAsync(new ResultPage(default));
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         private async Task<bool> ValidateFields()
@@ -79,7 +77,7 @@ namespace XamarinAzureChallenge.ViewModels
             else if (string.IsNullOrWhiteSpace(User.Email))
             {
                 await DisplayAlert("Email cannot be blank");
-            }            
+            }
             else if (string.IsNullOrWhiteSpace(User.Phone))
             {
                 await DisplayAlert("Phone cannot be blank");
@@ -98,17 +96,20 @@ namespace XamarinAzureChallenge.ViewModels
 
         private Task DisplayAlert(string message)
         {
-            return Application.Current.MainPage.DisplayAlert(
-                    "INVALID FIELDS",
-                    message,
-                    "Ok");
-        }
+            var tcs = new TaskCompletionSource<object>();
 
-        public ICommand PrivacyStatementCommand { get; }
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok");
+                tcs.SetResult(null);
+            });
+
+            return tcs.Task;
+        }
 
         private void PrivacyStatementCommandExecute()
         {
-            Device.OpenUri(new Uri("https://privacy.microsoft.com/privacystatement"));
+            Device.BeginInvokeOnMainThread(() => Device.OpenUri(new Uri("https://privacy.microsoft.com/privacystatement")));
         }
     }
 }
