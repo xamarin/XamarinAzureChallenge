@@ -31,9 +31,9 @@ namespace XamarinAzureChallenge.ViewModels
 
         public UserDataViewModel()
         {
-            this.User = new User();
-            this.SubmitCommand = new Command(async () => await SubmitCommmandExecute());
-            this.PrivacyStatementCommand = new Command(PrivacyStatementCommandExecute);
+            User = new User();
+            SubmitCommand = new Command(async () => await SubmitCommmandExecute());
+            PrivacyStatementCommand = new Command(PrivacyStatementCommandExecute);
         }
 
         private User user;
@@ -56,11 +56,11 @@ namespace XamarinAzureChallenge.ViewModels
 
             if (await ValidateFields())
             {
-                var serializedUser = JsonConvert.SerializeObject(this.User);
+                var serializedUser = JsonConvert.SerializeObject(User);
 
                 var content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
 
-                var result = await this.Client.PostAsync(Endpoint, content);
+                var result = await Client.PostAsync(Endpoint, content);
 
                 await NavigateToAsync(new ResultPage(result.StatusCode));
             }
