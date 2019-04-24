@@ -28,41 +28,71 @@
                 Aspect="AspectFill"
                 Source="backgroundImage.png" />
 
-            <Grid AbsoluteLayout.LayoutBounds="0.5, 0.4" AbsoluteLayout.LayoutFlags="PositionProportional">
-                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                    <Image Source="xamIcon" />
-                    <Label
-                        FontSize="31"
-                        Text="+"
-                        TextColor="White"
-                        VerticalTextAlignment="Center" />
-                    <Image Source="azureIcon" />
-                </StackLayout>
+            <Grid
+                Margin="20"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
                 <Image
                     Grid.Row="1"
+                    HorizontalOptions="End"
+                    Source="xamIcon"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontSize="31"
+                    Text="+"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+                <Image
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalOptions="Start"
+                    Source="azureIcon"
+                    VerticalOptions="Center" />
+
+                <Image
+                    Grid.Row="2"
+                    Grid.ColumnSpan="3"
+                    Margin="0,20,0,10"
                     HorizontalOptions="Center"
                     Source="xamarinazure"
                     VerticalOptions="Center" />
                 <Label
-                    Grid.Row="2"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3"
                     FontSize="19"
                     HorizontalTextAlignment="Center"
                     Text="Challenge"
                     TextColor="White" />
-            </Grid>
 
-            <StackLayout
-                Padding="18,0,18,0"
-                AbsoluteLayout.LayoutBounds="0.5, 1,1,.3"
-                AbsoluteLayout.LayoutFlags="All">
                 <Button
-                    Margin="0,0,0,30"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="3"
+                    Margin="0,10"
                     Command="{Binding StartChallengeCommand}"
                     HorizontalOptions="FillAndExpand"
                     Style="{StaticResource ButtonStyle}"
                     Text="Start" />
                 <Label
-                    Margin="0,0,0,10"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="3"
                     Style="{StaticResource HyperLinkStyle}"
                     Text="Terms and Conditions">
                     <Label.GestureRecognizers>
@@ -71,14 +101,16 @@
                 </Label>
 
                 <Label
-                    Margin="18,0,18,30"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="3"
+                    Margin="0,0,0,20"
                     Style="{StaticResource HyperLinkStyle}"
                     Text="Source Code">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FeatureNotAvailableCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
-            </StackLayout>
+            </Grid>
         </AbsoluteLayout>
     </ContentPage.Content>
 </pages:BaseContentPage>

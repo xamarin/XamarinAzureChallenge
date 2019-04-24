@@ -23,7 +23,7 @@
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 Source="{Binding ImageResult}" />
 
-            <StackLayout
+            <Grid
                 Padding="18,0,18,0"
                 AbsoluteLayout.LayoutBounds="0, 0.75,1,0.4"
                 AbsoluteLayout.LayoutFlags="All"
@@ -36,6 +36,7 @@
                     TextColor="White" />
 
                 <Label
+                    Grid.Row="1"
                     Margin="5,0,5,60"
                     FontSize="16"
                     HorizontalTextAlignment="Center"
@@ -44,13 +45,14 @@
                     TextColor="White" />
 
                 <Button
+                    Grid.Row="2"
                     x:Name="BackButton"
                     Command="{Binding EditYourSubmissionCommand}"
                     HorizontalOptions="FillAndExpand"
                     Image="back_arrow"
                     Style="{StaticResource ButtonStyle}"
                     Text="Edit your submission" />
-            </StackLayout>
+            </Grid>
         </AbsoluteLayout>
 
     </ContentPage.Content>
