@@ -10,7 +10,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         public HomeViewModel()
         {
-            this.StartChallengeCommand = new Command(async () => await NavigateToAsync(new UserDataPage()));
+            StartChallengeCommand = new Command(async () => await NavigateToAsync(new UserDataPage()));
         }
     }
 }

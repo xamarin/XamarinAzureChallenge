@@ -11,12 +11,12 @@ namespace XamarinAzureChallenge.ViewModels
         private string textDetailResult;
         private HttpStatusCode statusCode;
 
-        public ResultViewModel(HttpStatusCode statusCode)
+        public ResultViewModel(HttpStatusCode status)
         {
             EditYourSubmissionCommand = new Command(async () => await EditYourSubmissionCommandExecute());
-            this.statusCode = statusCode;
+            statusCode = status;
 
-            if (this.statusCode == HttpStatusCode.OK)
+            if (statusCode == HttpStatusCode.OK)
             {
                 ImageResult = "resultOk";
                 TextResult = "Congratulations!";
@@ -26,11 +26,11 @@ namespace XamarinAzureChallenge.ViewModels
             {
                 ImageResult = "resultFailed";
                 TextResult = "Opps!";
-                if (this.statusCode == HttpStatusCode.BadRequest)
+                if (statusCode == HttpStatusCode.BadRequest)
                 {
                     TextDetailResult = "We detected duplicated data.\n Please go back and edit";
                 }
-                if (this.statusCode == HttpStatusCode.InternalServerError)
+                if (statusCode == HttpStatusCode.InternalServerError)
                 {
                     TextDetailResult = "We detected an error.\n Please go back and edit";
                 }
