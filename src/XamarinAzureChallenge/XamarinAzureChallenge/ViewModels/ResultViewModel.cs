@@ -64,6 +64,6 @@ namespace XamarinAzureChallenge.ViewModels
             set => SetAndRaisePropertyChanged(ref textDetailResult, value);
         }
 
-        private Task EditYourSubmissionCommandExecute() => NavigateBackAsync();
+        private Task EditYourSubmissionCommandExecute() => NavigateBack();
     }
 }

@@ -22,7 +22,7 @@ namespace XamarinAzureChallenge.ViewModels
         {
             User = new User();
             SubmitCommand = new Command(async () => await SubmitCommmandExecute());
-            PrivacyStatementCommand = new Command(PrivacyStatementCommandExecute);
+            PrivacyStatementCommand = new Command(async () => await PrivacyStatementCommandExecute());
         }
 
         public ICommand SubmitCommand { get; }
@@ -45,7 +45,9 @@ namespace XamarinAzureChallenge.ViewModels
 
             try
             {
-                if (await ValidateFields())
+                var areFieldsValid = await AreFieldsValid();
+
+                if (areFieldsValid)
                 {
                     var serializedUser = JsonConvert.SerializeObject(User);
 
@@ -53,12 +55,12 @@ namespace XamarinAzureChallenge.ViewModels
 
                     var result = await Client.PostAsync(Endpoint, content);
 
-                    await NavigateToAsync(new ResultPage(result.StatusCode));
+                    await NavigateToPage(new ResultPage(result.StatusCode));
                 }
             }
             catch
             {
-                await NavigateToAsync(new ResultPage(default));
+                await NavigateToPage(new ResultPage(default));
             }
             finally
             {
@@ -66,7 +68,7 @@ namespace XamarinAzureChallenge.ViewModels
             }
         }
 
-        private async Task<bool> ValidateFields()
+        private async Task<bool> AreFieldsValid()
         {
             var result = false;
 
@@ -94,22 +96,7 @@ namespace XamarinAzureChallenge.ViewModels
             return result;
         }
 
-        private Task DisplayAlert(string message)
-        {
-            var tcs = new TaskCompletionSource<object>();
-
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                await Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok");
-                tcs.SetResult(null);
-            });
-
-            return tcs.Task;
-        }
-
-        private void PrivacyStatementCommandExecute()
-        {
-            Device.BeginInvokeOnMainThread(() => Device.OpenUri(new Uri("https://privacy.microsoft.com/privacystatement")));
-        }
+        private Task PrivacyStatementCommandExecute() =>
+            RunOnUIThread(() => Device.OpenUri(new Uri("https://privacy.microsoft.com/privacystatement")));
     }
 }

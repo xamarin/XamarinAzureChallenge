@@ -15,7 +15,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         protected BaseViewModel()
         {
-            FeatureNotAvailableCommand = new Command(async () => await ShowFeatureNotAvailableAsync());
+            FeatureNotAvailableCommand = new Command(async () => await ShowFeatureNotAvailable());
         }
 
         public ICommand FeatureNotAvailableCommand { get; }
@@ -43,37 +43,53 @@ namespace XamarinAzureChallenge.ViewModels
             SetAndRaisePropertyChanged(ref field, value, propertyName);
         }
 
-        protected Task NavigateToAsync(Page page, bool clearStack = false)
+        protected Task NavigateToPage(Page page, bool clearStack = false)
         {
-            var tcs = new TaskCompletionSource<object>();
-
-            Device.BeginInvokeOnMainThread(async () =>
+            return RunOnUIThread(async () =>
             {
                 if (clearStack)
                     Application.Current.MainPage = new NavigationPage(page);
                 else
                     await Application.Current.MainPage.Navigation.PushAsync(page);
-
-                tcs.SetResult(null);
             });
-
-            return tcs.Task;
         }
 
-        protected Task NavigateBackAsync()
+        protected Task NavigateBack()
+        {
+            return RunOnUIThread(async () =>
+                await Application.Current.MainPage.Navigation.PopAsync());
+        }
+
+        protected Task ShowFeatureNotAvailable()
+        {
+            return RunOnUIThread(async () =>
+                await Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
+        }
+
+        protected Task DisplayAlert(string message)
+        {
+            return RunOnUIThread(async () =>
+                await Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok"));
+        }
+
+        protected Task RunOnUIThread(System.Action action)
         {
             var tcs = new TaskCompletionSource<object>();
 
-            Device.BeginInvokeOnMainThread(async () =>
+            Device.BeginInvokeOnMainThread(() =>
             {
-                await Application.Current.MainPage.Navigation.PopAsync();
-                tcs.SetResult(null);
+                try
+                {
+                    action?.Invoke();
+                    tcs.SetResult(null);
+                }
+                catch (System.Exception e)
+                {
+                    tcs.SetException(e);
+                }
             });
 
             return tcs.Task;
         }
-
-        protected static Task ShowFeatureNotAvailableAsync() =>
-            Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok");
     }
 }
