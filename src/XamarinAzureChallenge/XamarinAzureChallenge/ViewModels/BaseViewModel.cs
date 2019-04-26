@@ -2,29 +2,13 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace XamarinAzureChallenge.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        private bool isBusy;
-
         public event PropertyChangedEventHandler PropertyChanged;
-
-        protected BaseViewModel()
-        {
-            FeatureNotAvailableCommand = new Command(async () => await ShowFeatureNotAvailable());
-        }
-
-        public ICommand FeatureNotAvailableCommand { get; }
-
-        public bool IsBusy
-        {
-            get => isBusy;
-            set => SetAndRaisePropertyChanged(ref isBusy, value);
-        }
 
         protected void SetAndRaisePropertyChanged<TRef>(
             ref TRef field, TRef value, [CallerMemberName] string propertyName = null)
@@ -43,15 +27,10 @@ namespace XamarinAzureChallenge.ViewModels
             SetAndRaisePropertyChanged(ref field, value, propertyName);
         }
 
-        protected Task NavigateToPage(Page page, bool clearStack = false)
+        protected Task NavigateToPage(Page page)
         {
             return RunOnUIThread(async () =>
-            {
-                if (clearStack)
-                    Application.Current.MainPage = new NavigationPage(page);
-                else
-                    await Application.Current.MainPage.Navigation.PushAsync(page);
-            });
+                await Application.Current.MainPage.Navigation.PushAsync(page));
         }
 
         protected Task NavigateBack()
@@ -66,7 +45,7 @@ namespace XamarinAzureChallenge.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
         }
 
-        protected Task DisplayAlert(string message)
+        protected Task DisplayInvalidFieldAlert(string message)
         {
             return RunOnUIThread(async () =>
                 await Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok"));

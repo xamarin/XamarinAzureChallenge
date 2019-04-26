@@ -17,16 +17,23 @@ namespace XamarinAzureChallenge.ViewModels
         private readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
 
         private User user;
+        private bool isBusy;
 
         public UserDataViewModel()
         {
             User = new User();
-            SubmitCommand = new Command(async () => await SubmitCommmandExecute());
+            SubmitCommand = new Command(async () => await SubmitCommmandExecute(User));
             PrivacyStatementCommand = new Command(async () => await PrivacyStatementCommandExecute());
         }
 
         public ICommand SubmitCommand { get; }
         public ICommand PrivacyStatementCommand { get; }
+
+        public bool IsBusy
+        {
+            get => isBusy;
+            set => SetAndRaisePropertyChanged(ref isBusy, value);
+        }
 
         public User User
         {
@@ -36,7 +43,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         private HttpClient Client => clientHolder.Value;
 
-        private async Task SubmitCommmandExecute()
+        private async Task SubmitCommmandExecute(User submittedUser)
         {
             if (IsBusy)
                 return;
@@ -45,7 +52,7 @@ namespace XamarinAzureChallenge.ViewModels
 
             try
             {
-                var areFieldsValid = await AreFieldsValid();
+                var areFieldsValid = await AreFieldsValid(submittedUser.Name, submittedUser.Email, submittedUser.Phone, submittedUser.IsTermsOfServiceAccepted);
 
                 if (areFieldsValid)
                 {
@@ -68,25 +75,25 @@ namespace XamarinAzureChallenge.ViewModels
             }
         }
 
-        private async Task<bool> AreFieldsValid()
+        private async Task<bool> AreFieldsValid(string name, string email, string phone, bool isTermsOfServiceAccepted)
         {
             var result = false;
 
-            if (string.IsNullOrWhiteSpace(User.Name))
+            if (string.IsNullOrWhiteSpace(name))
             {
-                await DisplayAlert("Name cannot be blank");
+                await DisplayInvalidFieldAlert("Name cannot be blank");
             }
-            else if (string.IsNullOrWhiteSpace(User.Email))
+            else if (string.IsNullOrWhiteSpace(email))
             {
-                await DisplayAlert("Email cannot be blank");
+                await DisplayInvalidFieldAlert("Email cannot be blank");
             }
-            else if (string.IsNullOrWhiteSpace(User.Phone))
+            else if (string.IsNullOrWhiteSpace(phone))
             {
-                await DisplayAlert("Phone cannot be blank");
+                await DisplayInvalidFieldAlert("Phone cannot be blank");
             }
-            else if (!User.AcceptTermsOfService)
+            else if (!isTermsOfServiceAccepted)
             {
-                await DisplayAlert("Terms of Service Not Accepted");
+                await DisplayInvalidFieldAlert("Terms of Service Not Accepted");
             }
             else
             {

@@ -13,10 +13,10 @@ namespace XamarinAzureChallenge.Shared.Models
         [JsonProperty("phone")]
         public string Phone { get; set; } = string.Empty;
 
-        [JsonProperty("acceptTermsOfService")]
-        public bool AcceptTermsOfService { get; set; } = false;
+        [JsonProperty("isTermsOfServiceAccepted")]
+        public bool IsTermsOfServiceAccepted { get; set; } = false;
 
-        [JsonProperty("allowsComercialUse")]
-        public bool AllowsComercialUse { get; set; } = false;
+        [JsonProperty("isComercialCommunicationsAccepted")]
+        public bool IsComercialCommunicationsAccepted { get; set; } = false;
     }
 }

@@ -156,7 +156,7 @@
                        Text="I accept the terms of service*" />
                 <Switch Grid.Row="10"
                         Grid.Column="1"
-                        IsToggled="{Binding User.AcceptTermsOfService}"
+                        IsToggled="{Binding User.IsTermsOfServiceAccepted}"
                         VerticalOptions="Center" />
 
                 <Label Grid.Row="11"
@@ -164,7 +164,7 @@
                        Text="I give consent for Microsoft to send me personalised commercial communications" />
                 <Switch Grid.Row="11"
                         Grid.Column="1"
-                        IsToggled="{Binding User.AllowsComercialUse}"
+                        IsToggled="{Binding User.IsComercialCommunicationsAccepted}"
                         VerticalOptions="Center" />
 
 
