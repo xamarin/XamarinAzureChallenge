@@ -32,8 +32,7 @@ After you have cloned the repository, you have 3 options to create and publish y
 
 You can also use the follwing Deploy to Azure button to create the resources.
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
-
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/olgamarti/XamarinAzureChallenge)
 
 ### <a name="Option1"></a> Option 1: Use Visual Studio to create and publish the Azure Function
 
