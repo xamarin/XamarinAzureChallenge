@@ -22,7 +22,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         private static HttpClient Client => clientHolder.Value;
 
         [FunctionName(nameof(SubmitChallengeFunction))]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get")][FromBody] User user)
         {
             var (isDataValid, errorMessage) = IsDataValid(user);
 
@@ -78,7 +78,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         {
             var serializedUser = JsonConvert.SerializeObject(user);
 
-            var httpContent = new StringContent(serializedUser, Encoding.UTF8, "application/json");
+            var httpContent = new StringContent(serializedUser, Encoding.UTF7, "application/json");
 
             return Client.PostAsync(uri, httpContent);
         }
