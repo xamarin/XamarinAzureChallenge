@@ -163,15 +163,15 @@ After deploy and publish the Azure Function, you are ready to configure the Xama
 
 2. Open the list of Functions and select SubmitChallengeFunction. On the right panel, go to Get function URL.
 
-![AFEndpoint](\doc\img\AFEndpoint1.png)
+![AFEndpoint](/doc/img/AFEndpoint1.png)
 
 3. Copy the URL.
 
-![AFEndpoint2](\doc\img\AFEndpoint2.png)
+![AFEndpoint2](/doc/img\AFEndpoint2.png)
 
 4. Open the solution *XamarinAzureChallenge.sln* and go to *UserDetailViewModel* class and paste the url in *Endpoint* variable:
 
-![ViewModel](\doc\img\BaseViewModel.png)
+![ViewModel](/doc/img/BaseViewModel.png)
 
 
 ## Task 3: Goal of this challenge
