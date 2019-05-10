@@ -8,7 +8,6 @@ namespace XamarinAzureChallenge.Pages
 		{
 			InitializeComponent ();
 
-			BindingContext = new UserDataViewModel();
 		}
 	}
 }
