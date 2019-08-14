@@ -90,7 +90,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
 
             var httpContent = new StringContent(serializedUser, Encoding.UTF7, "application/json");
 
-            return Client.PostAsync($"{validationEndPoint}?invocationId={context.InvocationId}&instanceId={instanceId}", httpContent);
+            return Client.PostAsync($"{validationEndPoint}/{context.InvocationId}/{instanceId}", httpContent);
         }
     }
 }
