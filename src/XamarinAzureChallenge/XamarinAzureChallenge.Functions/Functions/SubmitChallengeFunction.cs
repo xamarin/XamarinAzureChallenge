@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using XamarinAzureChallenge.Shared.Models;
 
@@ -15,26 +16,29 @@ namespace Microsoft.XamarinAzureChallenge.AZF
     public static class SubmitChallengeFunction
     {
         private static readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
-        private static readonly string apiHost = Environment.GetEnvironmentVariable("API_HOST");
-        private static readonly string endPoint = Environment.GetEnvironmentVariable("END_POINT");
-        private static readonly string uri = apiHost + endPoint;
+        private static readonly string validationEndPoint = Environment.GetEnvironmentVariable("END_POINT");
+        private static readonly string instanceID = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID");
+        private static readonly string uri = $"{validationEndPoint}?{instanceID}";
 
         private static HttpClient Client => clientHolder.Value;
 
         [FunctionName(nameof(SubmitChallengeFunction))]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get")][FromBody] User user)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
         {
+            log.LogInformation("HTTP Triggered");
+
             var (isDataValid, errorMessage) = IsDataValid(user);
 
             if (!isDataValid)
             {
+                log.LogInformation($"Invalid Data: {errorMessage}");
                 return new BadRequestErrorMessageResult(errorMessage);
             }
 
             HttpResponseMessage result;
             try
             {
-                result = await SendToApi(user).ConfigureAwait(false);
+                result = await SendToApi(user, context).ConfigureAwait(false);
             }
             catch
             {
@@ -44,12 +48,19 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
+                    log.LogInformation($"Bad request: {result.ReasonPhrase}");
                     return new BadRequestErrorMessageResult(result.ReasonPhrase);
+
                 case HttpStatusCode.Conflict:
+                    log.LogInformation("Error: Entrant Already Submitted");
                     return new AspNetCore.Mvc.ConflictResult();
+
                 case HttpStatusCode.OK:
+                    log.LogInformation("Success");
                     return new OkResult();
+
                 default:
+                    log.LogInformation("Unknown Error Ocurred");
                     return new InternalServerErrorResult();
             }
         }
@@ -74,8 +85,9 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             return (true, "");
         }
 
-        private static Task<HttpResponseMessage> SendToApi(User user)
+        private static Task<HttpResponseMessage> SendToApi(User user, ExecutionContext context)
         {
+            context.
             var serializedUser = JsonConvert.SerializeObject(user);
 
             var httpContent = new StringContent(serializedUser, Encoding.UTF7, "application/json");

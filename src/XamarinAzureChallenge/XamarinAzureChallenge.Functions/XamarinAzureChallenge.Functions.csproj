@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <AzureFunctionsVersion>v2</AzureFunctionsVersion>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
@@ -20,6 +20,9 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <CopyToPublishDirectory>Never</CopyToPublishDirectory>
         </None>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Functions\" />
     </ItemGroup>
     <Import Project="..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems')" />
 </Project>
