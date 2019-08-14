@@ -17,8 +17,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
     {
         private static readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
         private static readonly string validationEndPoint = Environment.GetEnvironmentVariable("END_POINT");
-        private static readonly string instanceID = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID");
-        private static readonly string uri = $"{validationEndPoint}?{instanceID}";
+        private static readonly string instanceId = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID");
 
         private static HttpClient Client => clientHolder.Value;
 
@@ -87,12 +86,11 @@ namespace Microsoft.XamarinAzureChallenge.AZF
 
         private static Task<HttpResponseMessage> SendToApi(User user, ExecutionContext context)
         {
-            context.
             var serializedUser = JsonConvert.SerializeObject(user);
 
             var httpContent = new StringContent(serializedUser, Encoding.UTF7, "application/json");
 
-            return Client.PostAsync(uri, httpContent);
+            return Client.PostAsync($"{validationEndPoint}?invocationId={context.InvocationId}&instanceId={instanceId}", httpContent);
         }
     }
 }
