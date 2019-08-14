@@ -10,65 +10,21 @@ namespace XamarinAzureChallenge.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void SetAndRaisePropertyChanged<TRef>(
-            ref TRef field, TRef value, [CallerMemberName] string propertyName = null)
-        {
-            field = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        protected void SetAndRaisePropertyChangedIfDifferentValues<TRef>(
-            ref TRef field, TRef value, [CallerMemberName] string propertyName = null)
-            where TRef : class
+        protected void SetAndRaisePropertyChanged<TRef>(ref TRef field, TRef value, [CallerMemberName] string propertyName = "")
         {
             if (EqualityComparer<TRef>.Default.Equals(field, value))
                 return;
 
-            SetAndRaisePropertyChanged(ref field, value, propertyName);
+            field = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected Task NavigateToPage(Page page)
-        {
-            return RunOnUIThread(async () =>
-                await Application.Current.MainPage.Navigation.PushAsync(page));
-        }
+        protected Task NavigateToPage(Page page) => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PushAsync(page));
 
-        protected Task NavigateBack()
-        {
-            return RunOnUIThread(async () =>
-                await Application.Current.MainPage.Navigation.PopAsync());
-        }
+        protected Task NavigateBack() => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PopAsync());
 
-        protected Task ShowFeatureNotAvailable()
-        {
-            return RunOnUIThread(async () =>
-                await Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
-        }
+        protected Task ShowFeatureNotAvailable() => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
 
-        protected Task DisplayInvalidFieldAlert(string message)
-        {
-            return RunOnUIThread(async () =>
-                await Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok"));
-        }
-
-        protected Task RunOnUIThread(System.Action action)
-        {
-            var tcs = new TaskCompletionSource<object>();
-
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                try
-                {
-                    action?.Invoke();
-                    tcs.SetResult(null);
-                }
-                catch (System.Exception e)
-                {
-                    tcs.SetException(e);
-                }
-            });
-
-            return tcs.Task;
-        }
+        protected Task DisplayInvalidFieldAlert(string message) => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok"));
     }
 }

@@ -19,9 +19,9 @@ namespace XamarinAzureChallenge.ViewModels
         public ICommand TermsAndConditionsLabelTappedCommand { get; }
 
         private Task ExecuteSourceCodeLabelTappedCommand() =>
-            RunOnUIThread(async () => await Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge"));
-
+            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge"));
+        
         private Task ExecuteTermsAndConditionsLabelTappedCommand() =>
-            RunOnUIThread(async () => await Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md"));
+            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md"));
     }
 }

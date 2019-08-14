@@ -14,7 +14,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
 {
     public static class SubmitChallengeFunction
     {
-        private static Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
+        private static readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
         private static readonly string apiHost = Environment.GetEnvironmentVariable("API_HOST");
         private static readonly string endPoint = Environment.GetEnvironmentVariable("END_POINT");
         private static readonly string uri = apiHost + endPoint;

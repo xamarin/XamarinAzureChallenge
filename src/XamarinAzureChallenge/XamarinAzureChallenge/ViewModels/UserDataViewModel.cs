@@ -13,7 +13,7 @@ namespace XamarinAzureChallenge.ViewModels
     public class UserDataViewModel : BaseViewModel
     {
 #error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
-        private const string Endpoint = "Enter Your Function API Url Here";
+        private const string endpoint = "Enter Your Function API Url Here";
         private readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
 
         private User user;
@@ -60,7 +60,7 @@ namespace XamarinAzureChallenge.ViewModels
 
                     var content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
 
-                    var result = await Client.PostAsync(Endpoint, content);
+                    var result = await Client.PostAsync(endpoint, content);
 
                     await NavigateToPage(new ResultPage(result.StatusCode));
                 }
@@ -104,6 +104,6 @@ namespace XamarinAzureChallenge.ViewModels
         }
 
         private Task PrivacyStatementCommandExecute() =>
-            RunOnUIThread(async () => await Xamarin.Essentials.Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
+            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
     }
 }
