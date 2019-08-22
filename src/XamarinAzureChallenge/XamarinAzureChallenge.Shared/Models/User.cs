@@ -7,7 +7,7 @@ namespace XamarinAzureChallenge.Shared.Models
         [JsonProperty("fullname")]
         public string Name { get; set; } = string.Empty;
 
-        [JsonIgnore]
+        [JsonProperty("email")]
         public string Email { get; set; } = string.Empty;
 
         [JsonProperty("phone")]
