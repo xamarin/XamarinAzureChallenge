@@ -35,33 +35,35 @@ namespace Microsoft.XamarinAzureChallenge.AZF
                 return new BadRequestErrorMessageResult(errorMessage);
             }
 
-            HttpResponseMessage result;
+            HttpResponseMessage response;
             try
             {
-                result = await SendToApi(user, context).ConfigureAwait(false);
+                response = await SendToApi(user, context).ConfigureAwait(false);
             }
             catch
             {
                 return new InternalServerErrorResult();
             }
 
-            switch (result.StatusCode)
+            var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            switch (response.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    log.LogInformation($"Bad request: {result.ReasonPhrase}");
-                    return new BadRequestErrorMessageResult(result.ReasonPhrase);
+                    log.LogInformation($"Bad request: {response.ReasonPhrase}");
+                    return new BadRequestErrorMessageResult(responseContent);
 
                 case HttpStatusCode.Conflict:
                     log.LogInformation("Error: Entrant Already Submitted");
-                    return new AspNetCore.Mvc.ConflictResult();
+                    return new ConflictObjectResult(responseContent);
 
                 case HttpStatusCode.Created:
                     log.LogInformation("Success");
-                    return new ObjectResult(user) { StatusCode = StatusCodes.Status201Created };
+                    return new ObjectResult(responseContent) { StatusCode = StatusCodes.Status201Created };
 
                 default:
                     log.LogInformation("Unknown Error Ocurred");
-                    return new InternalServerErrorResult();
+                    return new ObjectResult(responseContent) { StatusCode = StatusCodes.Status500InternalServerError };
             }
         }
 
