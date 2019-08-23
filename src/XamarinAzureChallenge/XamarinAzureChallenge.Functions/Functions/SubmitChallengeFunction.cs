@@ -79,8 +79,13 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             if (string.IsNullOrWhiteSpace(user.Email))
                 stringBuilder.AppendLine("Email Null or Empty");
 
-            if (stringBuilder.ToString().Length > 1)
+            if (stringBuilder.Length > 1)
+            {
+                //Remove the carriage return from AppdendLine
+                stringBuilder = stringBuilder.Remove(stringBuilder.Length - 1, 1);
+
                 return (false, stringBuilder.ToString());
+            }
 
             return (true, "");
         }
@@ -89,7 +94,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         {
             var serializedUser = JsonConvert.SerializeObject(user);
 
-            var httpContent = new StringContent(serializedUser, Encoding.UTF7, "application/json");
+            var httpContent = new StringContent(serializedUser);
 
             return Client.PostAsync($"{validationEndPoint}/{context.InvocationId}/{instanceId}", httpContent);
         }
