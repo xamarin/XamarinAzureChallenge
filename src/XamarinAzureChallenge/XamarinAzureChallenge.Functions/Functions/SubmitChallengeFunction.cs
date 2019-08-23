@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -54,9 +55,9 @@ namespace Microsoft.XamarinAzureChallenge.AZF
                     log.LogInformation("Error: Entrant Already Submitted");
                     return new AspNetCore.Mvc.ConflictResult();
 
-                case HttpStatusCode.OK:
+                case HttpStatusCode.Created:
                     log.LogInformation("Success");
-                    return new OkResult();
+                    return new ObjectResult(user) { StatusCode = StatusCodes.Status201Created };
 
                 default:
                     log.LogInformation("Unknown Error Ocurred");
