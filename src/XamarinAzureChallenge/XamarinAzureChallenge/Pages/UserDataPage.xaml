@@ -50,7 +50,7 @@
                 <Setter Property="FontSize"
                         Value="12" />
                 <Setter Property="TextColor"
-                        Value="Gray" />
+                        Value="Black" />
                 <Setter Property="Margin"
                         Value="4,0,0,0" />
             </Style>
@@ -64,6 +64,8 @@
                         Value="Black" />
                 <Setter Property="BackgroundColor"
                         Value="White" />
+                <Setter Property="PlaceholderColor"
+                        Value="Gray" />
             </Style>
             <Style x:Key="HyperLinkStyle"
                    TargetType="Label">
@@ -121,6 +123,7 @@
                        Grid.ColumnSpan="2"
                        Placeholder="Enter your name"
                        Style="{StaticResource EntryStyle}"
+                       ReturnType="Next"
                        Text="{Binding User.Name}" />
 
                 <Label Grid.Row="4"
@@ -131,6 +134,7 @@
                        Grid.ColumnSpan="2"
                        Keyboard="Email"
                        Placeholder="Enter your email"
+                       ReturnType="Next"
                        Style="{StaticResource EntryStyle}"
                        Text="{Binding User.Email}" />
 
@@ -183,7 +187,8 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-                <Button Grid.Row="14"
+                <Button x:Name="SubmitButton"
+                        Grid.Row="14"
                         Grid.ColumnSpan="2"
                         Padding="10"
                         Command="{Binding SubmitCommand}"

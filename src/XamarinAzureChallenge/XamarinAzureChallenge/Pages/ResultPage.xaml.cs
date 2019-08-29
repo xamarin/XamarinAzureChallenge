@@ -4,7 +4,7 @@ using XamarinAzureChallenge.ViewModels;
 namespace XamarinAzureChallenge.Pages
 {
     public partial class ResultPage : BaseContentPage<ResultViewModel>
-	{
+    {
         public ResultPage(HttpStatusCode statusCode)
         {
             InitializeComponent();

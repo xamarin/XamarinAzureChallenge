@@ -23,7 +23,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         private static HttpClient Client => clientHolder.Value;
 
         [FunctionName(nameof(SubmitChallengeFunction))]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = nameof(SubmitChallengeFunction) + "/{azureSubscriptionId}")][FromBody] User user, ILogger log, ExecutionContext context, string azureSubscriptionId)
         {
             log.LogInformation("HTTP Triggered");
 

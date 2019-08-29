@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.Andro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.iOS", "XamarinAzureChallenge\XamarinAzureChallenge.iOS\XamarinAzureChallenge.iOS.csproj", "{2C81F630-FC66-4BEC-A800-56A0C743F3D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge", "XamarinAzureChallenge\XamarinAzureChallenge\XamarinAzureChallenge.csproj", "{906E148B-01D5-4106-9C5B-404A8B655069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge", "XamarinAzureChallenge\XamarinAzureChallenge\XamarinAzureChallenge.csproj", "{906E148B-01D5-4106-9C5B-404A8B655069}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Functions", "XamarinAzureChallenge\XamarinAzureChallenge.Functions\XamarinAzureChallenge.Functions.csproj", "{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}"
 EndProject

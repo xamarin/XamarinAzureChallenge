@@ -10,6 +10,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AzureToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AzureClientIdModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AzureAuthenticationCompletedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
