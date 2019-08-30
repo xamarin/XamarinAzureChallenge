@@ -9,23 +9,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using XamarinAzureChallenge.Functions;
 using XamarinAzureChallenge.Shared.Models;
 
-namespace Microsoft.XamarinAzureChallenge.AZF
+namespace Microsoft.XamarinAzureChallenge.Functions
 {
     public static class SubmitChallengeFunction
     {
-        private static readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
-        private static readonly string validationEndPoint = Environment.GetEnvironmentVariable("END_POINT");
-        private static readonly string instanceId = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID");
-
-        private static HttpClient Client => clientHolder.Value;
-
         [FunctionName(nameof(SubmitChallengeFunction))]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
         {
-            log.LogInformation("HTTP Triggered");
+            log.LogInformation("HTTP Function Triggered");
 
             var (isDataValid, errorMessage) = IsDataValid(user);
 
@@ -36,13 +30,15 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             }
 
             HttpResponseMessage response;
+
             try
             {
-                response = await SendToApi(user, context).ConfigureAwait(false);
+                var azureSubscription = await ApiService.GetAzureSubscriptionGuid().ConfigureAwait(false);
+                response = await ApiService.SendChallengeSubmission(user, azureSubscription, context).ConfigureAwait(false);
             }
-            catch
+            catch(Exception e)
             {
-                return new InternalServerErrorResult();
+                return new ObjectResult(e.Message) { StatusCode = StatusCodes.Status500InternalServerError };
             }
 
             var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -90,15 +86,6 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             }
 
             return (true, "");
-        }
-
-        private static Task<HttpResponseMessage> SendToApi(User user, ExecutionContext context)
-        {
-            var serializedUser = JsonConvert.SerializeObject(user);
-
-            var httpContent = new StringContent(serializedUser);
-
-            return Client.PostAsync($"{validationEndPoint}/{context.InvocationId}/{instanceId}", httpContent);
         }
     }
 }
