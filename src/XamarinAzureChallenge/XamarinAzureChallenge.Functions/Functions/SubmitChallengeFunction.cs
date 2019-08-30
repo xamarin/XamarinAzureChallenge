@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -18,9 +19,7 @@ namespace Microsoft.XamarinAzureChallenge.Functions
         [FunctionName(nameof(SubmitChallengeFunction))]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
         {
-            log.LogInformation("HTTP Triggered");
-
-            await ApiService.GetSubscriptionList(log);
+            log.LogInformation("HTTP Function Triggered");
 
             var (isDataValid, errorMessage) = IsDataValid(user);
 
@@ -31,13 +30,15 @@ namespace Microsoft.XamarinAzureChallenge.Functions
             }
 
             HttpResponseMessage response;
+
             try
             {
-                response = await ApiService.SendChallengeSubmission(user, context).ConfigureAwait(false);
+                var azureSubscription = await ApiService.GetAzureSubscriptionGuid().ConfigureAwait(false);
+                response = await ApiService.SendChallengeSubmission(user, azureSubscription, context).ConfigureAwait(false);
             }
-            catch
+            catch(Exception e)
             {
-                return new InternalServerErrorResult();
+                return new ObjectResult(e.Message) { StatusCode = StatusCodes.Status500InternalServerError };
             }
 
             var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
