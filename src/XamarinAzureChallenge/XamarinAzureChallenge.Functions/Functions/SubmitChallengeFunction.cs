@@ -1,4 +1,3 @@
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -6,41 +5,22 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using XamarinAzureChallenge.Functions;
 using XamarinAzureChallenge.Shared.Models;
 
-namespace Microsoft.XamarinAzureChallenge.AZF
+namespace Microsoft.XamarinAzureChallenge.Functions
 {
     public static class SubmitChallengeFunction
     {
-        private static readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
-        private static readonly string validationEndPoint = Environment.GetEnvironmentVariable("END_POINT");
-        private static readonly string instanceId = Environment.GetEnvironmentVariable("WEBSITE_INSTANCE_ID");
-
-        private static HttpClient Client => clientHolder.Value;
-
         [FunctionName(nameof(SubmitChallengeFunction))]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
         {
             log.LogInformation("HTTP Triggered");
 
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
-
-            log.LogInformation($"Access Token: {accessToken}");
-
-
-            var subscriptionResponse = await Client.GetAsync("https://management.azure.com/subscriptions?api-version=2016-06-01").ConfigureAwait(false);
-
-            log.LogInformation($"Repsonse Status Code: {subscriptionResponse.StatusCode}");
-
-            var subscriptionContent = subscriptionResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-            log.LogInformation($"Subscriptions Content: \n{subscriptionContent}");
+            await ApiService.GetSubscriptionList(log);
 
             var (isDataValid, errorMessage) = IsDataValid(user);
 
@@ -53,7 +33,7 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             HttpResponseMessage response;
             try
             {
-                response = await SendToApi(user, context).ConfigureAwait(false);
+                response = await ApiService.SendChallengeSubmission(user, context).ConfigureAwait(false);
             }
             catch
             {
@@ -105,15 +85,6 @@ namespace Microsoft.XamarinAzureChallenge.AZF
             }
 
             return (true, "");
-        }
-
-        private static Task<HttpResponseMessage> SendToApi(User user, ExecutionContext context)
-        {
-            var serializedUser = JsonConvert.SerializeObject(user);
-
-            var httpContent = new StringContent(serializedUser);
-
-            return Client.PostAsync($"{validationEndPoint}/{context.InvocationId}/{instanceId}", httpContent);
         }
     }
 }

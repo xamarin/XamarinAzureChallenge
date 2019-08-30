@@ -24,6 +24,7 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Functions\" />
+      <Folder Include="Services\" />
     </ItemGroup>
     <Import Project="..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems')" />
 </Project>
