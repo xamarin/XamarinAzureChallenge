@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,20 @@ namespace Microsoft.XamarinAzureChallenge.AZF
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] User user, ILogger log, ExecutionContext context)
         {
             log.LogInformation("HTTP Triggered");
+
+            var azureServiceTokenProvider = new AzureServiceTokenProvider();
+            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+
+            log.LogInformation($"Access Token: {accessToken}");
+
+
+            var subscriptionResponse = await Client.GetAsync("https://management.azure.com/subscriptions?api-version=2016-06-01").ConfigureAwait(false);
+
+            log.LogInformation($"Repsonse Status Code: {subscriptionResponse.StatusCode}");
+
+            var subscriptionContent = subscriptionResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+            log.LogInformation($"Subscriptions Content: \n{subscriptionContent}");
 
             var (isDataValid, errorMessage) = IsDataValid(user);
 
