@@ -58,10 +58,10 @@ namespace XamarinAzureChallenge.Functions
         private static async Task<T> GetObjectFromApi<T>(string url)
         {
             using (var stream = await Client.GetStreamAsync(url).ConfigureAwait(false))
-            using (StreamReader sr = new StreamReader(stream))
-            using (JsonReader json = new JsonTextReader(sr))
+            using (var streamReader = new StreamReader(stream))
+            using (var jsonReader = new JsonTextReader(streamReader))
             {
-                return JsonSerializer.Deserialize<T>(json);
+                return JsonSerializer.Deserialize<T>(jsonReader);
             }
         }
 
