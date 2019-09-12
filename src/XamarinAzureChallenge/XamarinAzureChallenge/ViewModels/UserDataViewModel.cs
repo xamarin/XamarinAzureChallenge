@@ -22,17 +22,19 @@ namespace XamarinAzureChallenge.ViewModels
         public UserDataViewModel()
         {
             User = new User();
-            SubmitCommand = new Command(async () => await SubmitCommmandExecute(User));
+            SubmitCommand = new Command(async () => await SubmitCommmandExecute(User), () => !IsBusy);
             PrivacyStatementCommand = new Command(async () => await PrivacyStatementCommandExecute());
         }
 
-        public ICommand SubmitCommand { get; }
-        public ICommand PrivacyStatementCommand { get; }
+        public event EventHandler<string> SubmissionFailed;
+
+        public Command PrivacyStatementCommand { get; }
+        public Command SubmitCommand { get; }
 
         public bool IsBusy
         {
             get => isBusy;
-            set => SetAndRaisePropertyChanged(ref isBusy, value);
+            set => SetAndRaisePropertyChanged(ref isBusy, value, () => Device.BeginInvokeOnMainThread(SubmitCommand.ChangeCanExecute));
         }
 
         public User User
@@ -58,16 +60,16 @@ namespace XamarinAzureChallenge.ViewModels
                 {
                     var serializedUser = JsonConvert.SerializeObject(User);
 
-                    var content = new StringContent(serializedUser, Encoding.UTF8, "application/json");
-
-                    var result = await Client.PostAsync(endpoint, content);
-
-                    await NavigateToPage(new ResultPage(result.StatusCode));
+                    using (var content = new StringContent(serializedUser, Encoding.UTF8, "application/json"))
+                    using (var response = await Client.PostAsync(endpoint, content))
+                    {
+                        await NavigateToPage(new ResultPage(response));
+                    }
                 }
             }
-            catch
+            catch (Exception e)
             {
-                await NavigateToPage(new ResultPage(default));
+                OnSubmissionFailed(e.Message);
             }
             finally
             {
@@ -82,6 +84,10 @@ namespace XamarinAzureChallenge.ViewModels
             if (string.IsNullOrWhiteSpace(name))
             {
                 await DisplayInvalidFieldAlert("Name cannot be blank");
+            }
+            else if (!name.Trim().Contains(" "))
+            {
+                await DisplayInvalidFieldAlert("Full Name Required");
             }
             else if (string.IsNullOrWhiteSpace(email))
             {
@@ -105,5 +111,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         private Task PrivacyStatementCommandExecute() =>
             Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
+
+        private void OnSubmissionFailed(string message) => SubmissionFailed?.Invoke(this, message);
     }
 }

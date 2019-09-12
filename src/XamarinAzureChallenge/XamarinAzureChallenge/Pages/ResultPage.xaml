@@ -10,7 +10,8 @@
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
 
             <Image
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
@@ -28,7 +29,18 @@
                 AbsoluteLayout.LayoutBounds="0, 0.75,1,0.4"
                 AbsoluteLayout.LayoutFlags="All"
                 HorizontalOptions="FillAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2.5*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
                 <Label
+                    Grid.Row="0"
                     Margin="0,30,0,10"
                     FontSize="26"
                     HorizontalTextAlignment="Center"
@@ -42,16 +54,17 @@
                     HorizontalTextAlignment="Center"
                     LineHeight="1.5"
                     Text="{Binding TextDetailResult}"
+                    LineBreakMode="WordWrap"
                     TextColor="White" />
 
                 <Button
                     Grid.Row="2"
-                    x:Name="BackButton"
                     Command="{Binding EditYourSubmissionCommand}"
                     HorizontalOptions="FillAndExpand"
                     Image="back_arrow"
                     Style="{StaticResource ButtonStyle}"
-                    Text="Edit your submission" />
+                    Text="Edit your submission"
+                    IsVisible="{Binding IsBackButtonVisible}"/>
             </Grid>
         </AbsoluteLayout>
 

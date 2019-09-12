@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -7,40 +8,14 @@ namespace XamarinAzureChallenge.ViewModels
 {
     public class ResultViewModel : BaseViewModel
     {
-        private string textDetailResult;
-        private string imageResult;
-        private string textResult;
+        private string textDetailResult, imageResult, textResult;
+        private bool isBackButtonVisible;
 
-        public ResultViewModel(HttpStatusCode status)
+        public ResultViewModel(HttpResponseMessage responseMessage)
         {
             EditYourSubmissionCommand = new Command(async () => await EditYourSubmissionCommandExecute());
 
-            switch (status)
-            {
-                case HttpStatusCode.OK:
-                    ImageResult = "resultOk";
-                    TextResult = "Congratulations!";
-                    TextDetailResult = "You have successfully submited the \n Challenge Form!";
-                    break;
-
-                case HttpStatusCode.BadRequest:
-                    ImageResult = "resultFailed";
-                    TextResult = "Oops!";
-                    TextDetailResult = "We detected duplicated data.\n Please go back and edit";
-                    break;
-
-                case HttpStatusCode.InternalServerError:
-                    ImageResult = "resultFailed";
-                    TextResult = "Oops!";
-                    TextDetailResult = "There was an error on the Azure Function.\n Please go back and edit";
-                    break;
-
-                default:
-                    ImageResult = "resultFailed";
-                    TextResult = "Oops!";
-                    TextDetailResult = "Could not connect to the Azure Function.";
-                    break;
-            }
+            HandleHttpResponseMessage(responseMessage);
         }
 
         public ICommand EditYourSubmissionCommand { get; }
@@ -57,6 +32,11 @@ namespace XamarinAzureChallenge.ViewModels
             set => SetAndRaisePropertyChanged(ref textResult, value);
         }
 
+        public bool IsBackButtonVisible
+        {
+            get => isBackButtonVisible;
+            set => SetAndRaisePropertyChanged(ref isBackButtonVisible, value);
+        }
 
         public string TextDetailResult
         {
@@ -65,5 +45,23 @@ namespace XamarinAzureChallenge.ViewModels
         }
 
         private Task EditYourSubmissionCommandExecute() => NavigateBack();
+
+        async void HandleHttpResponseMessage(HttpResponseMessage responseMessage)
+        {
+            IsBackButtonVisible = !responseMessage.IsSuccessStatusCode;
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                ImageResult = "resultOk";
+                TextResult = "Congratulations!";
+                TextDetailResult = "You have successfully submited the \n Challenge Form!";
+            }
+            else
+            {
+                ImageResult = "resultFailed";
+                TextResult = "Oops!";
+                TextDetailResult = await responseMessage.Content.ReadAsStringAsync();
+            }
+        }
     }
 }

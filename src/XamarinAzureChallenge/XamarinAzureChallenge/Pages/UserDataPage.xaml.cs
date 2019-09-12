@@ -8,7 +8,12 @@ namespace XamarinAzureChallenge.Pages
         {
             InitializeComponent();
 
-            BindingContext = new UserDataViewModel();
+            var userDataViewModel = new UserDataViewModel();
+            userDataViewModel.SubmissionFailed += HandleSubmissionFailed;
+
+            BindingContext = userDataViewModel;
         }
+
+        private void HandleSubmissionFailed(object sender, string message) => DisplayAlert("Submission Failed", message, "OK");
     }
 }

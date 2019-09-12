@@ -1,17 +1,15 @@
-﻿using System.Net;
+﻿using System.Net.Http;
 using XamarinAzureChallenge.ViewModels;
 
 namespace XamarinAzureChallenge.Pages
 {
     public partial class ResultPage : BaseContentPage<ResultViewModel>
 	{
-        public ResultPage(HttpStatusCode statusCode)
+        public ResultPage(HttpResponseMessage response)
         {
             InitializeComponent();
 
-            BindingContext = new ResultViewModel(statusCode);
-
-            BackButton.IsVisible = statusCode != HttpStatusCode.OK;
+            BindingContext = new ResultViewModel(response);
         }
     }
 }

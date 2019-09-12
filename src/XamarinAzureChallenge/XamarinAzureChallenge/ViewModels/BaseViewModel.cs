@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -10,13 +11,16 @@ namespace XamarinAzureChallenge.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void SetAndRaisePropertyChanged<TRef>(ref TRef field, TRef value, [CallerMemberName] string propertyName = "")
+        protected void SetAndRaisePropertyChanged<TRef>(ref TRef field, TRef value, Action onChanged = null, [CallerMemberName] string propertyName = "")
         {
             if (EqualityComparer<TRef>.Default.Equals(field, value))
                 return;
 
             field = value;
+
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+            onChanged?.Invoke();
         }
 
         protected Task NavigateToPage(Page page) => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PushAsync(page));

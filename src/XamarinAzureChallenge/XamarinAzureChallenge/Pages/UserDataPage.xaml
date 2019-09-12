@@ -50,7 +50,7 @@
                 <Setter Property="FontSize"
                         Value="12" />
                 <Setter Property="TextColor"
-                        Value="Gray" />
+                        Value="DarkGray" />
                 <Setter Property="Margin"
                         Value="4,0,0,0" />
             </Style>
@@ -60,10 +60,10 @@
                         Value="49" />
                 <Setter Property="TextColor"
                         Value="Black" />
-                <Setter Property="PlaceholderColor"
-                        Value="Black" />
                 <Setter Property="BackgroundColor"
                         Value="White" />
+                <Setter Property="PlaceholderColor"
+                        Value="LightGray"/>
             </Style>
             <Style x:Key="HyperLinkStyle"
                    TargetType="Label">
@@ -84,6 +84,7 @@
         <ScrollView Margin="10,10,10,0">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -121,7 +122,8 @@
                        Grid.ColumnSpan="2"
                        Placeholder="Enter your name"
                        Style="{StaticResource EntryStyle}"
-                       Text="{Binding User.Name}" />
+                       Text="{Binding User.Name}"
+                       ReturnType="Next" />
 
                 <Label Grid.Row="4"
                        Grid.ColumnSpan="2"
@@ -132,7 +134,8 @@
                        Keyboard="Email"
                        Placeholder="Enter your email"
                        Style="{StaticResource EntryStyle}"
-                       Text="{Binding User.Email}" />
+                       Text="{Binding User.Email}"
+                       ReturnType="Next" />
 
 
                 <Label Grid.Row="7"
@@ -142,7 +145,7 @@
                 <Entry Grid.Row="8"
                        Grid.ColumnSpan="2"
                        Keyboard="Numeric"
-                       Placeholder="00 000 000 000"
+                       Placeholder="+1 1234567890"
                        Style="{StaticResource EntryStyle}"
                        Text="{Binding User.Phone}" />
 
@@ -186,9 +189,16 @@
                 <Button Grid.Row="14"
                         Grid.ColumnSpan="2"
                         Padding="10"
+                        Margin="0,15"
                         Command="{Binding SubmitCommand}"
                         Style="{StaticResource ButtonFormStyle}"
                         Text="Submit" />
+
+                <ActivityIndicator Grid.Row="15"
+                        Grid.ColumnSpan="2"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"/>
+
             </Grid>
         </ScrollView>
     </ContentPage.Content>

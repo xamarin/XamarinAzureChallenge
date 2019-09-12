@@ -46,13 +46,20 @@ namespace XamarinAzureChallenge.Functions
 
         private static async Task AddAuthTokenToHeaders()
         {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            var authenticationResult = await azureServiceTokenProvider.GetAuthenticationResultAsync("https://management.azure.com/").ConfigureAwait(false);
+            try
+            {
+                var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                var authenticationResult = await azureServiceTokenProvider.GetAuthenticationResultAsync("https://management.azure.com/").ConfigureAwait(false);
 
-            if (string.IsNullOrWhiteSpace(authenticationResult?.AccessToken))
-                throw new Exception("Invalid Access Token. Ensure the Azure Function has a system-assigned Identity: https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity");
+                if (string.IsNullOrWhiteSpace(authenticationResult?.AccessToken))
+                    throw new Exception("Invalid Access Token. Ensure the Azure Function has a system-assigned Identity: https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity");
 
-            Client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(authenticationResult.TokenType, authenticationResult.AccessToken);
+                Client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(authenticationResult.TokenType, authenticationResult.AccessToken);
+            }
+            catch (AzureServiceTokenProviderException)
+            {
+                throw new Exception("Error: Function must be running on Azure");
+            }
         }
 
         private static async Task<T> GetObjectFromApi<T>(string url)
