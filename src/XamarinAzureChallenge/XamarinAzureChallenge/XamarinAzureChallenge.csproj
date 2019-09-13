@@ -1,21 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+    
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
+    
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DebugType>pdbonly</DebugType>
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
+    
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-        <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+        <PackageReference Include="Xamarin.Forms" Version="4.2.0.778463" />
         <PackageReference Include="Xamarin.Essentials" Version="1.3.0" />
     </ItemGroup>
+    
     <ItemGroup>
         <Folder Include="Pages\" />
         <Folder Include="ViewModels\" />
     </ItemGroup>
+    
     <Import Project="..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems')" />
 </Project>
