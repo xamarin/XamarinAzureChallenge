@@ -28,7 +28,7 @@
                 Padding="18,0,18,0"
                 AbsoluteLayout.LayoutBounds="0, 0.75,1,0.4"
                 AbsoluteLayout.LayoutFlags="All"
-                HorizontalOptions="FillAndExpand">
+                HorizontalOptions="CenterAndExpand">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
