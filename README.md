@@ -12,9 +12,9 @@ The goal is to create an serverless [Azure Function](https://azure.microsoft.com
 
 ## Task 0: Prerequisites
 
-* Azure Suscription
-    * Sign up for a free [Azure trial](https://azure.microsoft.com/free?WT.mc_id=xamarinazurechallenge-github-bramin).
-* Visual Studio
+1. Create Azure Suscription
+    * If you do not currently have an Azure subscription, sign up for a [free Azure account](https://azure.microsoft.com/free?WT.mc_id=xamarinazurechallenge-github-bramin) that includes a $200 Azure Credit
+2. Install Visual Studio + Xamarin Tools
     * On PC, [follow these steps to install Visual Studio with Xamarin](https://docs.microsoft.com/xamarin/get-started/installation/windows?WT.mc_id=xamarinazurechallenge-github-bramin)
     * On Mac, [follow these steps to install Visual Studio for Mac with Xamarin](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019&WT.mc_id=xamarinazurechallenge-github-bramin)
 
@@ -27,7 +27,7 @@ We have two options to retrieve the code for the Xamarin Azure Challenge:
 * Clone the repository
 * Download the source code
 
-### 1a. Clone the repository
+#### 1a. Clone the repository
 
 To [clone](https://git-scm.com/docs/git-clone) this repository, run this command in your favorite terminal:
 
@@ -35,7 +35,7 @@ To [clone](https://git-scm.com/docs/git-clone) this repository, run this command
 git clone https://github.com/xamarin/xamarinazurechallenge
 ```
 
-### 1b. Download Source Code
+#### 1b. Download Source Code
 
 To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
@@ -43,14 +43,14 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 
 After cloning the repository, we have 3 options to create and publish the Azure Function:
 
-1. Use [Visual Studio](https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin) to create and [publish the Azure Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
+1. Use Visual Studio to [create](https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin) and [publish the Azure Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
 2. Use [Azure Portal to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) and [Visual Studio to publish it](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin)
 3. Use [Azure CLI to create and publish the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 
 #### 2a. Use Visual Studio to create and publish the Azure Function
 
-> As a prerequisite, you must have an Azure Subscription and be logged with this Microsoft account in your Visual Studio.
+> Prior to this step, ensure you have a valid Azure Subscription and are [logged into Visual Studio using your Azure account](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&WT.mc_id=xamarinazurechallenge-github-bramin#how-to-sign-in-to-visual-studio)
 
 1. In Visual Studio go to the Solution Explorer and select XamarinAzureChallenge.Functions project.
 
