@@ -32,7 +32,7 @@ We have two options to retrieve the code for the Xamarin Azure Challenge:
 To [clone](https://git-scm.com/docs/git-clone) this repository, run this command in your favorite terminal:
 
 ``` bash
-git clone https://github.com/xamarin/xamarinazurechallenge
+git clone https://github.com/xamarin/XamarinAzureChallenge.git
 ```
 
 #### 1b. Download Source Code
