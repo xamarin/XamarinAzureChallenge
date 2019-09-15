@@ -115,17 +115,20 @@ After cloning the repository, we have 3 options to create and publish the Azure 
 
 - **App name**: XamarinAzureChallenge-[Your Name]
     - Note: The app name must be unique because it is used for the Azure Functions Url. This is why we'll append our name.
+    - In this example, I'm using "XamarinAzureChallenge-Brandon"
 - **Subscription**: [Select your Azure Subscription]
 - **Resource Group**:
     - [x] **Create new**
     - XamarinAzureChallenge
+- **OS**: Windows
 - **Hosting Plan**: Consumption Plan
 - **Location**: [Select the Azure Datacenter closest to you]
 - **Runtime Stack**: .NET Core
 - **Storage**:
     - [x] **Create new**
-    - xamarinazurechallenge[Your Name]
+    - xamarinazure[Your Name]
         - Note: The Storage name must be unique, which is why we append our name
+        - In this example, I'm using "xamarinazurebrandon"
 
 7. On the **Function App Create** page, Click **Create**
 
