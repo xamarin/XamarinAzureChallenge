@@ -30,6 +30,7 @@
         <MtouchDebug>true</MtouchDebug>
         <MtouchFastDev>true</MtouchFastDev>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
         <DebugType>none</DebugType>
@@ -42,6 +43,7 @@
         <ConsolePause>false</ConsolePause>
         <MtouchUseLlvm>true</MtouchUseLlvm>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
         <DebugSymbols>true</DebugSymbols>
@@ -56,6 +58,7 @@
         <CodesignKey>iPhone Developer</CodesignKey>
         <MtouchDebug>true</MtouchDebug>
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
         <DebugType>none</DebugType>
@@ -69,6 +72,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchUseLlvm>true</MtouchUseLlvm>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
         <DebugType>none</DebugType>
@@ -84,6 +88,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchUseLlvm>true</MtouchUseLlvm>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
         <DebugType>none</DebugType>
@@ -98,6 +103,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchUseLlvm>true</MtouchUseLlvm>
         <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+        <MtouchExtraArgs>--linkskip=System.Net.Http.NSUrlSessionHandler</MtouchExtraArgs>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Main.cs" />

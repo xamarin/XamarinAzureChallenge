@@ -19,6 +19,7 @@
         <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
         <NuGetPackageImportStamp>
         </NuGetPackageImportStamp>
+        <AndroidLinkSkip>Xamarin.Android.Net.AndroidClientHandler</AndroidLinkSkip>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
