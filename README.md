@@ -1,8 +1,10 @@
 # Xamarin - Azure Function Challenge - 2019
 
-Welcome to the Xamarin Azure Challenge! The goal of this challenge is to implement and connect your Xamarin app with an Azure Function. 
+Welcome to the Xamarin Azure Challenge.
 
-## Objectives
+The goal is to create an serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin), connect it to a [Xamarin](https://dotnet.microsoft.com/apps/xamarin?WT.mc_id=xamarinazurechallenge-github-bramin) mobile app.
+
+### Challenge Objectives
 
 1. Create and publish a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin)
 2. Add the Azure Function url to the [Xamarin.Forms](https://docs.microsoft.com/xamarin/xamarin-forms?WT.mc_id=xamarinazurechallenge-github-bramin) application
