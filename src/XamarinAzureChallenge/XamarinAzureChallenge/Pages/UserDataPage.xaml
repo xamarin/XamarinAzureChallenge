@@ -64,6 +64,8 @@
                         Value="White" />
                 <Setter Property="PlaceholderColor"
                         Value="LightGray"/>
+                <Setter Property="ClearButtonVisibility"
+                        Value="WhileEditing"/>
             </Style>
             <Style x:Key="HyperLinkStyle"
                    TargetType="Label">

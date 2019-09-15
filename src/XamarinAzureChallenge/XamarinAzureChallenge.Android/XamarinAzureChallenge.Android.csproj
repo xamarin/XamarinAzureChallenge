@@ -52,7 +52,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="4.2.0.778463" />
+        <PackageReference Include="Xamarin.Forms" Version="4.3.0.778476-pre1" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
         <PackageReference Include="Xamarin.Essentials" Version="1.3.0" />
     </ItemGroup>
