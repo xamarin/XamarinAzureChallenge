@@ -60,65 +60,100 @@ After cloning the repository, we have 3 options to create and publish the Azure 
 
 ![start](https://user-images.githubusercontent.com/13558917/57552303-53960880-7320-11e9-958d-e44cf122bf6a.png)
 
-3. In the Publish window, select Azure Function -> Azure App Service -> Create a new profile.
+3. In the Publish window, select **Azure Function App** > **Create New** > **Create Profile**
 
 ![start](https://user-images.githubusercontent.com/13558917/57551949-3280e800-731f-11e9-9d19-4f17b6a9c967.png)
 
-3. Create and configure the App Service.
+4. In the **App Service Create New** window, input the following data:
+
+- **Name**: XamarinAzureChallenge-[Your Last Name]
+    - Note: The app name must be unique because it is used for the Azure Functions Url. This is why we'll append our Last Name.
+- **Subscription**: [Select your Azure subscription]
+- **Resource Group**: 
+    - **New...**
+        -  **New resource group name**: XamarinAzureChallenge
+- **Location**: [Select the Azure Datacenter closest to you]
+- **Azure Storage**: 
+    - **New...**
+        -  **Account name**: xamarinazurechallenge[Your Last Name]
+            - Note: The Azure Storage Name must be unique which is why we append our Last Name.
+        - **Location**: [Select the Azure Data Center closest to you]
+        - **Account type**: Standard - Locally Rendundant Storage
 
 ![start](https://user-images.githubusercontent.com/13558917/57551835-e5047b00-731e-11e9-8feb-26a586e6f3af.png)
 
-- **App Name**: Eg: MicrosoftXamarinChallengeFunctions
-- **Subscription**: Your Subscription name
-- **New Resource Group**: Eg: XamarinAzureChallengeFunctionsRG
-- **New Hosting Plan**: Eg: XamarinAzureChallengeFunctionsHostP
-- **Azure Storage**: Eg: xamazurechallengestore1
+4. In the **App Service Create New** window, click on **Create**
 
-4. Once you create or select the Resource Group, Hosting Plan and Storage Account click on **Create**.
-
-This action will take a few minutes.
-
-5. Make sure your resource group was created correctly in the [Azure Portal](http://portal.azure.com).
-
-![ensureAzure](https://user-images.githubusercontent.com/13558917/57552018-622ff000-731f-11e9-8405-12e4460f51a6.png)
-
-Now, every time you want to deploy your code to Azure, you will only need to click the **Publish** button.
-
-![publishButton](https://user-images.githubusercontent.com/13558917/57552287-46791980-7320-11e9-8a2e-95e8757168cc.png)
+5. Stand by while the Azure Function resource is created in Azure
 
 
 #### 2b. Use Azure Portal to create the Azure Function and Visual Studio to publish it
 
-1. Go to the [Azure Portal](http://portal.azure.com) and click on Create Resource. Enter Function App into the Search Bar.
+1. In your broser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
-![portalAzFunction1](https://user-images.githubusercontent.com/13558917/57552063-825faf00-731f-11e9-8d47-852fb07dc68c.png)
+2. In the **Azure Portal**, on the left-hand menu, click **+ Create a resource**
 
-2. Click Create:
+> Note: If the toolbar is collapsed, it will be shown as a green **+**
 
-![portalAzFunction2](https://user-images.githubusercontent.com/13558917/57552074-8f7c9e00-731f-11e9-8a41-252dfda29c5b.png)
+![Create new resource](https://user-images.githubusercontent.com/13558917/64928580-1a3e3f80-d7cf-11e9-84e7-01ecf565de81.png)
 
+3. In the **New** dashboard, in the search bar, type **functions**
 
-3. Name your Function App and choose your Azure Subscription. Configure or create a new the Resource Group, Location, and Storage Account.
+4. In the **New** dashboard, in the search bar tap the **[Enter]** key
 
-- **App Name**: Eg: MicrosoftXamarinChallengeFunctions
-- **Subscription**: Your Subscription name
-- **New Resource Group**: Eg: XamarinAzureChallengeFunctionsRG
-- **New Hosting Plan**: Eg: XamarinAzureChallengeFunctionsHostP
-- **Azure Storage**: Eg: xamazurechallengestore1
+![Marketplace Search Functions](https://user-images.githubusercontent.com/13558917/64928584-1d393000-d7cf-11e9-852d-fad28d656ae3.png)
 
-4. Go to Visual Studio and click on the Solution Explorer and select XamarinAzureChallenge.Functions project.
+5. On the **Marketplace** search results, click **Function App**
+
+![Function App](https://user-images.githubusercontent.com/13558917/64928586-1e6a5d00-d7cf-11e9-9334-08eabee77898.png)
+
+6. On the **Marketplace > Function App** window, select **Create** 
+
+![Create Functions App](https://user-images.githubusercontent.com/13558917/64928581-1ad6d600-d7cf-11e9-9805-829a665e5d88.png)
+
+7. On the **Function App Create** page, enter the following information:
+
+- **App name**: XamarinAzureChallenge-[Your Name]
+    - Note: The app name must be unique because it is used for the Azure Functions Url. This is why we'll append our name.
+- **Subscription**: [Select your Azure Subscription]
+- **Resource Group**:
+    - [x] **Create new**
+    - XamarinAzureChallenge
+- **Hosting Plan**: Consumption Plan
+- **Location**: [Select the Azure Datacenter closest to you]
+- **Runtime Stack**: .NET Core
+- **Storage**:
+    - [x] **Create new**
+    - xamarinazurechallenge[Your Name]
+        - Note: The Storage name must be unique, which is why we append our name
+
+7. On the **Function App Create** page, Click **Create**
+
+![Enter Functions App Data](https://user-images.githubusercontent.com/13558917/64928583-1ca09980-d7cf-11e9-83ad-df824d193d66.png)
+
+8. On the **Azure Portal**, at the top of the page, tap the notifications button which is shaped like a bell
+
+9. In the **Notifications** window, ensure it says **Deployment in progress...**
+
+![Deployment in progress](https://user-images.githubusercontent.com/13558917/64928694-ce4cc400-d7e9-11e9-8b87-c57a5695d6b2.png)
+
+10. Stand by until the deployment has suceeded
+
+~[Deployment Succeeded](https://user-images.githubusercontent.com/13558917/64928721-3b605980-d7ea-11e9-9996-89f7d0ff8ef1.png)
+
+11. Go to Visual Studio and click on the Solution Explorer and select XamarinAzureChallenge.Functions project.
 
 ![publish](https://user-images.githubusercontent.com/13558917/57552330-690b3280-7320-11e9-97e8-18531a238b5b.png)
 
- 5. On the project, right-click in **Publish**
+12. On the project, right-click in **Publish**
 
 ![start](https://user-images.githubusercontent.com/13558917/57552303-53960880-7320-11e9-958d-e44cf122bf6a.png)
 
-6. Select existing resource -> Publish
+13. Select existing resource -> Publish
 
 ![portal-publish](https://user-images.githubusercontent.com/13558917/57552081-96a3ac00-731f-11e9-91ae-6f72afecdf0a.png)
 
-7. In the App Service window, select the Azure Function that you created earlier, and click **OK**.
+14. In the App Service window, select the Azure Function that you created earlier, and click **OK**.
 
 ![portal-publish-2](https://user-images.githubusercontent.com/13558917/57552471-dd45d600-7320-11e9-9011-dabe786e8dcb.png)
 
