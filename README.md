@@ -4,37 +4,49 @@ Welcome to the Xamarin Azure Challenge! The goal of this challenge is to impleme
 
 ## Objectives
 
-1. Create and publish an Azure Function resource in Azure.
-2. Configure Xamarin Forms Application.
-3. Find and fix some code errors hidden in the source code.
-4. Submit your information through Xamarin Forms Application to the Azure Function to complete the challenge.
+1. Create and publish a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin)
+2. Add the Azure Function url to the [Xamarin.Forms](https://docs.microsoft.com/xamarin/xamarin-forms?WT.mc_id=xamarinazurechallenge-github-bramin) application
+3. Submit your entry from the Xamarin.Forms application to your Azure Function
 
-## Prerequisites
+## Task 0: Prerequisites
 
-* Azure Suscription. If you don't have an Azure Subscription you can get one with VS Dev Essentials and a personal Microsoft Account sign up in [Microsoft VS Dev Essentials Site](https://visualstudio.microsoft.com/dev-essentials?WT.mc_id=xamarinazurechallenge-github-bramin)) or you can sign up for a free [Azure trial](https://azure.microsoft.com/free?WT.mc_id=xamarinazurechallenge-github-bramin)).
-* Visual Studio 2019 + Xamarin. If you don't have Visual Studio 2019 installed in your machine with Xamarin you can follow [this steps](https://docs.microsoft.com/xamarin/get-started/installation?WT.mc_id=xamarinazurechallenge-github-bramin)).
+* Azure Suscription
+    * Sign up for a free [Azure trial](https://azure.microsoft.com/free?WT.mc_id=xamarinazurechallenge-github-bramin).
+* Visual Studio
+    * On PC, [follow these steps to install Visual Studio with Xamarin](https://docs.microsoft.com/xamarin/get-started/installation/windows?WT.mc_id=xamarinazurechallenge-github-bramin)
+    * On Mac, [follow these steps to install Visual Studio for Mac with Xamarin](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019&WT.mc_id=xamarinazurechallenge-github-bramin)
+
 
 ## Task 1: Create and publish an Azure Function resource in Azure
 
-### Clone repository
+### 1. Retrieve Source Code
 
-Ensure you are in the `master` branch, and then, [clone](https://git-scm.com/docs/git-clone) this repository in your computer. Run this command in your favorite terminal and change `<name-repository>` for the correct name.
+We have two options to retrieve the code for the Xamarin Azure Challenge:
+* Clone the repository
+* Download the source code
+
+### 1a. Clone the repository
+
+To [clone](https://git-scm.com/docs/git-clone) this repository, run this command in your favorite terminal:
 
 ``` bash
-git clone <name-repository>
+git clone https://github.com/xamarin/xamarinazurechallenge
 ```
 
-After you have cloned the repository, you have 3 options to create and publish your Azure Function.
+### 1b. Download Source Code
 
-1. Use Visual Studio to create and publish the Azure Function.
-2. Use Azure Portal to create the Azure Function and Visual Studio to publish it.
-3. Use Azure CLI to create and publish the Azure Function.
+To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
-You can also use the follwing Deploy to Azure button to create the resources.
+### 2. Create Azure Function
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?repository=https://github.com/xamarin/XamarinAzureChallenge/doc/deploy?WT.mc_id=xamarinazurechallenge-github-bramin)
+After cloning the repository, we have 3 options to create and publish the Azure Function:
 
-### <a name="Option1"></a> Option 1: Use Visual Studio to create and publish the Azure Function
+1. Use [Visual Studio](https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin) to create and [publish the Azure Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
+2. Use [Azure Portal to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) and [Visual Studio to publish it](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin)
+3. Use [Azure CLI to create and publish the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+
+
+#### 2a. Use Visual Studio to create and publish the Azure Function
 
 > As a prerequisite, you must have an Azure Subscription and be logged with this Microsoft account in your Visual Studio.
 
@@ -73,7 +85,7 @@ Now, every time you want to deploy your code to Azure, you will only need to cli
 ![publishButton](https://user-images.githubusercontent.com/13558917/57552287-46791980-7320-11e9-8a2e-95e8757168cc.png)
 
 
-### Option 2: Use Azure Portal to create the Azure Function and Visual Studio to publish it
+#### 2b. Use Azure Portal to create the Azure Function and Visual Studio to publish it
 
 1. Go to the [Azure Portal](http://portal.azure.com) and click on Create Resource. Enter Function App into the Search Bar.
 
@@ -110,19 +122,19 @@ Now, every time you want to deploy your code to Azure, you will only need to cli
 
 Visual Studio will publish your Azure Function. This action will take a few minutes.
 
-## Option 3: Use Azure CLI to create and publish your Azure Function. 
+### 2c. Use Azure CLI to create and publish your Azure Function. 
 
 > As a prerequisite, you must have installed [Azure Core Tools version 2.x](https://docs.microsoft.com/azure/azure-functions/functions-run-local?WT.mc_id=xamarinazurechallenge-github-bramin#v2) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)) or [Azure Cloud Shell](https://shell.azure.com/bash?WT.mc_id=xamarinazurechallenge-github-bramin).
 
 1. Login into Azure CLI
 
-```
+```bash
 az login
 ```
 
 2. Create a resource group.
 
-```
+```bash
 az group create --name XamarinAzureChallengeRG --location westeurope
 ```
 
@@ -130,7 +142,7 @@ If you have more than one subscription you will need to especify the subscriptio
 
 3. Create an Azure storage account
 
-```
+```bash
 az storage account create --name xamazurechallengestore1 --location westeurope --resource-group XamarinAzureChallengeRG2 --sku Standard_LRS --subscription bc6ccc1f-0744-4645-99f4-52b017e3b9ba
 ```
 
@@ -142,14 +154,14 @@ cd MyPath\src\XamarinAzureChallenge\XamarinAzureChallenge.Functions
 
 5. Create a function app
 
-```
+```bash
 az functionapp create --resource-group XamarinAzureChallengeRG2 --consumption-plan-location westeurope --name XamarinAzureChallengeFunctions --storage-account  xamazurechallengestore1 --runtime dotnet --subscription bc6ccc1f-0744-4645-99f4-52b017e3b9ba
 ```
 
 6.  Use this command to deploy the project to Azure.
 
 
-```
+```bash
 func azure functionapp publish XamarinAzureChallengeFunctions
 ```
 
