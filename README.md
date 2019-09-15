@@ -1,4 +1,4 @@
-# Xamarin - Azure Function Challenge - 2019
+# Xamarin Azure Challenge
 
 Welcome to the Xamarin Azure Challenge.
 
