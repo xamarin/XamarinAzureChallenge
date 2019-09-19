@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using XamarinAzureChallenge.Pages;
@@ -16,12 +15,12 @@ namespace XamarinAzureChallenge.ViewModels
         private const string endpoint = "Enter Your Function API Url Here";
         private readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
 
-        private User user;
+        private User user = new User();
+
         private bool isBusy;
 
         public UserDataViewModel()
         {
-            User = new User();
             SubmitCommand = new Command(async () => await SubmitCommmandExecute(User), () => !IsBusy);
             PrivacyStatementCommand = new Command(async () => await PrivacyStatementCommandExecute());
         }
