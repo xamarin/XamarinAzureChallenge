@@ -53,7 +53,7 @@ namespace XamarinAzureChallenge.ViewModels
             {
                 ImageResult = "resultOk";
                 TextResult = "Congratulations!";
-                TextDetailResult = "You have successfully submited the \n Challenge Form!";
+                TextDetailResult = "Success!\nChallenge Completed \nWe've received your submission and will send you a confirmation email shortly";
             }
             else
             {
