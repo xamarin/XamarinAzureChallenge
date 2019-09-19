@@ -192,30 +192,64 @@ az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-
 
 After creating the Azure Function, it's time to publish our code to the cloud. For this, we have two options:
 
-1. Use [Visual Studio to publish the Azure Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
-2. Use [Azure CLI to publish the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+1. Use [Visual Studio on PC to publish the Azure Function](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
+2. Use [Visual Studio for Mac to publish the Azure Function](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?WT.mc_id=xamarinazurechallenge-github-bramin)
+3. Use [Azure CLI to publish the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+
+
+### 3a. Use Visual Studio on PC
+
+1. In Visual Studio on PC, open `XamarinAzureChallenge.sln`
+
+2. In to Visual Studio, in the Solution Explorer, right-click on the `XamarinAzureChallenge.Functions` project
+
+2. In the right-click menu, select in **Publish**
+
+![publish](https://user-images.githubusercontent.com/13558917/65265720-82e33000-dadf-11e9-9a23-d910ac159790.png)
+
+4. In the **Pick a publish target** window, select the following: 
+
+- **Azure Functions Consumption Plan**
+- [x] **Create New**
+
+5. In the **Pick a publish target** window, select **Publish**
+
+![Pick a publish target](https://user-images.githubusercontent.com/13558917/65265726-84145d00-dadf-11e9-9c14-716aaf2e3f18.png)
 
 # TODO
 
-### 3a. Use Visual Studio
+6. In the **Create New** window, enter the following information:
+- **Name:** XamarinAzureChallenge-[Your Name]
+    -  **Note:** The Azure Function name must be unique, which is why we append our name
+- **Subscription:** [Select your Azure Subscription]
+- **Resource Group**
+    - **New**
+        - **New resource group name**: XamarinAzureChallenge
+        - **OK**
+- **Location:** [Select the Azure Data Center Closest To You]
+- **Azure Storage**
+    - **New**
+        - **Account Name:** xamarinazure[Your Name]
+            -  **Note:** The Azure Storage name must be unique, which is why we append our name
+        - **Location:** [Select the Azure Data Center Closest To You]
+        - **Account type:** Standard - Locally Redundant Storage
+        - **OK**
 
-1. Go to Visual Studio and click on the Solution Explorer and select XamarinAzureChallenge.Functions project.
+7. In the **Create New** window, click **Create** 
 
-![publish](https://user-images.githubusercontent.com/13558917/57552330-690b3280-7320-11e9-97e8-18531a238b5b.png)
+![Create New App Service](https://user-images.githubusercontent.com/13558917/65271517-52a18e80-daeb-11e9-8854-972bce47134e.png)
 
-2. On the project, right-click in **Publish**
+8. Standby while Visual Studio publishes our code to our Azure Function
 
-![start](https://user-images.githubusercontent.com/13558917/57552303-53960880-7320-11e9-958d-e44cf122bf6a.png)
+![Deploying](https://user-images.githubusercontent.com/13558917/65271519-533a2500-daeb-11e9-9a54-3a4b6afad613.png)
 
-4. Select existing resource -> Publish
+### 3c. Use Visual Studio for Mac
 
-![portal-publish](https://user-images.githubusercontent.com/13558917/57552081-96a3ac00-731f-11e9-91ae-6f72afecdf0a.png)
+1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
-4. In the App Service window, select the Azure Function that you created earlier, and click **OK**.
+2. 
 
-![portal-publish-2](https://user-images.githubusercontent.com/13558917/57552471-dd45d600-7320-11e9-9011-dabe786e8dcb.png)
-
-### 3b. Use Azure CLI
+### 3c. Use Azure CLI
 
 1. Open the terminal
   - [How to open the macOS Terminal](https://macpaw.com/how-to/use-terminal-on-mac)
