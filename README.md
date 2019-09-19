@@ -216,8 +216,6 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 ![Pick a publish target](https://user-images.githubusercontent.com/13558917/65265726-84145d00-dadf-11e9-9c14-716aaf2e3f18.png)
 
-# TODO
-
 6. In the **Create New** window, enter the following information:
 - **Name:** XamarinAzureChallenge-[Your Name]
     -  **Note:** The Azure Function name must be unique, which is why we append our name
@@ -247,7 +245,59 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
-2. 
+2. In Visual Studio for Mac, in the Solution Explorer, right-click on `XamarinAzureChallenge.Functions`
+
+3. In the **Publish to Azure App Service** window, select your Azure Account
+
+4. In the **Publish to Azure App Service** window, select **New**
+
+![Create New App Service](https://user-images.githubusercontent.com/13558917/65275675-276f6d00-daf4-11e9-9dac-3b23c50964cc.png)
+
+5. In the right-click menu, select **Publish** > **Publish to Azure...**
+
+![Publish to Azure](https://user-images.githubusercontent.com/13558917/65273393-1112e280-daef-11e9-9555-c3d47582ab18.png)
+
+5. In the **Create New App Service on Azure** window, enter the following information:
+
+- **App Service Name:** XamarinAzureChallenge-[Your Name]
+    -  **Note:** The Azure Function name must be unique, which is why we append our name
+- **Subscription:** [Select your Azure Subscription]
+- **Resource Group**
+    - Click the **+** symbol
+    - XamarinAzureChallenge
+- **Service Plan:** Custom
+- **Plan Name:** XamarinAzureChallenge
+- **Region:** [Select the Azure Data Center Closest to you]
+- **Pricing:** Consumption
+
+6. In the **Create New App Service on Azure** window, select **Next**
+
+![Create New App Service](https://user-images.githubusercontent.com/13558917/65274970-8f24b880-daf2-11e9-8715-4b5fb7d86746.png)
+
+7. In the **Configure Storage Account** window, enter the following information:
+
+- **Storage Account:** Custom
+- **Account Name** xamarinazure[Your Name]
+    -  **Note:** The Storage Account name must be unique, which is why we append our name
+- **Account Type** Standard - Locally Redundant Storage
+
+8. In the **Configure Storage Account** window, select **Create**
+
+![Configure Storage Account](https://user-images.githubusercontent.com/13558917/65274742-0c9bf900-daf2-11e9-90af-da04b5539d75.png)
+
+9. In the **Create Azure App Service** pop up, select **OK**
+
+![OK](https://user-images.githubusercontent.com/13558917/65279318-f135eb80-dafb-11e9-97d3-351a247348ee.png)
+
+10. In Visual Studio, in the menu bar, select **View** > **Pads** > **Azure**
+
+![Azure Pad](https://user-images.githubusercontent.com/13558917/65274737-0b6acc00-daf2-11e9-85bd-552ff9b01049.png)
+
+11. In Visual Studio, in the **Azure** pad, ensure the code is **Deploying...**
+
+![Deploying](https://user-images.githubusercontent.com/13558917/65274736-0ad23580-daf2-11e9-94e6-531d22f2e0d1.png)
+
+12. Stand by while Visual Studio for Mac publishes our code to our Azure Function
 
 ### 3c. Use Azure CLI
 
@@ -268,31 +318,43 @@ cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge\Xam
 func azure functionapp publish XamarinAzureChallenge-[Your Name]
 ```
 
+## Task 2: Configure the Xamarin App
 
-## Task 2: Configuring the Xamarin App
-
-### Retrieve Azure Function URL
+### 1. Retrieve Azure Function URL
 
 After publishing our Azure Function, we are ready to configure our Xamarin app with the Azure Function URL.
 
 1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
-# TODO
+2. In the Azure Portal, on the left-hand menu, select the cube-shaped **Resource Groups** icon
 
-2. Go the Azure Portal and navigate to your Azure Function App.
+![Resource Groups Icon](https://user-images.githubusercontent.com/13558917/65279226-bb910280-dafb-11e9-8691-68c08204a84e.png)
 
-2. Open the list of Functions and select SubmitChallengeFunction. On the right panel, go to Get function URL.
+3. In the **Resource Groups** window, in the filter box, enter `XamarinAzureChallenge`
 
-![AFEndpoint](https://user-images.githubusercontent.com/13558917/57551436-e97c6400-731d-11e9-8ac7-eb8ae884c69e.png)
+4. In the **Resource Groups** window, select the **XamarinAzureChallenge** Resource Group
 
-3. Copy the URL.
+![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279226-bb910280-dafb-11e9-8691-68c08204a84e.png)
 
-![AFEndpoint2](https://user-images.githubusercontent.com/13558917/57551471-f8631680-731d-11e9-9e39-8b7f50f56534.png)
+5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]**
 
-4. Open the solution *XamarinAzureChallenge.sln* and go to *UserDetailViewModel* class and paste the url in *Endpoint* variable:
+![Open Function App](https://user-images.githubusercontent.com/13558917/65279223-ba5fd580-dafb-11e9-8144-431d8cfad5f0.png)
 
-![ViewModel](https://blobstoragesampleapp.blob.core.windows.net/photos/BaseViewModel.png)
+6. In the **Function Apps** window, select **XamarinAzureChallenge** > **Functions** > **SubmitChallengeFunction**
 
+![Submit Challenge Function](https://user-images.githubusercontent.com/13558917/65279519-6b667000-dafc-11e9-8aa8-9db24dc02553.png)
+
+7. In the **SubmitChallengeFunction** window, select **Get function url**
+
+![Get function url](https://user-images.githubusercontent.com/13558917/65279218-b8961200-dafb-11e9-8634-f33db35197e7.png)
+
+8. In the **Get function url** window, select **Copy**
+
+![Copy](https://user-images.githubusercontent.com/13558917/65279215-b7fd7b80-dafb-11e9-9e2a-badb0f869cb2.png)
+
+### 2. Add the Azure Function URL to Xamarin App
+
+1. In Visual Studio, in the Solution Explorer, open 
 
 ## Task 3: Goal of this challenge
 
