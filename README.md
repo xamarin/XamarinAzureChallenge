@@ -233,7 +233,7 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 7. In the **Create New App Service on Azure** window, select **Next**
 
-![Create New App Service](https://user-images.githubusercontent.com/13558917/65274970-8f24b880-daf2-11e9-8715-4b5fb7d86746.png)
+![Create New App Service](https://user-images.githubusercontent.com/13558917/65282499-09f5cf80-db03-11e9-9cd5-0fe898ceb173.png)
 
 8. In the **Configure Storage Account** window, enter the following information:
 
