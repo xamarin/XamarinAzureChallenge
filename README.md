@@ -52,11 +52,9 @@ After cloning the repository, we have 3 options to create and publish the Azure 
 
 > Prior to this step, ensure you have a valid Azure Subscription and are [logged into Visual Studio using your Azure account](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&WT.mc_id=xamarinazurechallenge-github-bramin#how-to-sign-in-to-visual-studio)
 
-1. In Visual Studio go to the Solution Explorer and select XamarinAzureChallenge.Functions project.
+1. In Visual Studio, in the Solution Explorer, right-click on `Backend` > `Xamarin.AzureChallenge.Functions`
 
-![publish](https://user-images.githubusercontent.com/13558917/57552330-690b3280-7320-11e9-97e8-18531a238b5b.png)
-
- 2. On the project, right-click and select **Publish**.
+2. In the right-click menu, select **Publish**
 
 ![start](https://user-images.githubusercontent.com/13558917/57552303-53960880-7320-11e9-958d-e44cf122bf6a.png)
 
