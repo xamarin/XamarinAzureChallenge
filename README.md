@@ -354,21 +354,40 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 ### 2. Add the Azure Function URL to Xamarin App
 
-1. In Visual Studio, in the Solution Explorer, open 
+1. In Visual Studio, open `XamarinAzureChallenge.sln`
 
-## Task 3: Goal of this challenge
+2. In Visual Studio, in the Solution Explorer, open **Mobile** > **XamarinAzureChallenge** > **ViewModels** > **UserDataViewModel.cs**
 
-As you know, this code contains errors. Please find them and fix them to pass this challenge!
+3. In the UserDataViewModel editor, append `//` to the `#error` compiler directive:
 
-**Click [here](/doc/solution.md) to get the solution.**
+```csharp
+//#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
+```
 
-## Task 4: Submit your information through Xamarin Application 
+4. In the UserDataViewModel editor, add your Azure Function Url to `private const string endpoint`:
 
-The next step is to run the Xamarin Application and fill the form with your information. If you followed all the steps, your personal information will be sent to the Azure Function. The Azure Function will send to our internal API the data to participate in the challenge. 
+```csharp
+private const string endpoint = "[Enter your Azure Function URL]";
+```
 
-You can run the app in local using an emulator. You can find the instructions [here](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/debug-on-emulator?tabs=windows&WT.mc_id=xamarinazurechallenge-github-bramin).
+## Task 4: Run the Xamarin App
 
-In addition, you can run the app in a physical device. To setting up and configure your device you can follow [these instrucions](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/debug-on-device?tabs=windows&WT.mc_id=xamarinazurechallenge-github-bramin)
+
+1. In Visual Studio, in the Solution Explorer, right-click on `XamarinAzureChallenge.Android`
+
+> **Note:** To run the iOS app, right-click on `XamarinAzureChallenge.iOS`
+
+2. In the right-click menu, select **Set As Startup Project**
+
+![Set Startup Project](https://user-images.githubusercontent.com/13558917/65280449-5f7bad80-dafe-11e9-9333-687fbb827d32.png)
+
+3. In Visual Studio, at the top, select the arrow icon to build/deploy the app
+
+![Build/Deploy](https://user-images.githubusercontent.com/13558917/65280451-60acda80-dafe-11e9-96fa-64abd26309d5.png)
+
+4. Ensure the app launches on your mobile device
+
+5. Follow the 
 
 
 ## Next Steps

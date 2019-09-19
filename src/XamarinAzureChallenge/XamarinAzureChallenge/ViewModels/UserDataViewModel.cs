@@ -58,7 +58,7 @@ namespace XamarinAzureChallenge.ViewModels
 
                 if (areFieldsValid)
                 {
-                    var serializedUser = JsonConvert.SerializeObject(User);
+                    var serializedUser = JsonConvert.SerializeObject(submittedUser);
 
                     using (var content = new StringContent(serializedUser, Encoding.UTF8, "application/json"))
                     using (var response = await Client.PostAsync(endpoint, content))
