@@ -387,7 +387,13 @@ private const string endpoint = "[Enter your Azure Function URL]";
 
 4. Ensure the app launches on your mobile device
 
-5. Follow the 
+![Xamarin Azure Challenge App](https://user-images.githubusercontent.com/13558917/65280918-5d661e80-daff-11e9-87e6-006f7428175f.png)
+
+5. Follow the instructions on the mobile app to complete the Xamarin Azure Challenge
+
+6. Upon completing the challenge, ensure the success screen is displayed
+
+![Success](https://user-images.githubusercontent.com/13558917/65280916-5ccd8800-daff-11e9-93d7-dc824ec1ffae.png)
 
 
 ## Next Steps
@@ -396,7 +402,7 @@ Please, read the Terms and Conditions of this challenge to know more about the n
 
 ## Report an issue
 
-If you found an issue with this challenge, please open an issue in GitHub. 
+If you found an issue with this challenge, please open an issue in this GitHub repo
 
 ## Additional Resources
 
