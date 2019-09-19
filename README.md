@@ -43,49 +43,11 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 
 After cloning the repository, we have 3 options to create and publish the Azure Function:
 
-1. Use [Visual Studio to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-your-first-function-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin)
-2. Use [Azure Portal to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal)
-3. Use [Azure CLI to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+1. Use [Azure Portal to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal)
+2. Use [Azure CLI to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 
-#### 2a. Use Visual Studio
-
-> Prior to this step, ensure you have a valid Azure Subscription and are [logged into Visual Studio using your Azure account](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&WT.mc_id=xamarinazurechallenge-github-bramin#how-to-sign-in-to-visual-studio)
-
-1. In Visual Studio, in the Solution Explorer, right-click on `Backend` > `Xamarin.AzureChallenge.Functions`
-
-2. In the right-click menu, select **Publish**
-
-![start](https://user-images.githubusercontent.com/13558917/57552303-53960880-7320-11e9-958d-e44cf122bf6a.png)
-
-3. In the Publish window, select **Azure Function App** > **Create New** > **Create Profile**
-
-![start](https://user-images.githubusercontent.com/13558917/57551949-3280e800-731f-11e9-9d19-4f17b6a9c967.png)
-
-4. In the **App Service Create New** window, input the following data:
-
-- **Name**: XamarinAzureChallenge-[Your Last Name]
-    - Note: The app name must be unique because it is used for the Azure Functions Url. This is why we'll append our Last Name.
-- **Subscription**: [Select your Azure subscription]
-- **Resource Group**: 
-    - **New...**
-        -  **New resource group name**: XamarinAzureChallenge
-- **Location**: [Select the Azure Datacenter closest to you]
-- **Azure Storage**: 
-    - **New...**
-        -  **Account name**: xamarinazurechallenge[Your Last Name]
-            - Note: The Azure Storage Name must be unique which is why we append our Last Name.
-        - **Location**: [Select the Azure Data Center closest to you]
-        - **Account type**: Standard - Locally Rendundant Storage
-
-![start](https://user-images.githubusercontent.com/13558917/57551835-e5047b00-731e-11e9-8feb-26a586e6f3af.png)
-
-4. In the **App Service Create New** window, click on **Create**
-
-5. Stand by while the Azure Function resource is created in Azure
-
-
-#### 2b. Use Azure Portal
+#### 2a. Use Azure Portal
 
 1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
@@ -142,7 +104,7 @@ After cloning the repository, we have 3 options to create and publish the Azure 
 
 ![Deployment Succeeded](https://user-images.githubusercontent.com/13558917/64928721-3b605980-d7ea-11e9-9996-89f7d0ff8ef1.png)
 
-#### 2c. Use Azure CLI
+#### 2b. Use Azure CLI
 
 > As a prerequisite, you must install [Azure Core Tools version 2.x](https://docs.microsoft.com/azure/azure-functions/functions-run-local?WT.mc_id=xamarinazurechallenge-github-bramin#v2) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)) or [Azure Cloud Shell](https://shell.azure.com/bash?WT.mc_id=xamarinazurechallenge-github-bramin).
 
