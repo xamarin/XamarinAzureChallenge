@@ -53,7 +53,7 @@ After cloning the repository, we have 2 options to create and publish the Azure 
 
 2. In the **Azure Portal**, on the left-hand menu, click **+ Create a resource**
 
-> Note: If the toolbar is collapsed, it will be shown as a green **+**
+    > Note: If the toolbar is collapsed, it will be shown as a green **+**
 
 ![Create new resource](https://user-images.githubusercontent.com/13558917/64928580-1a3e3f80-d7cf-11e9-84e7-01ecf565de81.png)
 
@@ -125,7 +125,8 @@ az group create --name XamarinAzureChallenge --location westeurope
 ```
 
 > **Note:** If you have more than one subscription you will need to especify the subscription where the resource groups will be created with `--subscription [your Azure Subscription ID]`
-> - [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
+> 
+> [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 4. In the terminal, enter the following command to create a new Azure Storage Account:
 
@@ -262,8 +263,8 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 ### 3c. Use Azure CLI
 
 1. Open the terminal
-  - [How to open the macOS Terminal](https://macpaw.com/how-to/use-terminal-on-mac)
-  - [How to open the Windows Terminal](https://www.quora.com/How-do-I-open-terminal-in-windows)
+    - [How to open the macOS Terminal](https://macpaw.com/how-to/use-terminal-on-mac)
+    - [How to open the Windows Terminal](https://www.quora.com/How-do-I-open-terminal-in-windows)
 
 
 2. In the terminal, enter the following command to navigate to the project folder `XamarinAzureChallenge.Functions` project folder.
@@ -282,7 +283,7 @@ func azure functionapp publish XamarinAzureChallenge-[Your Name]
 
 ### 1. Retrieve Azure Function URL
 
-After publishing our Azure Function, we are ready to configure our Xamarin app with the Azure Function URL.
+After publishing our Azure Function, we are ready to configure our Xamarin app with our Azure Function's URL.
 
 1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
@@ -294,7 +295,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 4. In the **Resource Groups** window, select the **XamarinAzureChallenge** Resource Group
 
-![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279226-bb910280-dafb-11e9-8691-68c08204a84e.png)
+![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279225-baf86c00-dafb-11e9-9536-549e24b4ae24.png)
 
 5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]**
 
@@ -302,7 +303,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 6. In the **Function Apps** window, select **XamarinAzureChallenge** > **Functions** > **SubmitChallengeFunction**
 
-![Submit Challenge Function](https://user-images.githubusercontent.com/13558917/65279519-6b667000-dafc-11e9-8aa8-9db24dc02553.png)
+![Submit Challenge Function](https://user-images.githubusercontent.com/13558917/65282159-3a893980-db02-11e9-8331-57a34cfab44a.png)
 
 7. In the **SubmitChallengeFunction** window, select **Get function url**
 
@@ -318,13 +319,13 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 2. In Visual Studio, in the Solution Explorer, open **Mobile** > **XamarinAzureChallenge** > **ViewModels** > **UserDataViewModel.cs**
 
-3. In the UserDataViewModel editor, append `//` to the `#error` compiler directive:
+3. In the **UserDataViewModel** editor, append `//` to the `#error` compiler directive:
 
 ```csharp
 //#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
 ```
 
-4. In the UserDataViewModel editor, add your Azure Function Url to `private const string endpoint`:
+4. In the **UserDataViewModel** editor, paste your Azure Function Url to `private const string endpoint`:
 
 ```csharp
 private const string endpoint = "[Enter your Azure Function URL]";
@@ -335,7 +336,7 @@ private const string endpoint = "[Enter your Azure Function URL]";
 
 1. In Visual Studio, in the Solution Explorer, right-click on `XamarinAzureChallenge.Android`
 
-> **Note:** To run the iOS app, right-click on `XamarinAzureChallenge.iOS`
+    > **Note:** To run the iOS app, right-click on `XamarinAzureChallenge.iOS`
 
 2. In the right-click menu, select **Set As Startup Project**
 
