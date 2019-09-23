@@ -24,8 +24,8 @@ The goal is to create a serverless [Azure Function](https://azure.microsoft.com/
 ### 1. Retrieve Source Code
 
 We have two options to retrieve the code for the Xamarin Azure Challenge:
-* Clone the repository
-* Download the source code
+* [Clone the repository](#1a-clone-the-repository)
+* [Download the source code](#1b-download-source-code)
 
 #### 1a. Clone the repository
 
