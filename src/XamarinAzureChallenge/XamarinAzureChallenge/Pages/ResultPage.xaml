@@ -19,28 +19,17 @@
                 Aspect="AspectFill"
                 Source="backgroundImage.png" />
 
-            <Grid
+            <StackLayout
                 Padding="18,0,18,0"
-                AbsoluteLayout.LayoutBounds="0, 0.75,1,0.4"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 AbsoluteLayout.LayoutFlags="All"
-                HorizontalOptions="CenterAndExpand">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="3.5*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
 
                 <Image
-                    Grid.Row="0"
                     Source="{Binding ImageResult}" />
 
                 <Label
-                    Grid.Row="1"
                     FontSize="26"
                     HorizontalTextAlignment="Center"
                     Text="{Binding TextResult}"
@@ -48,7 +37,6 @@
 
                 <Label
                     VerticalOptions="FillAndExpand"
-                    Grid.Row="2"
                     Margin="5,0,5,60"
                     FontSize="16"
                     HorizontalTextAlignment="Center"
@@ -57,7 +45,6 @@
                     TextColor="White" />
 
                 <Button
-                    Grid.Row="3"
                     Padding="5"
                     Command="{Binding EditYourSubmissionCommand}"
                     HorizontalOptions="FillAndExpand"
@@ -65,7 +52,7 @@
                     Style="{StaticResource ButtonStyle}"
                     Text="Edit submission"
                     IsVisible="{Binding IsBackButtonVisible}"/>
-            </Grid>
+            </StackLayout>
         </AbsoluteLayout>
 
     </ContentPage.Content>
