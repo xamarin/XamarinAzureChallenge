@@ -9,8 +9,6 @@ The goal is to create a serverless [Azure Function](https://azure.microsoft.com/
 
 The challenge begins 23 September 2019, and ends at 2359 PT on 23 October 2019.
 
-The following prizes will be awarded:
-
 - Six (6) Grand Prizes:
   - Each winner will receive Microsoft Surface Headphones
 
