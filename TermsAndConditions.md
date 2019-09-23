@@ -28,7 +28,7 @@ If you are participating in your capacity as an employee, it is your sole respon
 
 No Purchase Necessary.  You will receive one entry by following these instructions successfully during the Entry Period.
 
-1.	Visit the official challenge site on [GitHub](https://github.com/xamarin/XamarinAzureChallenge) site at https://github.com/
+1.	Visit the official challenge site on [GitHub](https://github.com/xamarin/XamarinAzureChallenge) site at https://github.com/xamarin/XamarinAzureChallenge
 2.	Follow the instructions on the homepage to download (clone) the Sweepstakes code from the [GitHub repo](https://github.com/xamarin/XamarinAzureChallenge)
 3.	Follow instructions to open and deploy the Azure Function code and apply the necessary configuration changes
 4.	Follow instructions to build and run the Xamarin application on a mobile phone or a local emulator
