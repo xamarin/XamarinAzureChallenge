@@ -477,11 +477,6 @@ private const string endpoint = "[Enter your Azure Function URL]";
 
 ![Success](https://user-images.githubusercontent.com/13558917/65402551-543db180-dd8c-11e9-973c-fd42486fde82.png)
 
-
-## Next Steps
-
-Please, read the Terms and Conditions of this challenge to know more about the next steps. 
-
 ## Report an issue
 
 If you found an issue with this challenge, please open an issue in this GitHub repo
