@@ -46,7 +46,6 @@ namespace XamarinAzureChallenge.ViewModels
 
         private async Task SubmitCommmandExecute(User submittedUser)
         {
-
             IsBusy = true;
 
             try
