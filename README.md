@@ -279,7 +279,99 @@ cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge\Xam
 func azure functionapp publish XamarinAzureChallenge-[Your Name]
 ```
 
-## Task 2: Configure the Xamarin App
+## Task 2: Configure Azure Function
+
+Before our Azure Function can submit our entry for the XamarinAzureChallenge, we'll need to do configure a few items
+
+## 1. Add Submission Url to Environment Variables
+
+Azure Functions allow us to store Environment Variables in the cloud that we can retrieve from our code. In this step, we'll add the submission url as an Environment Variable.
+
+1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
+
+2. In the Azure Portal, on the left-hand menu, select the cube-shaped **Resource Groups** icon
+
+![Resource Groups Icon](https://user-images.githubusercontent.com/13558917/65279226-bb910280-dafb-11e9-8691-68c08204a84e.png)
+
+3. In the **Resource Groups** window, in the filter box, enter `XamarinAzureChallenge`
+
+4. In the **Resource Groups** window, select the **XamarinAzureChallenge** Resource Group
+
+![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279225-baf86c00-dafb-11e9-9536-549e24b4ae24.png)
+
+5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]**
+
+![Open Function App](https://user-images.githubusercontent.com/13558917/65279223-ba5fd580-dafb-11e9-8144-431d8cfad5f0.png)
+
+6. In the XamarinAzureChallenge Function, in the **Configured geatures** frame, select **Configuration**
+
+![Configuration](https://user-images.githubusercontent.com/13558917/65397032-a3beb600-dd69-11e9-9204-13e4f4cbd9c2.png)
+
+7. In the **Application Settings** window, select **+ New application setting** 
+
+![New Application Setting](https://user-images.githubusercontent.com/13558917/65397028-a3261f80-dd69-11e9-8ab0-347c39e6f612.png)
+
+8. In the **Add/Edit application setting** window, enter the following data:
+- **Name:** END_POINT
+- **Value:** https://xamarinazurechallenge-backend.azurewebsites.net/api/SubmitChallengeResult
+
+9. In the **Add/Edit application setting** window, select **OK**
+
+![Add/Edit Application Setting](https://user-images.githubusercontent.com/13558917/65397025-a28d8900-dd69-11e9-840b-f47ef8e6caef.png)
+
+10. In the **Add/Edit application setting** window, select the close button **X**
+
+![Close Application Settings](https://user-images.githubusercontent.com/13558917/65397205-6f4bf980-dd6b-11e9-917b-00fdeaaad0df.png)
+
+
+## 2. Enable Access Control (IAM)
+
+To ensure a valid submisison, the Function App will verify the Azure Subscription ID using [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity) & [Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#overview-of-access-control-iam?WT.mc_id=xamarinazurechallenge-github-bramin). Let's enable both.
+
+1. In the **XamarinAzureChallenge** window, select **Platform features**
+
+![Platform Features](https://user-images.githubusercontent.com/13558917/65397766-ff8c3d80-dd6f-11e9-98d4-c8640da32e37.png)
+
+2. In the **Platform features** window, select **Identity**
+
+![Identity](https://user-images.githubusercontent.com/13558917/65397882-db7d2c00-dd70-11e9-82a7-d1dfe8351574.png)
+
+3. In the **Identity** window, in the **System assigned** tab, set the **Status** to **On**
+
+4. In the **Identity** window, select **Save**
+
+![System assigned identity](https://user-images.githubusercontent.com/13558917/65397031-a3beb600-dd69-11e9-861d-0dcec591feae.png)
+
+5. In the confirmation popup, select **Yes**
+
+![Confirmation Popup](https://user-images.githubusercontent.com/13558917/65397020-a15c5c00-dd69-11e9-9145-84631d4386fc.png)
+
+6. In the **Identity** window, click the close button, **X**
+
+![Close Identity](https://user-images.githubusercontent.com/13558917/65397024-a28d8900-dd69-11e9-8080-a83a78429035.png)
+
+7. In the **Platform features** tab, select **Access control (IAM)**
+
+![IAM](https://user-images.githubusercontent.com/13558917/65398031-eedcc700-dd71-11e9-9610-ec28e148b58d.png)
+
+8. In the **Access Control** window, select **+Add** > **Add role assignment**
+
+![Add role assignment](https://user-images.githubusercontent.com/13558917/65397022-a1f4f280-dd69-11e9-93a3-7b9172cddff3.png)
+
+9. In the right-hand fly-out menu **Add role assignment**, make the following selections:
+- **Role:** Owner
+- **Assign Access to:** Azure AD user, group or service principal
+- **Select:** xamarinazurechallenge
+
+10. In the right-hand fly-out menu **Add role assignment**, select **XamarinAzureChallenge-[Your Name]**
+
+![Add role assignement, 1](https://user-images.githubusercontent.com/13558917/65398164-f486dc80-dd72-11e9-9e5c-8ce2b3672ccb.png)
+
+11. In the right-hand fly-out menu **Add role assignment**, select **Save**
+
+![Save role assignment](https://user-images.githubusercontent.com/13558917/65398260-6eb76100-dd73-11e9-894a-8bb75e93a406.png)
+
+## Task 3: Configure the Xamarin App
 
 ### 1. Retrieve Azure Function URL
 
@@ -330,34 +422,6 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 ```csharp
 private const string endpoint = "[Enter your Azure Function URL]";
 ```
-
-## Task 3: Configure Azure Function
-
-Before our Azure Function can submit our entry for the XamarinAzureChallenge, we'll need to do configure a few items
-
-## 1. Add Submission Url to Environment Variables
-
-Azure Functions allow us to store Environment Variables in the cloud that we can retrieve from our code. In this step, we'll add the submission url as an Environment Variable.
-
-1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
-
-2. In the Azure Portal, on the left-hand menu, select the cube-shaped **Resource Groups** icon
-
-![Resource Groups Icon](https://user-images.githubusercontent.com/13558917/65279226-bb910280-dafb-11e9-8691-68c08204a84e.png)
-
-3. In the **Resource Groups** window, in the filter box, enter `XamarinAzureChallenge`
-
-4. In the **Resource Groups** window, select the **XamarinAzureChallenge** Resource Group
-
-![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279225-baf86c00-dafb-11e9-9536-549e24b4ae24.png)
-
-5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]**
-
-![Open Function App](https://user-images.githubusercontent.com/13558917/65279223-ba5fd580-dafb-11e9-8144-431d8cfad5f0.png)
-
-6. In the XamarinAzureChallenge Function, 
-
-## 2. Enable Access Control (IAM)
 
 ## Task 4: Run the Xamarin App
 
