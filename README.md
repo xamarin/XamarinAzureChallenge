@@ -444,7 +444,7 @@ private const string endpoint = "[Enter your Azure Function URL]";
 
 6. Upon completing the challenge, ensure the success screen is displayed
 
-![Success](https://user-images.githubusercontent.com/13558917/65280916-5ccd8800-daff-11e9-93d7-dc824ec1ffae.png)
+![Success](https://user-images.githubusercontent.com/13558917/65402551-543db180-dd8c-11e9-973c-fd42486fde82.png)
 
 
 ## Next Steps
