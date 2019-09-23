@@ -11,11 +11,11 @@ The challenge begins 23 September 2019, and ends at 2359 PT on 23 October 2019.
 
 The following prizes will be awarded:
 
-- Six (6) Grand Prizes. 
-  - Microsoft Surface Headphones. Approximate Retail Value (ARV) $360.00.
+- Six (6) Grand Prizes:
+  - Each winner will receive Microsoft Surface Headphones
 
-- One Thousand (1,000) Grand Prizes. 
-  - Each winner will receive: A 3-month XBox Game Pass. Approximate Retail Value (ARV) $25.00.
+- One Thousand (1,000) Prizes:
+  - Each winner will receive a 3-month Xbox Game Pass
   
 Learn more about the challenge: https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md
 
