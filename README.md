@@ -1,8 +1,8 @@
 # Xamarin Azure Challenge
 
-Welcome to the Xamarin Azure Challenge.
+Welcome to the Xamarin Azure Challenge!
 
-The goal is to create an serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin) and connect it to a [Xamarin](https://dotnet.microsoft.com/apps/xamarin?WT.mc_id=xamarinazurechallenge-github-bramin) mobile app.
+The goal is to create a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin) and connect it to a [Xamarin](https://dotnet.microsoft.com/apps/xamarin?WT.mc_id=xamarinazurechallenge-github-bramin) mobile app.
 
 ### Challenge Objectives
 
@@ -43,8 +43,10 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 
 After cloning the repository, we have 2 options to create our Azure Function:
 
-- Use [Azure Portal to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal)
-- Use [Azure CLI to create the Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+- Use [Azure Portal to create the Azure Function](#2a-use-azure-portal)
+    - [Learn More](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal)
+- Use [Azure CLI to create the Azure Function](#2b-use-azure-cli)
+    - [Learn More](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 
 #### 2a. Use Azure Portal
@@ -74,7 +76,7 @@ After cloning the repository, we have 2 options to create our Azure Function:
 7. On the **Function App Create** page, enter the following information:
 
 - **App name**: XamarinAzureChallenge-[Your Name]
-    - Note: The app name must be unique because it is used for the Azure Functions Url which is why we append our name
+    - Note: Replace `[Your Name]` with your name to ensure the app name is unique 
     - In this example, I'm using "XamarinAzureChallenge-Brandon"
 - **Subscription**: [Select your Azure Subscription]
 - **Resource Group**:
@@ -87,7 +89,7 @@ After cloning the repository, we have 2 options to create our Azure Function:
 - **Storage**:
     - [x] **Create new**
     - xamarinazure[Your Name]
-        - Note: The Storage name must be unique, which is why we append our name
+        - Note: Replace `[Your Name]` with your name to ensure the storage name is unique
         - In this example, I'm using "xamarinazurebrandon"
 
 7. On the **Function App Create** page, Click **Create**
@@ -117,8 +119,11 @@ After cloning the repository, we have 2 options to create our Azure Function:
 ```bash
 az login
 ```
+> **Note:** Stand by until the Azure CLI opens your browser to the Azure Login page
 
-3. In the terminal, enter the following command to create a new Azure Resource Group:
+3. In the automatically-opened browser window, in the Azure Login page, log into your Azure Account
+
+4. In the terminal, enter the following command to create a new Azure Resource Group:
 
 ```bash
 az group create --name XamarinAzureChallenge --location westeurope
@@ -128,18 +133,26 @@ az group create --name XamarinAzureChallenge --location westeurope
 > 
 > [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
 
-4. In the terminal, enter the following command to create a new Azure Storage Account:
+5. In the terminal, enter the following command to create a new Azure Storage Account:
 
 ```bash
-az storage account create --name xamarinazure[Your Name] --location westeurope --resource-group XamarinAzureChallenge --sku Standard_LRS --subscription [Your Azure Subscription ID]
+az storage account create --name xamarinazure[Your Name] --location westeurope --resource-group XamarinAzureChallenge --sku Standard_LRS
 ```
-> Note: The storage name must be unique, which is why we append our name
+> **Note:** Replace `[Your Name]` with your name to ensure the storage name is unique
+> **Note:** If you have more than one subscription you will need to especify the subscription in which the resource group will be created using `--subscription [your Azure Subscription ID]`
+> 
+> [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
 
-5. In the terminal, enter the following command to create a function app:
+6. In the terminal, enter the following command to create a function app:
 
 ```bash
-az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-location westeurope --name XamarinAzureChallenge-[Your Name] --storage-account  xamarinazure[Your Name] --runtime dotnet --subscription [Your Azure Subscription ID]
+az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-location westeurope --name XamarinAzureChallenge-[Your Name] --storage-account  xamarinazure[Your Name] --runtime dotnet
 ```
+> **Note:** Replace `[Your Name]` with your name to ensure the functionapp name is unique 
+> **Note:** For `--storage-account`, use the storage account created in the previous step
+> **Note:** If you have more than one subscription you will need to especify the subscription in which the resource group will be created using `--subscription [your Azure Subscription ID]`
+> 
+> [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 > **Note:** The Azure Function name must be unique, which is why we append our name
 
@@ -147,9 +160,12 @@ az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-
 
 After creating the Azure Function, it's time to publish our code to the cloud. For this, we have two options:
 
-1. Use [Visual Studio on PC](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
-2. Use [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?WT.mc_id=xamarinazurechallenge-github-bramin)
-3. Use [Azure CLI](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
+1. Use [Visual Studio on PC](#3a-use-visual-studio-on-pc)
+    - [Learn More](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
+2. Use [Visual Studio for Mac](#3b-use-visual-studio-for-mac)
+    - [Learn More](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?WT.mc_id=xamarinazurechallenge-github-bramin)
+3. Use [Azure CLI](#3c-use-azure-cli)
+    - [Learn More](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
 
 ### 3a. Use Visual Studio on PC
@@ -173,7 +189,7 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 6. In the **Create New** window, enter the following information:
 - **Name:** XamarinAzureChallenge-[Your Name]
-    -  **Note:** The Azure Function name must be unique, which is why we append our name
+    - **Note:** Replace `[Your Name]` with your name to ensure the Azure Function name is unique 
     - In this example, I'm using "XamarinAzureChallenge-Brandon"
 - **Subscription:** [Select your Azure Subscription]
 - **Resource Group**
@@ -184,7 +200,7 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 - **Azure Storage**
     - **New**
         - **Account Name:** xamarinazure[Your Name]
-            -  **Note:** The Azure Storage name must be unique, which is why we append our name
+            - **Note:** Replace `[Your Name]` with your name to ensure the Azure Storage name is unique 
             - In this example, I'm using "xamarinazurebrandon"
         - **Location:** [Select the Azure Data Center Closest To You]
         - **Account type:** Standard - Locally Redundant Storage
@@ -217,7 +233,7 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 6. In the **Create New App Service on Azure** window, enter the following information:
 
 - **App Service Name:** XamarinAzureChallenge-[Your Name]
-    -  **Note:** The Azure Function name must be unique, which is why we append our name
+    - **Note:** Replace `[Your Name]` with your name to ensure the App Service Name is unique 
     - In this example, I'm using "XamarinAzureChallenge-Brandon"
 - **Subscription:** [Select your Azure Subscription]
 - **Resource Group**
@@ -236,7 +252,7 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 - **Storage Account:** Custom
 - **Account Name** xamarinazure[Your Name]
-    -  **Note:** The Storage Account name must be unique, which is why we append our name
+    - **Note:** Replace `[Your Name]` with your name to ensure the Storage Account Name is unique 
     - In this example, I'm using "xamarinazurebrandon"
 - **Account Type** Standard - Locally Redundant Storage
 
@@ -267,15 +283,17 @@ After creating the Azure Function, it's time to publish our code to the cloud. F
 
 2. In the terminal, enter the following command to navigate to the project folder `XamarinAzureChallenge.Functions` project folder.
 
-```bash
-cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge\XamarinAzureChallenge.Functions
-```
+- Windows
+    - `cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge\XamarinAzureChallenge.Functions`
+- macOS
+    - `cd [Your Path to XamarinAzureChallengeSource Code]/src/XamarinAzureChallenge/XamarinAzureChallenge.Functions`
 
 3.  In the terminal, enter the following command to publish our code to our Azure Function:
 
 ```bash
 func azure functionapp publish XamarinAzureChallenge-[Your Name]
 ```
+> **Note:** Replace `[Your Name]` with your name, using the same account name [created earlier](#2b-use-azure-cli)
 
 ## Task 2: Configure Azure Function
 
@@ -297,7 +315,7 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 ![XamarinAzureChallenge Resource Group](https://user-images.githubusercontent.com/13558917/65279225-baf86c00-dafb-11e9-9536-549e24b4ae24.png)
 
-5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]**
+5. In the **XamarinAzureChallenge Resource Group**, select the function app **XamarinAzureChallenge-[Your Name]** 
 
 ![Open Function App](https://user-images.githubusercontent.com/13558917/65279223-ba5fd580-dafb-11e9-8144-431d8cfad5f0.png)
 
@@ -317,7 +335,15 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 ![Add/Edit Application Setting](https://user-images.githubusercontent.com/13558917/65397025-a28d8900-dd69-11e9-840b-f47ef8e6caef.png)
 
-10. In the **Add/Edit application setting** window, select the close button, **X**
+10. In the **Add/Edit application setting** window, select the **Save**
+
+![Save Application Settings](https://user-images.githubusercontent.com/13558917/65440738-0c477a80-ddde-11e9-81b2-9c1f5f4bb4cb.png)
+
+11. Stand by while the settings are saved
+
+![Updating App Settings(https://user-images.githubusercontent.com/13558917/65441097-aefff900-ddde-11e9-9456-e638a77efc5c.png)]
+
+12. In the **Add/Edit application setting** window, select the close button, **X**
 
 ![Close Application Settings](https://user-images.githubusercontent.com/13558917/65399076-f3a47980-dd77-11e9-9e21-e1d3abda31ad.jpg)
 
@@ -342,30 +368,34 @@ To ensure a valid submisison, the Function App will verify the Azure Subscriptio
 
 5. In the confirmation popup, select **Yes**
 
-![Confirmation Popup](https://user-images.githubusercontent.com/13558917/65397020-a15c5c00-dd69-11e9-9145-84631d4386fc.png)
+![Confirmation Popup](https://user-images.githubusercontent.com/13558917/65441499-5715c200-dddf-11e9-9197-cff7268879a9.png)
 
-6. In the **Identity** window, click the close button, **X**
+6. Stand by while System Assigned Identity is enabled
+
+![Enable Identity](https://user-images.githubusercontent.com/13558917/65441491-541ad180-dddf-11e9-9646-ced9576f9178.png)
+
+7. In the **Identity** window, click the close button, **X**
 
 ![Close Identity](https://user-images.githubusercontent.com/13558917/65397024-a28d8900-dd69-11e9-8080-a83a78429035.png)
 
-7. In the **Platform features** tab, select **Access control (IAM)**
+8. In the **Platform features** tab, select **Access control (IAM)**
 
 ![IAM](https://user-images.githubusercontent.com/13558917/65398031-eedcc700-dd71-11e9-9610-ec28e148b58d.png)
 
-8. In the **Access Control** window, select **+Add** > **Add role assignment**
+9. In the **Access Control** window, select **+Add** > **Add role assignment**
 
 ![Add role assignment](https://user-images.githubusercontent.com/13558917/65397022-a1f4f280-dd69-11e9-93a3-7b9172cddff3.png)
 
-9. In the right-hand fly-out menu **Add role assignment**, make the following selections:
+10. In the right-hand fly-out menu **Add role assignment**, make the following selections:
 - **Role:** Owner
 - **Assign Access to:** Azure AD user, group or service principal
 - **Select:** xamarinazurechallenge
 
-10. In the right-hand fly-out menu **Add role assignment**, select **XamarinAzureChallenge-[Your Name]**
+11. In the right-hand fly-out menu **Add role assignment**, select **XamarinAzureChallenge-[Your Name]**
 
 ![Add role assignement, 1](https://user-images.githubusercontent.com/13558917/65398164-f486dc80-dd72-11e9-9e5c-8ce2b3672ccb.png)
 
-11. In the right-hand fly-out menu **Add role assignment**, select **Save**
+12. In the right-hand fly-out menu **Add role assignment**, select **Save**
 
 ![Save role assignment](https://user-images.githubusercontent.com/13558917/65398260-6eb76100-dd73-11e9-894a-8bb75e93a406.png)
 
@@ -420,6 +450,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 ```csharp
 private const string endpoint = "[Enter your Azure Function URL]";
 ```
+> **Note:** Replace `[Enter your Azure Function URL]` with the [URL retrieved in the previous step](#1-retrieve-azure-function-url)
 
 ## Task 4: Run the Xamarin App
 
