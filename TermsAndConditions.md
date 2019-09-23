@@ -52,7 +52,7 @@ Winners will be notified via the contact information provided during entry no mo
 The following prizes will be awarded: 
 
 **Six (6) Grand Prize (s)**. Each winner will receive:
-A Microsoft store promotional gift card*. Approximate Retail Value (ARV) $500.00.
+Microsoft Surface Headphones*. Approximate Retail Value (ARV) $360.00.
 
 **One Thousand (1,000) Grand Prize (s)**. Each winner will receive:
 A 3-month XBox Game Pass. Approximate Retail Value (ARV) $25.00.
