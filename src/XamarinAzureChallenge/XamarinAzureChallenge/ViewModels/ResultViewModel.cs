@@ -52,8 +52,8 @@ namespace XamarinAzureChallenge.ViewModels
             if (responseMessage.IsSuccessStatusCode)
             {
                 ImageResult = "resultOk";
-                TextResult = "Congratulations!";
-                TextDetailResult = "Success!\nChallenge Completed \nWe've received your submission and will send you a confirmation email shortly";
+                TextResult = "Challenge Completed!";
+                TextDetailResult = "We've received your submission and will send you a confirmation email shortly.";
             }
             else
             {
