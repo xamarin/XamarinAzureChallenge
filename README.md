@@ -92,17 +92,17 @@ After cloning the repository, we have 2 options to create our Azure Function:
         - Note: Replace `[Your Name]` with your name to ensure the storage name is unique
         - In this example, I'm using "xamarinazurebrandon"
 
-7. On the **Function App Create** page, Click **Create**
+8. On the **Function App Create** page, Click **Create**
 
 ![Enter Functions App Data](https://user-images.githubusercontent.com/13558917/64928583-1ca09980-d7cf-11e9-83ad-df824d193d66.png)
 
-8. On the **Azure Portal**, at the top of the page, tap the notifications button which is shaped like a bell
+9. On the **Azure Portal**, at the top of the page, tap the notifications button which is shaped like a bell
 
-9. In the **Notifications** window, ensure it says **Deployment in progress...**
+10. In the **Notifications** window, ensure it says **Deployment in progress...**
 
 ![Deployment in progress](https://user-images.githubusercontent.com/13558917/64928694-ce4cc400-d7e9-11e9-8b87-c57a5695d6b2.png)
 
-10. Stand by until the deployment has suceeded
+11. Stand by until the deployment has suceeded
 
 ![Deployment Succeeded](https://user-images.githubusercontent.com/13558917/64928721-3b605980-d7ea-11e9-9996-89f7d0ff8ef1.png)
 
