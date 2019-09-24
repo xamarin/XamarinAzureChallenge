@@ -146,7 +146,7 @@
                        Text="Phone*" />
                 <Entry Grid.Row="8"
                        Grid.ColumnSpan="2"
-                       Keyboard="Numeric"
+                       Keyboard="Telephone"
                        Placeholder="+1 1234567890"
                        Style="{StaticResource EntryStyle}"
                        Text="{Binding User.Phone}" />
