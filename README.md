@@ -53,7 +53,7 @@ git clone https://github.com/xamarin/XamarinAzureChallenge.git
 
 To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
-**Make sure the path to the extracted solution is not too nested (long), otherwise you might get errors during the publishing of the Azure Function**
+> **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\Code\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
 
 ### 2. Publish Azure Function
 
