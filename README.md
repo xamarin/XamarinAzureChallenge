@@ -427,7 +427,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 2. In Visual Studio, in the Solution Explorer, open **Mobile** > **XamarinAzureChallenge** > **ViewModels** > **UserDataViewModel.cs**
 
-3. In the **UserDataViewModel** editor, comment out the `#error` compiler directive:
+3. In the **UserDataViewModel** editor, comment out the `#error` compiler directive by prepending `//`:
 
 ```csharp
 //#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
