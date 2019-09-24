@@ -128,13 +128,21 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 ![Create New App Service](https://user-images.githubusercontent.com/13558917/65271517-52a18e80-daeb-11e9-8854-972bce47134e.png)
 
-12. Standby while Visual Studio publishes our code to our Azure Function
+12. Standby while Visual Studio creates our Azure Function resources
 
 ![Deploying](https://user-images.githubusercontent.com/13558917/65271519-533a2500-daeb-11e9-9a54-3a4b6afad613.png)
 
-13. In the **Publish** window, select **Publish**
+13. In the **Publish** window, to push our code to the newly created Azure Function, select **Publish**
 
 ![Publish](https://user-images.githubusercontent.com/13558917/65555679-24082700-dee2-11e9-9bcb-746b9f03470b.png)
+
+14. In the **Visual Studio Toolbar**, select **View** > **Output**
+
+![Output](https://user-images.githubusercontent.com/13558917/65556074-3afb4900-dee3-11e9-8b64-e41bf4e2a8f2.png)
+
+15. In the **Output** window, ensure it says `Publish: 1 succeeded`
+
+![Publish Succeeded](https://user-images.githubusercontent.com/13558917/65556072-3a62b280-dee3-11e9-982a-9e313b2ac34d.png)
 
 #### 2b. Use Visual Studio for Mac
 
