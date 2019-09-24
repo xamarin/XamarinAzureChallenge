@@ -304,7 +304,7 @@ To ensure a valid submisison, the Function App will verify the Azure Subscriptio
 
 4. In the **Identity** window, select **Save**
 
-![System assigned identity](https://user-images.githubusercontent.com/13558917/65397031-a3beb600-dd69-11e9-861d-0dcec591feae.png)
+![System assigned identity](https://user-images.githubusercontent.com/13558917/65441645-9b08c700-dddf-11e9-9e30-6f23f171eac8.png)
 
 5. In the confirmation popup, select **Yes**
 
