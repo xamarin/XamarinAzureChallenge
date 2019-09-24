@@ -237,7 +237,7 @@ func azure functionapp publish XamarinAzureChallenge-[Your Name]
 
 ## Task 2: Configure Azure Function
 
-Before our Azure Function can submit our entry for the XamarinAzureChallenge, we'll need to do configure a few items.
+Before our Azure Function can submit our entry for the XamarinAzureChallenge, we'll need to configure a few items.
 
 ## 1. Add Submission Url to Environment Variables
 
