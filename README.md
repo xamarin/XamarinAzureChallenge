@@ -68,22 +68,42 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 1. In Visual Studio on PC, open `XamarinAzureChallenge.sln`
 
-2. In Visual Studio, in the **Solution Explorer**, right-click on **Backend** >  **XamarinAzureChallenge.Functions**
+2. In Visual Studio, in the top toolbar, select **File** > **Account Settings...**
 
-2. In the right-click menu, select in **Publish**
+![Account Settings...](https://user-images.githubusercontent.com/13558917/65535259-eab9c200-deb5-11e9-823c-17d4f49769bc.png)
+
+3. In the **Account Settings** window, select **Add an account...***
+
+> **Note:** If your Azure account is already visible, you may skip this step
+
+![Add an account](https://user-images.githubusercontent.com/13558917/65535258-ea212b80-deb5-11e9-84a8-c2c722f6b64a.png)
+
+4. In the **Sign in to your account** pop-up, log in to your Azure account
+
+> **Note:** If your Azure account was already visible, you may skip this step
+
+![Sign in to your account](https://user-images.githubusercontent.com/13558917/65535257-ea212b80-deb5-11e9-9ad6-a33bfea6b534.png)
+
+5. In the **Account Settings** window, select **Close**
+
+![Close](https://user-images.githubusercontent.com/13558917/65535255-ea212b80-deb5-11e9-9748-6e646c032028.png)
+
+6. In Visual Studio, in the **Solution Explorer**, right-click on **Backend** >  **XamarinAzureChallenge.Functions**
+
+7. In the right-click menu, select in **Publish**
 
 ![publish](https://user-images.githubusercontent.com/13558917/65265720-82e33000-dadf-11e9-9a23-d910ac159790.png)
 
-4. In the **Pick a publish target** window, select the following: 
+8. In the **Pick a publish target** window, select the following: 
 
 - **Azure Functions Consumption Plan**
     - [x] **Create New**
 
-5. In the **Pick a publish target** window, select **Publish**
+9. In the **Pick a publish target** window, select **Publish**
 
 ![Pick a publish target](https://user-images.githubusercontent.com/13558917/65265726-84145d00-dadf-11e9-9c14-716aaf2e3f18.png)
 
-6. In the **Create New** window, enter the following information:
+10. In the **Create New** window, enter the following information:
 - **Name:** XamarinAzureChallenge-[Your Name]
     - **Note:** Replace `[Your Name]` with your name to ensure the Azure Function name is unique 
     - In this example, I'm using "XamarinAzureChallenge-Brandon"
@@ -102,11 +122,11 @@ After cloning the repository, we have 3 options to create our Azure Function:
         - **Account type:** Standard - Locally Redundant Storage
         - **OK**
 
-7. In the **Create New** window, click **Create** 
+11. In the **Create New** window, click **Create** 
 
 ![Create New App Service](https://user-images.githubusercontent.com/13558917/65271517-52a18e80-daeb-11e9-8854-972bce47134e.png)
 
-8. Standby while Visual Studio publishes our code to our Azure Function
+12. Standby while Visual Studio publishes our code to our Azure Function
 
 ![Deploying](https://user-images.githubusercontent.com/13558917/65271519-533a2500-daeb-11e9-9a54-3a4b6afad613.png)
 
@@ -114,7 +134,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
-2. In the **Apple Menu Bar**, select **Visual Studio** > **Accounts...**
+2. In the **Apple Menu Bar**, select **Visual Studio** > **Account...**
 
 ![Visual Studio Accounts](https://user-images.githubusercontent.com/13558917/65533492-94974f80-deb2-11e9-9ea1-045ec4b2aa0a.png)
 
@@ -126,9 +146,10 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 4. In the  **Sign in to your account** pop-up, sign into your Azure account
 
+> **Note:** If your Azure account was already visible, you may skip this step
+
 ![Sign in to your account](https://user-images.githubusercontent.com/13558917/65533966-7b42d300-deb3-11e9-87bc-d0820f879ec5.png)
 
-> **Note:** If your Azure account was already visible, you may skip this step
 
 5. After logging into your Azure Account, in the **Account** window, select the red close button, **X**
 
