@@ -58,7 +58,7 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 After cloning the repository, we have 3 options to create our Azure Function:
 
 1. Use [Visual Studio on PC](#2a-use-visual-studio-on-pc)
-    - [Learn More](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin).
+    - [Learn More](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin)
 2. Use [Visual Studio for Mac](#2b-use-visual-studio-for-mac)
     - [Learn More](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?WT.mc_id=xamarinazurechallenge-github-bramin)
 3. Use [Azure CLI](#2c-use-azure-cli)
