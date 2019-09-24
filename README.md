@@ -64,7 +64,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 3. Use [Azure CLI](#2c-use-azure-cli)
     - [Learn More](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
-### 2a. Use Visual Studio on PC
+#### 2a. Use Visual Studio on PC
 
 1. In Visual Studio on PC, open `XamarinAzureChallenge.sln`
 
@@ -130,7 +130,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 ![Deploying](https://user-images.githubusercontent.com/13558917/65271519-533a2500-daeb-11e9-9a54-3a4b6afad613.png)
 
-### 2b. Use Visual Studio for Mac
+#### 2b. Use Visual Studio for Mac
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
@@ -441,7 +441,6 @@ private const string endpoint = "[Enter your Azure Function URL]";
 > **Note:** Replace `[Enter your Azure Function URL]` with the [URL retrieved in the previous step](#1-retrieve-azure-function-url)
 
 ## Task 4: Run the Xamarin App
-
 
 1. In Visual Studio, in the Solution Explorer, right-click on `XamarinAzureChallenge.Android`
 
