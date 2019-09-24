@@ -114,19 +114,39 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
-2. In Visual Studio for Mac, in the **Solution Explorer**, right-click on **Backend** > **XamarinAzureChallenge.Functions**
+2. In the **Apple Menu Bar**, select **Visual Studio** > **Accounts...**
 
-3. In the right-click menu, select **Publish** > **Publish to Azure...**
+![Visual Studio Accounts](https://user-images.githubusercontent.com/13558917/65533492-94974f80-deb2-11e9-9ea1-045ec4b2aa0a.png)
+
+3. In the **Account** window, click **Add...**
+
+> **Note:** If your Azure account is already visible, you may skip this step
+
+![Add Account](https://user-images.githubusercontent.com/13558917/65533509-9e20b780-deb2-11e9-888c-cffb8ef6c48b.png)
+
+4. In the  **Sign in to your account** pop-up, sign into your Azure account
+
+![Sign in to your account](https://user-images.githubusercontent.com/13558917/65533966-7b42d300-deb3-11e9-87bc-d0820f879ec5.png)
+
+> **Note:** If your Azure account was already visible, you may skip this step
+
+5. After logging into your Azure Account, in the **Account** window, select the red close button, **X**
+
+![Close Accounts](https://user-images.githubusercontent.com/13558917/65534155-c1983200-deb3-11e9-99de-b9e0b5049f75.png)
+
+6. In Visual Studio for Mac, in the **Solution Explorer**, right-click on **Backend** > **XamarinAzureChallenge.Functions**
+
+7. In the right-click menu, select **Publish** > **Publish to Azure...**
 
 ![Publish to Azure](https://user-images.githubusercontent.com/13558917/65273393-1112e280-daef-11e9-9555-c3d47582ab18.png)
 
-4. In the **Publish to Azure App Service** window, select your Azure Account
+8. In the **Publish to Azure App Service** window, select your Azure Account
 
-5. In the **Publish to Azure App Service** window, select **New**
+9. In the **Publish to Azure App Service** window, select **New**
 
 ![Create New App Service](https://user-images.githubusercontent.com/13558917/65275675-276f6d00-daf4-11e9-9dac-3b23c50964cc.png)
 
-6. In the **Create New App Service on Azure** window, enter the following information:
+10. In the **Create New App Service on Azure** window, enter the following information:
 
 - **App Service Name:** XamarinAzureChallenge-[Your Name]
     - **Note:** Replace `[Your Name]` with your name to ensure the App Service Name is unique 
@@ -141,11 +161,11 @@ After cloning the repository, we have 3 options to create our Azure Function:
 - **Region:** [Select the Azure Data Center Closest to you]
 - **Pricing:** Consumption
 
-7. In the **Create New App Service on Azure** window, select **Next**
+11. In the **Create New App Service on Azure** window, select **Next**
 
 ![Create New App Service](https://user-images.githubusercontent.com/13558917/65282499-09f5cf80-db03-11e9-9cd5-0fe898ceb173.png)
 
-8. In the **Configure Storage Account** window, enter the following information:
+12. In the **Configure Storage Account** window, enter the following information:
 
 - **Storage Account:** 
     - [x] Custom
@@ -154,23 +174,23 @@ After cloning the repository, we have 3 options to create our Azure Function:
     - In this example, I'm using "xamarinazurebrandon"
 - **Account Type:** Standard - Locally Redundant Storage
 
-9. In the **Configure Storage Account** window, select **Create**
+13. In the **Configure Storage Account** window, select **Create**
 
 ![Configure Storage Account](https://user-images.githubusercontent.com/13558917/65274742-0c9bf900-daf2-11e9-90af-da04b5539d75.png)
 
-10. In the **Create Azure App Service** pop up, select **OK**
+14. In the **Create Azure App Service** pop up, select **OK**
 
 ![OK](https://user-images.githubusercontent.com/13558917/65279318-f135eb80-dafb-11e9-97d3-351a247348ee.png)
 
-11. In Visual Studio, in the menu bar, select **View** > **Pads** > **Azure**
+15. In Visual Studio, in the menu bar, select **View** > **Pads** > **Azure**
 
 ![Azure Pad](https://user-images.githubusercontent.com/13558917/65274737-0b6acc00-daf2-11e9-85bd-552ff9b01049.png)
 
-12. In Visual Studio, in the **Azure** pad, ensure the code is **Deploying...**
+16. In Visual Studio, in the **Azure** pad, ensure the code is **Deploying...**
 
 ![Deploying](https://user-images.githubusercontent.com/13558917/65274736-0ad23580-daf2-11e9-94e6-531d22f2e0d1.png)
 
-13. Stand by while Visual Studio for Mac publishes our code to our Azure Function
+17. Stand by while Visual Studio for Mac publishes our code to our Azure Function
 
 #### 2c. Use Azure CLI
 
