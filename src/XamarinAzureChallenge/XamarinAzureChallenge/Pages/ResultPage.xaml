@@ -20,6 +20,7 @@
                 Source="backgroundImage.png" />
 
             <StackLayout
+                Spacing="15"
                 Padding="18,0,18,0"
                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                 AbsoluteLayout.LayoutFlags="All"
