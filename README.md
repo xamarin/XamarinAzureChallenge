@@ -246,7 +246,7 @@ func azure functionapp publish XamarinAzureChallenge-[Your Name]
 
 Before our Azure Function can submit our entry for the XamarinAzureChallenge, we'll need to configure a few items.
 
-## 1. Add Submission Url to Environment Variables
+### 1. Add Submission Url to Environment Variables
 
 Azure Functions allow us to store Environment Variables in the cloud that our Functions app can retrieve at runtime. In this step, we'll add the submission url as an Environment Variable.
 
@@ -295,7 +295,7 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 ![Close Application Settings](https://user-images.githubusercontent.com/13558917/65399076-f3a47980-dd77-11e9-9e21-e1d3abda31ad.jpg)
 
 
-## 2. Enable Access Control (IAM)
+### 2. Enable Access Control (IAM)
 
 To ensure a valid submisison, the Function App will verify the Azure Subscription ID using [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity) & [Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#overview-of-access-control-iam?WT.mc_id=xamarinazurechallenge-github-bramin). Let's enable both.
 
