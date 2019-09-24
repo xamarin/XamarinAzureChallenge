@@ -4,6 +4,20 @@ Welcome to the Xamarin Azure Challenge!
 
 The goal is to create a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin) and connect it to a [Xamarin](https://dotnet.microsoft.com/apps/xamarin?WT.mc_id=xamarinazurechallenge-github-bramin) mobile app.
 
+
+### Challenge Info
+
+The challenge begins 23 September 2019, and ends at 2359 PT on 23 October 2019.
+
+- Six (6) Grand Prizes:
+  - Each winner will receive Microsoft Surface Headphones
+
+- One Thousand (1,000) Prizes:
+  - Each winner will receive a 3-month Xbox Game Pass
+  
+Learn more about the challenge: https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md
+
+
 ### Challenge Objectives
 
 1. Create and publish a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin)

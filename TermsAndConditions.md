@@ -52,14 +52,12 @@ Winners will be notified via the contact information provided during entry no mo
 The following prizes will be awarded: 
 
 **Six (6) Grand Prize (s)**. Each winner will receive:
-A Microsoft store promotional gift card*. Approximate Retail Value (ARV) $500.00.
+Microsoft Surface Headphones*. Approximate Retail Value (ARV) $360.00.
 
 **One Thousand (1,000) Grand Prize (s)**. Each winner will receive:
 A 3-month XBox Game Pass. Approximate Retail Value (ARV) $25.00.
 
-The ARV of electronic prizes is subject to price fluctuations in the consumer marketplace based on, among other things, any gap in time between the date the ARV is estimated for purposes of these Official Rules and the date the prize is awarded or redeemed. We will determine the value of the prize to be the fair market value at the time of prize award.
-
-* Valid in U.S. only. Promotional gift card. Must redeem by July 31, 2019 and spend within 90 days of redemption. Works with Microsoft Store online, Windows 10, Xbox One and Xbox 360 (Xbox Live required). Does not work at physical Microsoft Store. Once redeemed to your U.S. Microsoft account, the full code value will be applied and may be used for eligible purchases (exclusions apply) made directly at select Microsoft digital stores. Eligible purchases and prices vary by region, device, and over time. Geography limitations, country and balance restrictions, taxes, and Internet connection fees may apply. Paid subscriptions required for some content. Age restrictions apply. Except as required by law, credit cannot be redeemed or exchanged for cash and is not refundable. To read full terms and conditions (which may change without notice), go to microsoft.com/cardterms. Void where prohibited or restricted by law. Cards and codes issued by and ©/™/® Microsoft Corp, a Washington Corporation, and/or its affiliates. 
+The ARV of electronic prizes is subject to price fluctuations in the consumer marketplace based on, among other things, any gap in time between the date the ARV is estimated for purposes of these Official Rules and the date the prize is awarded or redeemed. We will determine the value of the prize to be the fair market value at the time of prize award. 
 
 The total Approximate Retail Value (ARV) of all prizes: $28,000
 
