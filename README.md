@@ -355,7 +355,7 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 11. Stand by while the settings are saved
 
-![Updating App Settings(https://user-images.githubusercontent.com/13558917/65441097-aefff900-ddde-11e9-9456-e638a77efc5c.png)]
+![Updating App Settings](https://user-images.githubusercontent.com/13558917/65441097-aefff900-ddde-11e9-9456-e638a77efc5c.png)
 
 12. In the **Add/Edit application setting** window, select the close button, **X**
 
