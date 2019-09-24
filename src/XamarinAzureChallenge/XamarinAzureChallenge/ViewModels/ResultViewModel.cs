@@ -45,7 +45,7 @@ namespace XamarinAzureChallenge.ViewModels
 
         private Task EditYourSubmissionCommandExecute() => NavigateBack();
 
-        async void HandleHttpResponseMessage(HttpResponseMessage responseMessage)
+        private async void HandleHttpResponseMessage(HttpResponseMessage responseMessage)
         {
             IsBackButtonVisible = !responseMessage.IsSuccessStatusCode;
 
