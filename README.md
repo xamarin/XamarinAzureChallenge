@@ -424,6 +424,10 @@ private const string endpoint = "[Enter your Azure Function URL]";
 
 ![Success](https://user-images.githubusercontent.com/13558917/65402551-543db180-dd8c-11e9-973c-fd42486fde82.png)
 
+## Congratulations! 
+
+You've successfully completed the Xamarin Azure Challenge. Keep an eye out for an email shortly!
+
 ## Report an issue
 
 If you found an issue with this challenge, please open an issue in this GitHub repo
