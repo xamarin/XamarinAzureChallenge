@@ -130,6 +130,10 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 ![Deploying](https://user-images.githubusercontent.com/13558917/65271519-533a2500-daeb-11e9-9a54-3a4b6afad613.png)
 
+13. In the **Publish** window, select **Publish**
+
+![Publish](https://user-images.githubusercontent.com/13558917/65555679-24082700-dee2-11e9-9bcb-746b9f03470b.png)
+
 #### 2b. Use Visual Studio for Mac
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
