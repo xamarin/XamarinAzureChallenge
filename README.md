@@ -72,7 +72,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 ![Account Settings...](https://user-images.githubusercontent.com/13558917/65535259-eab9c200-deb5-11e9-823c-17d4f49769bc.png)
 
-3. In the **Account Settings** window, select **Add an account...***
+3. In the **Account Settings** window, select **Add an account...**
 
 > **Note:** If your Azure account is already visible, you may skip this step
 
@@ -106,7 +106,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 10. In the **Create New** window, enter the following information:
 - **Name:** XamarinAzureChallenge-[Your Name]
     - **Note:** Replace `[Your Name]` with your name to ensure the Azure Function name is unique 
-    - In this example, I'm using "XamarinAzureChallenge-Brandon"
+    - In this example, I'm using `XamarinAzureChallenge-Brandon`
 - **Subscription:** [Select your Azure Subscription]
 - **Resource Group**
     - **New**
@@ -171,7 +171,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 - **App Service Name:** XamarinAzureChallenge-[Your Name]
     - **Note:** Replace `[Your Name]` with your name to ensure the App Service Name is unique 
-    - In this example, I'm using "XamarinAzureChallenge-Brandon"
+    - In this example, I'm using `XamarinAzureChallenge-Brandon`
 - **Subscription:** [Select your Azure Subscription]
 - **Resource Group**
     - Click the **+** symbol
