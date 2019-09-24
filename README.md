@@ -280,7 +280,7 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 9. In the **Add/Edit application setting** window, select **OK**
 
-![Add/Edit Application Setting](https://user-images.githubusercontent.com/13558917/65397025-a28d8900-dd69-11e9-840b-f47ef8e6caef.png)
+![Add/Edit Application Setting](https://user-images.githubusercontent.com/13558917/65477931-c241b180-de3c-11e9-9111-2fe516ef4a5a.png)
 
 10. In the **Add/Edit application setting** window, select the **Save**
 
