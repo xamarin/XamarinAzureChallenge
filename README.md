@@ -53,6 +53,8 @@ git clone https://github.com/xamarin/XamarinAzureChallenge.git
 
 To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
+**Make sure the path to the extracted solution is not too nested (long), otherwise you might get errors during the publishing of the Azure Function**
+
 ### 2. Publish Azure Function
 
 After cloning the repository, we have 3 options to create our Azure Function:
