@@ -77,7 +77,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 4. In the **Pick a publish target** window, select the following: 
 
 - **Azure Functions Consumption Plan**
-- [x] **Create New**
+    - [x] **Create New**
 
 5. In the **Pick a publish target** window, select **Publish**
 
@@ -135,7 +135,8 @@ After cloning the repository, we have 3 options to create our Azure Function:
 - **Resource Group**
     - Click the **+** symbol
     - XamarinAzureChallenge
-- **Service Plan:** Custom
+- **Service Plan:** 
+    - [x] Custom
 - **Plan Name:** XamarinAzureChallenge
 - **Region:** [Select the Azure Data Center Closest to you]
 - **Pricing:** Consumption
@@ -146,11 +147,12 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 8. In the **Configure Storage Account** window, enter the following information:
 
-- **Storage Account:** Custom
-- **Account Name** xamarinazure[Your Name]
+- **Storage Account:** 
+    - [x] Custom
+- **Account Name:** xamarinazure[Your Name]
     - **Note:** Replace `[Your Name]` with your name to ensure the Storage Account Name is unique 
     - In this example, I'm using "xamarinazurebrandon"
-- **Account Type** Standard - Locally Redundant Storage
+- **Account Type:** Standard - Locally Redundant Storage
 
 9. In the **Configure Storage Account** window, select **Create**
 
@@ -172,7 +174,9 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 #### 2c. Use Azure CLI
 
-> As a prerequisite, you must install [Azure Core Tools version 2.x](https://docs.microsoft.com/azure/azure-functions/functions-run-local?WT.mc_id=xamarinazurechallenge-github-bramin#v2), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin) and [Azure Cloud Shell](https://shell.azure.com/bash?WT.mc_id=xamarinazurechallenge-github-bramin).
+> As a prerequisite, you must install [Azure Core Tools version 2.x](https://docs.microsoft.com/azure/azure-functions/functions-run-local?WT.mc_id=xamarinazurechallenge-github-bramin#v2) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin). 
+>
+> Alternatively, if you do not wish to install these tools locally, you can use these CLI tools pre-installed in a browser via the [Azure Cloud Shell](https://shell.azure.com/bash?WT.mc_id=xamarinazurechallenge-github-bramin).
 
 1. Open the terminal
   - [How to open the macOS Terminal](https://macpaw.com/how-to/use-terminal-on-mac)
@@ -185,7 +189,7 @@ az login
 ```
 > **Note:** Stand by until the Azure CLI opens your browser to the Azure Login page
 
-3. In the automatically-opened browser window, in the Azure Login page, log into your Azure Account
+3. In the automatically-opened browser window, on the Azure Login page, log into your Azure Account
 
 4. In the terminal, enter the following command to create a new Azure Resource Group:
 
@@ -203,6 +207,7 @@ az group create --name XamarinAzureChallenge --location westeurope
 az storage account create --name xamarinazure[Your Name] --location westeurope --resource-group XamarinAzureChallenge --sku Standard_LRS
 ```
 > **Note:** Replace `[Your Name]` with your name to ensure the storage name is unique
+>
 > **Note:** If you have more than one subscription you will need to especify the subscription in which the resource group will be created using `--subscription [your Azure Subscription ID]`
 > 
 > [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
@@ -213,7 +218,9 @@ az storage account create --name xamarinazure[Your Name] --location westeurope -
 az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-location westeurope --name XamarinAzureChallenge-[Your Name] --storage-account  xamarinazure[Your Name] --runtime dotnet
 ```
 > **Note:** Replace `[Your Name]` with your name to ensure the functionapp name is unique 
+>
 > **Note:** For `--storage-account`, use the storage account created in the previous step
+>
 > **Note:** If you have more than one subscription you will need to especify the subscription in which the resource group will be created using `--subscription [your Azure Subscription ID]`
 > 
 > [How to find your Azure Subscription ID ](https://blogs.msdn.microsoft.com/mschray/2016/03/18/getting-your-azure-subscription-guid-new-portal?WT.mc_id=xamarinazurechallenge-github-bramin)
