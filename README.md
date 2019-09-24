@@ -315,7 +315,7 @@ To ensure a valid submisison, the Function App will verify the Azure Subscriptio
 
 5. In the confirmation popup, select **Yes**
 
-![Confirmation Popup](https://user-images.githubusercontent.com/13558917/65441499-5715c200-dddf-11e9-9197-cff7268879a9.png)
+![Confirmation Popup](https://user-images.githubusercontent.com/13558917/65478063-22d0ee80-de3d-11e9-9f8e-467e8d1e2113.png)
 
 6. Stand by while System Assigned Identity is enabled
 
