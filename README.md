@@ -53,6 +53,8 @@ git clone https://github.com/xamarin/XamarinAzureChallenge.git
 
 To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
+> **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\Code\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
+
 ### 2. Publish Azure Function
 
 After cloning the repository, we have 3 options to create our Azure Function:
@@ -295,7 +297,7 @@ Before our Azure Function can submit our entry for the XamarinAzureChallenge, we
 
 Azure Functions allow us to store Environment Variables in the cloud that our Functions app can retrieve at runtime. In this step, we'll add the submission url as an Environment Variable.
 
-1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
+1. In your browser, navigate to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
 2. In the Azure Portal, on the left-hand menu, select the cube-shaped **Resource Groups** icon
 
@@ -397,7 +399,7 @@ To ensure a valid submisison, the Function App will verify the Azure Subscriptio
 
 After publishing our Azure Function, we are ready to configure our Xamarin app with our Azure Function's URL.
 
-1. In your browser, naviagte to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
+1. In your browser, navigate to the [Azure Portal](http://portal.azure.com?WT.mc_id=xamarinazurechallenge-github-bramin) 
 
 2. In the Azure Portal, on the left-hand menu, select the cube-shaped **Resource Groups** icon
 
@@ -431,7 +433,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 
 2. In Visual Studio, in the Solution Explorer, open **Mobile** > **XamarinAzureChallenge** > **ViewModels** > **UserDataViewModel.cs**
 
-3. In the **UserDataViewModel** editor, append `//` to the `#error` compiler directive:
+3. In the **UserDataViewModel** editor, comment out the `#error` compiler directive by prepending `//`:
 
 ```csharp
 //#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
