@@ -49,7 +49,7 @@ namespace XamarinAzureChallenge.ViewModels
         {
             IsBackButtonVisible = !responseMessage.IsSuccessStatusCode;
 
-            if (responseMessage.IsSuccessStatusCode)
+            if (responseMessage.StatusCode is System.Net.HttpStatusCode.Created)
             {
                 ImageResult = "resultOk";
                 TextResult = "Challenge Completed!";
