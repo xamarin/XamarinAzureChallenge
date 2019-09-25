@@ -51,7 +51,7 @@ Winners will be notified via the contact information provided during entry no mo
 
 The following prizes will be awarded: 
 
-**Six (6) Grand Prize (s)**. Each winner will receive:
+**Ten (10) Grand Prize (s)**. Each winner will receive:
 Microsoft Surface Headphones*. Approximate Retail Value (ARV) $360.00.
 
 **One Thousand (1,000) Grand Prize (s)**. Each winner will receive:
