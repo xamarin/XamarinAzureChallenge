@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.Android", "XamarinAzureChallenge\XamarinAzureChallenge.Android\XamarinAzureChallenge.Android.csproj", "{B27527E8-5248-4A42-B958-35080C060C00}"
 EndProject
@@ -15,12 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{3369F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{0E4408D8-8D4A-4E05-AA0E-A71CE6A2A54D}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XamarinAzureChallenge.Shared", "XamarinAzureChallenge\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.shproj", "{3E5D76D1-8FF1-449E-AEAF-539DF5E7EC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Shared", "XamarinAzureChallenge\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.csproj", "{09753CDE-BC8F-49A1-836E-3FF270F45CF5}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		XamarinAzureChallenge\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.projitems*{3e5d76d1-8ff1-449e-aeaf-539df5e7ec5d}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|iPhone = Ad-Hoc|iPhone
@@ -168,6 +165,30 @@ Global
 		{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}.Release|iPhone.Build.0 = Release|Any CPU
 		{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|Any CPU.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|Any CPU.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Ad-Hoc|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|Any CPU.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|Any CPU.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.AppStore|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|iPhone.Build.0 = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{09753CDE-BC8F-49A1-836E-3FF270F45CF5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
