@@ -354,6 +354,8 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 To ensure a valid submisison, the Function App will verify the Azure Subscription ID using [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity) & [Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#overview-of-access-control-iam?WT.mc_id=xamarinazurechallenge-github-bramin). Let's enable both.
 
+> **Note:** Azure Functions using Linux Consumption Plans don't support IAM. Be sure you've followed the instructions in [Step 2](#2-publish-azure-function) which create an Azure Function using the Windows Consumption Plan.
+
 1. In the **XamarinAzureChallenge** window, select **Platform features**
 
 ![Platform Features](https://user-images.githubusercontent.com/13558917/65397766-ff8c3d80-dd6f-11e9-98d4-c8640da32e37.png)
