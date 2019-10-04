@@ -1,207 +1,185 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pages:BaseContentPage x:Class="XamarinAzureChallenge.Pages.UserDataPage"
-                       xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
-                       xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
-                       Title="Xamarin &amp; Azure"
-                       x:DataType="viewModels:UserDataViewModel"
-                       x:TypeArguments="viewModels:UserDataViewModel"
-                       BackgroundColor="White">
+<ContentPage
+    x:Class="XamarinAzureChallenge.Pages.UserDataPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
+    xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="Challenge Form"
+    x:DataType="viewModels:UserDataViewModel"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <d:ContentPage.BindingContext>
+        <viewModels:UserDataViewModel />
+    </d:ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonFormStyle"
-                   BasedOn="{StaticResource ButtonStyle}"
-                   TargetType="Button">
-                <Setter Property="BackgroundColor"
-                        Value="#4945B1" />
-                <Setter Property="BorderWidth"
-                        Value="0" />
-                <Setter Property="FontSize"
-                        Value="20" />
+            <Style
+                x:Key="ButtonFormStyle"
+                BasedOn="{StaticResource ButtonStyle}"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4945B1" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="FontSize" Value="20" />
             </Style>
-            <Style x:Key="TitlePageStyle"
-                   TargetType="Label">
-                <Setter Property="FontSize"
-                        Value="26" />
-                <Setter Property="TextColor"
-                        Value="Black" />
-                <Setter Property="FontAttributes"
-                        Value="Bold" />
+            <Style x:Key="TitlePageStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
             </Style>
-            <Style x:Key="SubTitlePageStyle"
-                   TargetType="Label">
-                <Setter Property="FontSize"
-                        Value="16" />
-                <Setter Property="TextColor"
-                        Value="Gray" />
+            <Style x:Key="SubTitlePageStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="#90FFFFFF" />
             </Style>
-            <Style x:Key="ToggleTitleStyle"
-                   TargetType="Label">
-                <Setter Property="HorizontalOptions"
-                        Value="FillAndExpand" />
-                <Setter Property="TextColor"
-                        Value="Black" />
-                <Setter Property="VerticalTextAlignment"
-                        Value="Center" />
+            <Style x:Key="ToggleTitleStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
-            <Style x:Key="TitleEntryStyle"
-                   TargetType="Label">
-                <Setter Property="FontSize"
-                        Value="12" />
-                <Setter Property="TextColor"
-                        Value="DarkGray" />
-                <Setter Property="Margin"
-                        Value="4,0,0,0" />
+            <Style x:Key="TitleEntryStyle" TargetType="Label">
+                <Setter Property="Margin" Value="4,0,0,0" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="DarkGray" />
+                <Setter Property="Margin" Value="4,0,0,0" />
             </Style>
-            <Style x:Key="EntryStyle"
-                   TargetType="Entry">
-                <Setter Property="HeightRequest"
-                        Value="49" />
-                <Setter Property="TextColor"
-                        Value="Black" />
-                <Setter Property="BackgroundColor"
-                        Value="White" />
-                <Setter Property="PlaceholderColor"
-                        Value="LightGray"/>
-                <Setter Property="ClearButtonVisibility"
-                        Value="WhileEditing"/>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="PlaceholderColor" Value="Black" />
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
             </Style>
-            <Style x:Key="HyperLinkStyle"
-                   TargetType="Label">
-                <Setter Property="TextColor"
-                        Value="Blue" />
-                <Setter Property="FontSize"
-                        Value="12" />
-
-                <Setter Property="HorizontalTextAlignment"
-                        Value="Start" />
-                <Setter Property="TextDecorations"
-                        Value="Underline" />
+            <Style x:Key="HyperLinkStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="AliceBlue" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="TextDecorations" Value="Underline" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
+        <Grid>
+            <Image Aspect="AspectFill" Source="backgroundimage.png" />
+            <ScrollView>
+                <StackLayout Padding="16,8">
+                    <Label Style="{StaticResource TitlePageStyle}" Text="Xamarin ❤ Azure"
+                           HorizontalOptions="Center"/>
+                    <Label
+                        Margin="0,0,0,8"
+                        Style="{StaticResource SubTitlePageStyle}"
+                        Text="Please submit your information" />
 
-        <ScrollView Margin="10,10,10,0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Label Style="{StaticResource TitlePageStyle}"
-                       Text="Challenge Form"
-                       Grid.ColumnSpan="2" />
-                <Label Grid.Row="1"
-                       Grid.ColumnSpan="2"
-                       Margin="0,0,0,8"
-                       Style="{StaticResource SubTitlePageStyle}"
-                       Text="Please submit your information" />
+                    <Frame BackgroundColor="White" Visual="Material">
+                        <StackLayout>
+                            <Entry
+                                Placeholder="Full Name*"
+                                ReturnType="Next"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding User.Name}" />
 
-                <Label Grid.Row="2"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource TitleEntryStyle}"
-                       Text="Name*" />
-                <Entry Grid.Row="3"
-                       Grid.ColumnSpan="2"
-                       Placeholder="Enter your name"
-                       Style="{StaticResource EntryStyle}"
-                       Text="{Binding User.Name}"
-                       ReturnType="Next" />
+                            <Entry
+                                Keyboard="Email"
+                                Placeholder="Email Address*"
+                                ReturnType="Next"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding User.Email}" />
 
-                <Label Grid.Row="4"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource TitleEntryStyle}"
-                       Text="Email*" />
-                <Entry Grid.Row="5"
-                       Grid.ColumnSpan="2"
-                       Keyboard="Email"
-                       Placeholder="Enter your email"
-                       Style="{StaticResource EntryStyle}"
-                       Text="{Binding User.Email}"
-                       ReturnType="Next" />
+                            <Entry
+                                Keyboard="Telephone"
+                                Placeholder="Telephone Number*"
+                                Style="{StaticResource EntryStyle}"
+                                Text="{Binding User.Phone}" />
+                            <Label
+                                Margin="0,8,0,0"
+                                FontSize="Micro"
+                                HorizontalOptions="End"
+                                Style="{StaticResource TitleEntryStyle}"
+                                Text="*Required"
+                                TextColor="#cc0000" />
+                        </StackLayout>
+                    </Frame>
 
+                    <Grid Margin="0,16,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="7"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource TitleEntryStyle}"
-                       Text="Phone*" />
-                <Entry Grid.Row="8"
-                       Grid.ColumnSpan="2"
-                       Keyboard="Telephone"
-                       Placeholder="+1 1234567890"
-                       Style="{StaticResource EntryStyle}"
-                       Text="{Binding User.Phone}" />
+                        <CheckBox
+                            Grid.Row="0"
+                            IsChecked="{Binding User.IsTermsOfServiceAccepted}"
+                            VerticalOptions="Center"
+                            Color="White" />
 
-                <Label Grid.Row="9"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource TitleEntryStyle}"
-                       Text="*Required" />
+                        <Label
+                            Grid.Column="1"
+                            Style="{StaticResource ToggleTitleStyle}"
+                            Text="I accept the terms of service*" />
 
-                <Label Grid.Row="10"
-                       Style="{StaticResource ToggleTitleStyle}"
-                       Text="I accept the terms of service*" />
-                <Switch Grid.Row="10"
-                        Grid.Column="1"
-                        IsToggled="{Binding User.IsTermsOfServiceAccepted}"
-                        VerticalOptions="Center" />
+                        <CheckBox
+                            Grid.Row="1"
+                            IsChecked="{Binding User.IsComercialCommunicationsAccepted}"
+                            VerticalOptions="Center"
+                            Color="White" />
 
-                <Label Grid.Row="11"
-                       Style="{StaticResource ToggleTitleStyle}"
-                       Text="I give consent for Microsoft to send me personalised commercial communications" />
-                <Switch Grid.Row="11"
-                        Grid.Column="1"
-                        IsToggled="{Binding User.IsComercialCommunicationsAccepted}"
-                        VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource ToggleTitleStyle}"
+                            Text="I give consent for Microsoft to send me personalised commercial communications" />
 
+                    </Grid>
 
-                <BoxView Grid.Row="12"
-                         Grid.ColumnSpan="2"
-                         BackgroundColor="#CFCFCF"
-                         HeightRequest="1"
-                         HorizontalOptions="FillAndExpand" />
+                    <BoxView
+                        Margin="0,8"
+                        BackgroundColor="#90FFFFFF"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
 
-                <Label Grid.Row="13"
-                       Grid.ColumnSpan="2"
-                       Style="{StaticResource HyperLinkStyle}"
-                       Text="Microsoft Privacy Statement">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PrivacyStatementCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    <Label Style="{StaticResource HyperLinkStyle}" Text="Microsoft Privacy Statement">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PrivacyStatementCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
 
-                <Button Grid.Row="14"
-                        Grid.ColumnSpan="2"
+                    <Button
+                        Margin="0,8"
                         Padding="10"
-                        Margin="0,15"
                         Command="{Binding SubmitCommand}"
                         Style="{StaticResource ButtonFormStyle}"
-                        Text="Submit" />
-
-                <ActivityIndicator Grid.Row="15"
-                        Grid.ColumnSpan="2"
+                        Text="Submit"
+                        VerticalOptions="EndAndExpand" />
+                </StackLayout>
+            </ScrollView>
+            <Frame
+                Padding="24"
+                d:IsVisible="true"
+                BackgroundColor="#90000000"
+                CornerRadius="10"
+                HasShadow="False"
+                HorizontalOptions="Center"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                Visual="Material">
+                <StackLayout Spacing="16">
+                    <ActivityIndicator
+                        d:IsRunning="true"
                         IsRunning="{Binding IsBusy}"
-                        IsVisible="{Binding IsBusy}"/>
-
-            </Grid>
-        </ScrollView>
+                        Visual="Material"
+                        Color="#3498db" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Submitting..."
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
-</pages:BaseContentPage>
+</ContentPage>

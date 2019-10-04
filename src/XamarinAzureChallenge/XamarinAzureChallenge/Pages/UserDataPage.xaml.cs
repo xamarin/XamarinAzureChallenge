@@ -1,8 +1,9 @@
-﻿using XamarinAzureChallenge.ViewModels;
+﻿using Xamarin.Forms;
+using XamarinAzureChallenge.ViewModels;
 
 namespace XamarinAzureChallenge.Pages
 {
-    public partial class UserDataPage : BaseContentPage<UserDataViewModel>
+    public partial class UserDataPage : ContentPage
     {
         public UserDataPage()
         {

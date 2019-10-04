@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pages:BaseContentPage
+<ContentPage
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     x:Class="XamarinAzureChallenge.Pages.HomePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
     xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
     x:DataType="viewModels:HomeViewModel"
-    x:TypeArguments="viewModels:HomeViewModel"
     NavigationPage.HasNavigationBar="False">
+    <d:ContentPage.BindingContext>
+        <viewModels:HomeViewModel/>
+    </d:ContentPage.BindingContext>
     
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -22,17 +27,11 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Image
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All"
-                Aspect="AspectFill"
-                Source="backgroundImage.png" />
+        <Grid>
+            <Image Aspect="AspectFill"
+                Source="backgroundimage.png" />
 
-            <Grid
-                Margin="20"
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All">
+            <Grid Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="Auto" />
@@ -112,6 +111,6 @@
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>
-        </AbsoluteLayout>
+        </Grid>
     </ContentPage.Content>
-</pages:BaseContentPage>
+</ContentPage>

@@ -7,9 +7,13 @@ namespace XamarinAzureChallenge.ViewModels
 {
     public class ResultViewModel : BaseViewModel
     {
-        private string textDetailResult, imageResult, textResult;
-        private bool isBackButtonVisible;
+        string textDetailResult, imageResult, textResult;
+        bool isBackButtonVisible;
 
+        public ResultViewModel()
+        {
+
+        }
         public ResultViewModel(HttpResponseMessage responseMessage)
         {
             EditYourSubmissionCommand = new Command(async () => await EditYourSubmissionCommandExecute());
@@ -43,9 +47,9 @@ namespace XamarinAzureChallenge.ViewModels
             set => SetAndRaisePropertyChanged(ref textDetailResult, value);
         }
 
-        private Task EditYourSubmissionCommandExecute() => NavigateBack();
+        Task EditYourSubmissionCommandExecute() => NavigateBack();
 
-        private async void HandleHttpResponseMessage(HttpResponseMessage responseMessage)
+        async void HandleHttpResponseMessage(HttpResponseMessage responseMessage)
         {
             IsBackButtonVisible = !responseMessage.IsSuccessStatusCode;
 
