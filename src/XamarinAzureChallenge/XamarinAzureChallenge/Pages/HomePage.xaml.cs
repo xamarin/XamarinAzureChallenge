@@ -1,8 +1,9 @@
-﻿using XamarinAzureChallenge.ViewModels;
+﻿using Xamarin.Forms;
+using XamarinAzureChallenge.ViewModels;
 
 namespace XamarinAzureChallenge.Pages
 {
-    public partial class HomePage : BaseContentPage<HomeViewModel>
+    public partial class HomePage : ContentPage
     {
         public HomePage()
         {

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinAzureChallenge.Pages;
 
@@ -18,10 +19,10 @@ namespace XamarinAzureChallenge.ViewModels
         public ICommand SourceCodeLabelTappedCommand { get; }
         public ICommand TermsAndConditionsLabelTappedCommand { get; }
 
-        private Task ExecuteSourceCodeLabelTappedCommand() =>
-            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge"));
+        Task ExecuteSourceCodeLabelTappedCommand() =>
+            MainThread.InvokeOnMainThreadAsync(() => Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge"));
         
-        private Task ExecuteTermsAndConditionsLabelTappedCommand() =>
-            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md"));
+        Task ExecuteTermsAndConditionsLabelTappedCommand() =>
+            MainThread.InvokeOnMainThreadAsync(() => Browser.OpenAsync("https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md"));
     }
 }

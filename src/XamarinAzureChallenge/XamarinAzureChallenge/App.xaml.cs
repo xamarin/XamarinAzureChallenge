@@ -10,7 +10,11 @@ namespace XamarinAzureChallenge
         public App()
         {
             InitializeComponent();
-			MainPage = new NavigationPage(new HomePage());
+			MainPage = new NavigationPage(new HomePage())
+            {
+                BarBackgroundColor = Color.FromHex("#3498db"),
+                BarTextColor = Color.White
+            };
         }
     }
 }

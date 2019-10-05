@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<pages:BaseContentPage
+<ContentPage
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     x:Class="XamarinAzureChallenge.Pages.ResultPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:XamarinAzureChallenge.Pages"
     xmlns:viewModels="clr-namespace:XamarinAzureChallenge.ViewModels"
     x:DataType="viewModels:ResultViewModel"
-    x:TypeArguments="viewModels:ResultViewModel"
     NavigationPage.HasNavigationBar="False">
+    <d:ContentPage.BindingContext>
+        <viewModels:ResultViewModel/>
+    </d:ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <AbsoluteLayout HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand">
+        <Grid>
 
             <Image
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All"
                 Aspect="AspectFill"
-                Source="backgroundImage.png" />
+                Source="backgroundimage.png" />
 
             <StackLayout
                 Spacing="15"
                 Padding="18,0,18,0"
-                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-                AbsoluteLayout.LayoutFlags="All"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand">
 
@@ -54,7 +54,7 @@
                     Text="Edit submission"
                     IsVisible="{Binding IsBackButtonVisible}"/>
             </StackLayout>
-        </AbsoluteLayout>
+        </Grid>
 
     </ContentPage.Content>
-</pages:BaseContentPage>
+</ContentPage>

@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using XamarinAzureChallenge.Pages;
 using XamarinAzureChallenge.Shared.Models;
@@ -12,12 +13,11 @@ namespace XamarinAzureChallenge.ViewModels
     public class UserDataViewModel : BaseViewModel
     {
 #error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
-        private const string endpoint = "Enter Your Function API Url Here";
-        private readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
+        const string endpoint = "Enter Your Function API Url Here";
+        readonly Lazy<HttpClient> clientHolder = new Lazy<HttpClient>();
 
-        private User user = new User();
-
-        private bool isBusy;
+        User user = new User();
+        bool isBusy;
 
         public UserDataViewModel()
         {
@@ -42,11 +42,10 @@ namespace XamarinAzureChallenge.ViewModels
             set => SetAndRaisePropertyChanged(ref user, value);
         }
 
-        private HttpClient Client => clientHolder.Value;
+        HttpClient Client => clientHolder.Value;
 
-        private async Task SubmitCommmandExecute(User submittedUser)
-        {
-            IsBusy = true;
+        async Task SubmitCommmandExecute(User submittedUser)
+        {        
 
             try
             {
@@ -54,6 +53,7 @@ namespace XamarinAzureChallenge.ViewModels
 
                 if (areFieldsValid)
                 {
+                    IsBusy = true;
                     var serializedUser = JsonConvert.SerializeObject(submittedUser);
 
                     using (var content = new StringContent(serializedUser, Encoding.UTF8, "application/json"))
@@ -73,41 +73,33 @@ namespace XamarinAzureChallenge.ViewModels
             }
         }
 
-        private async Task<bool> AreFieldsValid(string name, string email, string phone, bool isTermsOfServiceAccepted)
+        async Task<bool> AreFieldsValid(string name, string email, string phone, bool isTermsOfServiceAccepted)
         {
-            var result = false;
+            var builder = new StringBuilder();
 
             if (string.IsNullOrWhiteSpace(name))
-            {
-                await DisplayInvalidFieldAlert("Name cannot be blank");
-            }
+                builder.AppendLine("Name cannot be blank");
             else if (!name.Trim().Contains(" "))
-            {
-                await DisplayInvalidFieldAlert("Full Name Required");
-            }
-            else if (string.IsNullOrWhiteSpace(email))
-            {
-                await DisplayInvalidFieldAlert("Email cannot be blank");
-            }
-            else if (string.IsNullOrWhiteSpace(phone))
-            {
-                await DisplayInvalidFieldAlert("Phone cannot be blank");
-            }
-            else if (!isTermsOfServiceAccepted)
-            {
-                await DisplayInvalidFieldAlert("Terms of Service Not Accepted");
-            }
-            else
-            {
-                result = true;
-            }
+                builder.AppendLine("Full Name Required");
+            
+            if (string.IsNullOrWhiteSpace(email))
+                builder.AppendLine("Email cannot be blank");
 
-            return result;
+            if (string.IsNullOrWhiteSpace(phone))
+                builder.AppendLine("Phone cannot be blank");
+
+            if (!isTermsOfServiceAccepted)
+                builder.AppendLine("Terms of Service Not Accepted");
+
+            if (builder.Length != 0)
+                await DisplayInvalidFieldAlert(builder.ToString());
+
+            return builder.Length == 0;
         }
 
-        private Task PrivacyStatementCommandExecute() =>
-            Device.InvokeOnMainThreadAsync(() => Xamarin.Essentials.Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
+        Task PrivacyStatementCommandExecute() =>
+            MainThread.InvokeOnMainThreadAsync(() => Browser.OpenAsync(new Uri("https://privacy.microsoft.com/privacystatement")));
 
-        private void OnSubmissionFailed(string message) => SubmissionFailed?.Invoke(this, message);
+        void OnSubmissionFailed(string message) => SubmissionFailed?.Invoke(this, message);
     }
 }

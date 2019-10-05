@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace XamarinAzureChallenge.ViewModels
@@ -23,12 +24,12 @@ namespace XamarinAzureChallenge.ViewModels
             onChanged?.Invoke();
         }
 
-        protected Task NavigateToPage(Page page) => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PushAsync(page));
+        protected Task NavigateToPage(Page page) => MainThread.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PushAsync(page));
 
-        protected Task NavigateBack() => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PopAsync());
+        protected Task NavigateBack() => MainThread.InvokeOnMainThreadAsync(() => Application.Current.MainPage.Navigation.PopAsync());
 
-        protected Task ShowFeatureNotAvailable() => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
+        protected Task ShowFeatureNotAvailable() => MainThread.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Feature not available", "", "Ok"));
 
-        protected Task DisplayInvalidFieldAlert(string message) => Device.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Invalid Field", message, "Ok"));
+        protected Task DisplayInvalidFieldAlert(string message) => MainThread.InvokeOnMainThreadAsync(() => Application.Current.MainPage.DisplayAlert("Invalid Field(s)", message, "Ok"));
     }
 }
