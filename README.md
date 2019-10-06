@@ -62,18 +62,18 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 
 > **Note:** Moving the code to `C:\XamarinAzureChallenge` ensures that the [`MAX_PATH` limit](https://docs.microsoft.com/windows/win32/fileio/naming-a-file?WT.mc_id=xamarinazurechallenge-github-bramin#enable-long-paths-in-windows-10-version-1607-and-later) will not be hit. On Windows 10, it is possible to remove the `MAX_PATH` limit following these instructions: https://www.ryadel.com/en/enable-ntfs-win32-long-paths-policy-remove-255-260-characters-limit-windows-10/
 
-### 2. Publish Azure Function
+### 3. Publish Azure Function
 
 After cloning the repository, we have 3 options to create our Azure Function:
 
-1. Use [Visual Studio on PC](#2a-use-visual-studio-on-pc)
+1. Use [Visual Studio on PC](#3a-use-visual-studio-on-pc)
     - [Learn More](https://blogs.msdn.microsoft.com/benjaminperkins/2018/04/05/deploy-an-azure-function-created-from-visual-studio?WT.mc_id=xamarinazurechallenge-github-bramin)
-2. Use [Visual Studio for Mac](#2b-use-visual-studio-for-mac)
+2. Use [Visual Studio for Mac](#3b-use-visual-studio-for-mac)
     - [Learn More](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?WT.mc_id=xamarinazurechallenge-github-bramin)
-3. Use [Azure CLI](#2c-use-azure-cli)
+3. Use [Azure CLI](#3c-use-azure-cli)
     - [Learn More](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin)
 
-#### 2a. Use Visual Studio on PC
+#### 3a. Use Visual Studio on PC
 
 1. In Visual Studio on PC, open `XamarinAzureChallenge.sln`
 
@@ -151,7 +151,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 ![Publish Succeeded](https://user-images.githubusercontent.com/13558917/65556072-3a62b280-dee3-11e9-982a-9e313b2ac34d.png)
 
-#### 2b. Use Visual Studio for Mac
+#### 3b. Use Visual Studio for Mac
 
 1. In Visual Studio for Mac, open `XamarinAzureChallenge.sln`
 
@@ -234,7 +234,7 @@ After cloning the repository, we have 3 options to create our Azure Function:
 
 17. Stand by while Visual Studio for Mac publishes our code to our Azure Function
 
-#### 2c. Use Azure CLI
+#### 3c. Use Azure CLI
 
 > As a prerequisite, you must install [Azure Core Tools version 2.x](https://docs.microsoft.com/azure/azure-functions/functions-run-local?WT.mc_id=xamarinazurechallenge-github-bramin#v2) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=xamarinazurechallenge-github-bramin). 
 >
