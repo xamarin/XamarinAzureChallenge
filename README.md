@@ -55,6 +55,13 @@ To download the source clode, click this link: https://github.com/xamarin/Xamari
 
 > **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\Code\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
 
+### 2. (Windows) Move Code to `C:\XamarinAzureChallenge` Folder
+
+1. (Windows) After retrieving the source code, move the `XamarinAzureChallenge` folder to `C:\XamarinAzureChallenge`
+  - (macOS) *Skip this step*
+
+> **Note:** Moving the code to `C:\XamarinAzureChallenge` ensures that the [`MAX_PATH` limit](https://docs.microsoft.com/windows/win32/fileio/naming-a-file?WT.mc_id=xamarinazurechallenge-github-bramin#enable-long-paths-in-windows-10-version-1607-and-later) will not be hit. On Windows 10, it is possible to remove the `MAX_PATH` limit following these instructions: https://www.ryadel.com/en/enable-ntfs-win32-long-paths-policy-remove-255-260-characters-limit-windows-10/
+
 ### 2. Publish Azure Function
 
 After cloning the repository, we have 3 options to create our Azure Function:
