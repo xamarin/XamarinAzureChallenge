@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.Android", "XamarinAzureChallenge\XamarinAzureChallenge.Android\XamarinAzureChallenge.Android.csproj", "{B27527E8-5248-4A42-B958-35080C060C00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.Android", "XamarinAzureChallenge.Android\XamarinAzureChallenge.Android.csproj", "{B27527E8-5248-4A42-B958-35080C060C00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.iOS", "XamarinAzureChallenge\XamarinAzureChallenge.iOS\XamarinAzureChallenge.iOS.csproj", "{2C81F630-FC66-4BEC-A800-56A0C743F3D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinAzureChallenge.iOS", "XamarinAzureChallenge.iOS\XamarinAzureChallenge.iOS.csproj", "{2C81F630-FC66-4BEC-A800-56A0C743F3D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge", "XamarinAzureChallenge\XamarinAzureChallenge\XamarinAzureChallenge.csproj", "{906E148B-01D5-4106-9C5B-404A8B655069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge", "XamarinAzureChallenge\XamarinAzureChallenge.csproj", "{906E148B-01D5-4106-9C5B-404A8B655069}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Functions", "XamarinAzureChallenge\XamarinAzureChallenge.Functions\XamarinAzureChallenge.Functions.csproj", "{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Functions", "XamarinAzureChallenge.Functions\XamarinAzureChallenge.Functions.csproj", "{2A44CE99-0A65-4AE7-897F-D2EA679A42B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{3369F7AA-8AEF-403A-98A4-592B27E34AFF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{0E4408D8-8D4A-4E05-AA0E-A71CE6A2A54D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Shared", "XamarinAzureChallenge\XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.csproj", "{09753CDE-BC8F-49A1-836E-3FF270F45CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinAzureChallenge.Shared", "XamarinAzureChallenge.Shared\XamarinAzureChallenge.Shared.csproj", "{09753CDE-BC8F-49A1-836E-3FF270F45CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
