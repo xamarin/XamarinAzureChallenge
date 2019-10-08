@@ -15,7 +15,7 @@ The challenge begins 23 September 2019, and ends at 2359 PT on 23 October 2019.
 - One Thousand (1,000) Prizes:
   - Each winner will receive a 3-month Xbox Game Pass
   
-Learn more about the challenge: https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md
+Learn more about the challenge: https://github.com/xamarin//blob/master/TermsAndConditions.md
 
 
 ### Challenge Objectives
@@ -53,7 +53,7 @@ git clone https://github.com/xamarin/XamarinAzureChallenge.git
 
 To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
-> **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\Code\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
+> **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\XamarinAzureChallenge\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
 
 ### 2. (Windows) Move Code to `C:\XamarinAzureChallenge` Folder
 
@@ -292,9 +292,9 @@ az functionapp create --resource-group XamarinAzureChallenge --consumption-plan-
 7. In the terminal, enter the following command to navigate to the project folder `XamarinAzureChallenge.Functions` project folder.
 
 - Windows
-    - `cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge\XamarinAzureChallenge.Functions`
+    - `cd [Your Path to XamarinAzureChallengeSource Code]\src\XamarinAzureChallenge.Functions`
 - macOS
-    - `cd [Your Path to XamarinAzureChallengeSource Code]/src/XamarinAzureChallenge/XamarinAzureChallenge.Functions`
+    - `cd [Your Path to XamarinAzureChallengeSource Code]/src/XamarinAzureChallenge.Functions`
 
 8.  In the terminal, enter the following command to publish our code to our Azure Function:
 
