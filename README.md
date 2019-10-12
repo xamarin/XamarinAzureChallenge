@@ -26,7 +26,7 @@ Learn more about the challenge: https://github.com/xamarin//blob/master/TermsAnd
 
 ## Task 0: Prerequisites
 
-1. Create Azure Suscription
+1. Create Azure Subscription
     * If you do not currently have an Azure subscription, sign up for a [free Azure account](https://azure.microsoft.com/free?WT.mc_id=xamarinazurechallenge-github-bramin) that includes a $200 Azure Credit
 2. Install Visual Studio + Xamarin Tools
     * On PC, [follow these steps to install Visual Studio with Xamarin](https://docs.microsoft.com/xamarin/get-started/installation/windows?WT.mc_id=xamarinazurechallenge-github-bramin)
@@ -51,7 +51,7 @@ git clone https://github.com/xamarin/XamarinAzureChallenge.git
 
 #### 1b. Download Source Code
 
-To download the source clode, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
+To download the source code, click this link: https://github.com/xamarin/XamarinAzureChallenge/archive/master.zip
 
 > **Note:** On a PC, save the source code in a folder close to your root directory, e.g. `C:\XamarinAzureChallenge\`. If the folder path is too many characters long, you may get errors while publishing the code to the Azure Functions.
 
@@ -359,7 +359,7 @@ Azure Functions allow us to store Environment Variables in the cloud that our Fu
 
 ### 2. Enable Access Control (IAM)
 
-To ensure a valid submisison, the Function App will verify the Azure Subscription ID using [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity) & [Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#overview-of-access-control-iam?WT.mc_id=xamarinazurechallenge-github-bramin). Let's enable both.
+To ensure a valid submission, the Function App will verify the Azure Subscription ID using [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity) & [Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#overview-of-access-control-iam?WT.mc_id=xamarinazurechallenge-github-bramin). Let's enable both.
 
 > **Note:** Azure Functions using Linux Consumption Plans don't support IAM. Be sure you've followed the instructions in [Step 2](#2-publish-azure-function) which create an Azure Function using the Windows Consumption Plan.
 
@@ -404,7 +404,7 @@ To ensure a valid submisison, the Function App will verify the Azure Subscriptio
 
 11. In the right-hand fly-out menu **Add role assignment**, select **XamarinAzureChallenge-[Your Name]**
 
-![Add role assignement, 1](https://user-images.githubusercontent.com/13558917/65398164-f486dc80-dd72-11e9-9e5c-8ce2b3672ccb.png)
+![Add role assignment, 1](https://user-images.githubusercontent.com/13558917/65398164-f486dc80-dd72-11e9-9e5c-8ce2b3672ccb.png)
 
 12. In the right-hand fly-out menu **Add role assignment**, select **Save**
 
@@ -453,7 +453,7 @@ After publishing our Azure Function, we are ready to configure our Xamarin app w
 3. In the **UserDataViewModel** editor, comment out the `#error` compiler directive by prepending `//`:
 
 ```csharp
-//#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endopint Url
+//#error Missing Azure Function Endpoint Url. Replace "Enter Your Function API Url Here" with your Azure Function Endpoint Url
 ```
 
 4. In the **UserDataViewModel** editor, paste your Azure Function Url to `private const string endpoint`:
