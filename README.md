@@ -15,7 +15,7 @@ The challenge begins 23 September 2019, and ends at 2359 PT on 23 October 2019.
 - One Thousand (1,000) Prizes:
   - Each winner will receive a 3-month Xbox Game Pass
   
-Learn more about the challenge: https://github.com/xamarin//blob/master/TermsAndConditions.md
+Learn more about the challenge: https://github.com/xamarin/XamarinAzureChallenge/blob/master/TermsAndConditions.md
 
 
 ### Challenge Objectives
