@@ -108,6 +108,8 @@ After cloning the repository, we have 3 options to create our Azure Function:
 - **Azure Functions Consumption Plan**
     - [x] **Create New**
 
+> **Note:** If publish targets don't appear, [install Azure development workload](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio#prerequisites).
+
 9. In the **Pick a publish target** window, select **Publish**
 
 ![Pick a publish target](https://user-images.githubusercontent.com/13558917/65265726-84145d00-dadf-11e9-9c14-716aaf2e3f18.png)
