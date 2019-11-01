@@ -1,5 +1,9 @@
 ### Competition Winners
 
+If you are among the winners, congratulations! If not, rest assured that we have a little something for you to as a thank you token for your participation.
+
+Emails with instructions on how to proceed will follow soon.
+
 ## Xbox GamePass winners
 The following entries were randomly selected for the GamePass credit prize
 
