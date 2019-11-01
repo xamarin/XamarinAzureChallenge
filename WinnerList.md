@@ -1,6 +1,6 @@
 ### Competition Winners
 
-If you are among the winners, congratulations! If not, rest assured that we have a little something for you to as a thank you token for your participation.
+If you are among the winners, congratulations! If not, rest assured that we have a little something for you as a thank you token for your participation.
 
 Emails with instructions on how to proceed will follow soon.
 
