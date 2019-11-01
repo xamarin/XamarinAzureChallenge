@@ -7,7 +7,7 @@ The goal is to create a serverless [Azure Function](https://azure.microsoft.com/
 ### Winners
 The winner list has been announced here: https://github.com/xamarin/XamarinAzureChallenge/blob/master/WinnerList.md.
 
-If you are among the winners, congratulations! If not, rest assured that we have a little something for you to as a thank you token for your participation. 
+If you are among the winners, congratulations! If not, rest assured that we have a little something for you too as a thank you token for your participation. 
 
 Emails with instructions on how to proceed will follow soon.
 
