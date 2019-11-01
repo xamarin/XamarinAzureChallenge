@@ -5,7 +5,7 @@ Welcome to the Xamarin Azure Challenge!
 The goal is to create a serverless [Azure Function](https://azure.microsoft.com/services/functions?WT.mc_id=xamarinazurechallenge-github-bramin) and connect it to a [Xamarin](https://dotnet.microsoft.com/apps/xamarin?WT.mc_id=xamarinazurechallenge-github-bramin) mobile app.
 
 ### Winners
-The winner list has been announced here: [winner list](https://github.com/xamarin/XamarinAzureChallenge/blob/master/winnerlist.md)
+The winner list has been announced here: [winner list](https://github.com/xamarin/XamarinAzureChallenge/blob/master/WinnerList.md)
 
 If you are among the winners, congratulations! If not, rest assured that we have a little something for you to as a thank you token for your participation. 
 
